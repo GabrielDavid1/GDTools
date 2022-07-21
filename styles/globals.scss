@@ -1,4 +1,3 @@
-html,
 body {
   padding: 0;
   margin: 0;
@@ -6,11 +5,16 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.Container {
+   display:flex;
+   height: 100vh;
+  .Content {
+    width:100%;
+    background-color:red;
+  }
+  .Settings {
+    width:50%;
+    background-color:blue;
+  }
 }
 
-* {
-  box-sizing: border-box;
-}

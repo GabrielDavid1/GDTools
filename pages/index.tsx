@@ -4,13 +4,18 @@ import Head from 'next/head'
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="Container">
       <Head>
         <title>GDTools</title>
         <meta name="description" content="my app" />
         <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <h1> teste kk </h1>
+      </Head> 
+      <div className="Content"> 
+        <h1>Content</h1>
+      </div>
+      <div className="Settings"> 
+        <h1>Settings</h1>
+      </div>
     </div>
   )
 }
