@@ -8,13 +8,45 @@ body {
 .Container {
    display:flex;
    height: 100vh;
-  .Content {
+  .functionalities-block {
     width:100%;
+    display: flex;
+    flex-direction: column;
     background-color:red;
+
+    header.details {
+      display: flex;
+      padding: 0px 20px;
+      background: green;
+      justify-content: space-between;
+      align-items: center;
+
+      h2 {
+        text-align:center;
+      }
+    }
+
+    .control-block {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      
+      section.side-area {
+        width: 20%;
+        height: 100%;
+        background: yellow;
+      }
+      main.content {
+        width: 100%;
+        height: 100%;
+        background: purple;
+      }
+    }
   }
-  .Settings {
-    width:50%;
+  .control-settings {
+    width: 20%;
     background-color:blue;
+    height: 100%;
   }
 }
 
