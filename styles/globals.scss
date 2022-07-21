@@ -1,3 +1,4 @@
+
 body {
   padding: 0;
   margin: 0;
@@ -39,7 +40,17 @@ body {
       main.content {
         width: 100%;
         height: 100%;
+        display:flex; 
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
         background: purple;
+        .app-content {
+          background: white;
+          width: 35%;
+          height: 85%;
+          border-radius: 10px;
+        }
       }
     }
   }
