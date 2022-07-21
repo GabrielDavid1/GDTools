@@ -1,16 +1,16 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+//import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>GDTools</title>
         <meta name="description" content="my app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h1> teste kk </h1>
     </div>
   )
 }
