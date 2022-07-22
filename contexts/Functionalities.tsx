@@ -14,7 +14,7 @@
     funcs: Funcs[];
     setFuncs: (param: Funcs[]) => void;
     deleteNode: (obj:Funcs) => void;
-
+    deleteAll: () => void;
   }
   
   type AuthProviderProps = {
@@ -62,13 +62,15 @@
       setFuncs(result);
     } 
 
-
+    function deleteAll () {
+      setFuncs([]);
+    }
 
     return (
       <FunctionalitiesContext.Provider value={{
         funcs, setFuncs,
         deleteNode,
-
+        deleteAll,
       }}>
         {children}
       </FunctionalitiesContext.Provider>
