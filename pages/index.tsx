@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-//import Image from 'next/image'
+//import Image from 'next/image;'
+import Side from "../components/Side";
 
 const Home: NextPage = () => {
   return (
@@ -19,10 +20,8 @@ const Home: NextPage = () => {
 
       <div className="functionalities-block">
         <div className="control-block">
-
-          <section className="side-area">
-
-          </section> 
+          
+          <Side />
 
           <main className="content">
             <span className="title-logo">
@@ -39,7 +38,7 @@ const Home: NextPage = () => {
               </a>
             </span>
           </main>
-          
+
         </div> 
       </div>
       <div className="control-settings"></div>

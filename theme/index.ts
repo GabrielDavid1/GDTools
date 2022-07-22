@@ -18,6 +18,6 @@ export default {
     },
     FONTS: {
       TITLE: 'Roboto',
-      TEXT: 'Inter_400Regular',
+      TEXT: 'Bitter',
     },
   };

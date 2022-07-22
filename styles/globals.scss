@@ -9,23 +9,12 @@ body {
 .Container {
    display:flex;
    height: 100vh;
+   
   .functionalities-block {
     width:100%;
     display: flex;
     flex-direction: column;
-    background-color:red;
-
-    header.details {
-      display: flex;
-      padding: 0px 20px;
-      background: green;
-      justify-content: space-between;
-      align-items: center;
-
-      h2 {
-        text-align:center;
-      }
-    }
+    background-color:#504E4D;
 
     .control-block {
       width: 100%;
@@ -33,10 +22,31 @@ body {
       display: flex;
       
       section.side-area {
-        width: 20%;
+        width: 15%;
         height: 100%;
-        background: yellow;
+        display: flex;
+        align-items: center;
+        background:#434141;
+        flex-direction: column;
+
+        a.block {
+          width: 70%;
+          height: 15%;
+          border-radius: 5px;
+          border: 1px solid #313030;
+          background: radial-gradient(#494847, #504E4D);
+          color: white;
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          text-decoration: none;
+
+          margin-bottom: 15px;
+        }
       }
+
       main.content {
         width: 100%;
         height: 100%;
@@ -44,19 +54,30 @@ body {
         flex-direction: column;
         justify-content:center;
         align-items:center;
-        background: purple;
+        background: #504E4D;
+        
+        span.title-logo {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: #FD11F3;
+        }
+
         .app-content {
           background: white;
           width: 35%;
           height: 85%;
           border-radius: 10px;
         }
+
+        .code-view {
+          color: #ababff;
+        }
       }
     }
   }
   .control-settings {
     width: 20%;
-    background-color:blue;
+    background-color:#434141;
     height: 100%;
   }
 }
