@@ -148,6 +148,27 @@ body {
           background-color: #494848;
         }
       }
+      .tree-list {
+        margin-top: 5%;
+        overflow-y: scroll;
+        max-height: 88%;
+        height: 100%;
+
+        .element-list {
+          color: #cdcdf7;
+          padding: 0px 10px;
+
+          .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            height: 30px;
+            padding: 0px 10px;
+          }
+        }
+      }
     }
   }
 }
