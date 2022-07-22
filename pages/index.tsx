@@ -1,6 +1,5 @@
 //Next
 import type { NextPage } from "next";
-//import Image from 'next/image;'
 
 //Components
 import Main from "../components/Main";
