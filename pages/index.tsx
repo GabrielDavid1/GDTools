@@ -1,25 +1,17 @@
+//Next
 import type { NextPage } from "next";
-import Head from "next/head";
-import Main from "../components/Main";
-import Settings from "../components/Settings";
 //import Image from 'next/image;'
+
+//Components
+import Main from "../components/Main";
 import Side from "../components/Side";
+import Settings from "../components/Settings";
+import HeaderPage from "../components/HeaderPage";
 
 const Home: NextPage = () => {
   return (
     <div className="Container">
-      <Head>
-        <title>GDTools</title>
-        <meta name="description" content="my app" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500&display=swap" rel="stylesheet" />
-      </Head>
-
+      <HeaderPage />
       <div className="functionalities-block">
         <div className="control-block">
           <Side />
