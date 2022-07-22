@@ -22,28 +22,40 @@ body {
       display: flex;
       
       section.side-area {
-        width: 15%;
+        width: 10%;
         height: 100%;
         display: flex;
         align-items: center;
-        background:#434141;
+        background: #434141;
         flex-direction: column;
+        padding: 0px 10px;
 
         a.block {
-          width: 70%;
+          width: 100%;
           height: 15%;
           border-radius: 5px;
           border: 1px solid #313030;
-          background: radial-gradient(#494847, #504E4D);
+          background-color:#504E4D;
           color: white;
-          margin-top: 20px;
           display: flex;
           justify-content: center;
           align-items: center;
           cursor: pointer;
           text-decoration: none;
+          margin-bottom: 10px;
 
-          margin-bottom: 15px;
+          -webkit-transition: background-color 0.5s ease-out;
+          -moz-transition: background-color 0.5s ease-out;
+          -o-transition: background-color 0.5s ease-out;
+          transition: background-color 0.5s ease-out;
+        }
+
+        a:nth-child(1) {
+          margin-top:10px;
+        }
+
+        a:hover {
+          background: #3f3f3e;
         }
       }
 
@@ -70,6 +82,9 @@ body {
         }
 
         .code-view {
+          color: #fff;
+        }
+        .code-view:hover {
           color: #ababff;
         }
       }
@@ -78,7 +93,61 @@ body {
   .control-settings {
     width: 20%;
     background-color:#434141;
-    height: 100%;
+    .content {
+      height: 100%;
+      .header-settings {  
+        width: 100%;
+        height: 5%;
+        display: flex;
+        flex-direction: row;
+        a {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          color: white;
+
+          -webkit-transition: background-color 0.2s ease-out;
+          -moz-transition: background-color 0.2s ease-out;
+          -o-transition: background-color 0.2s ease-out;
+          transition: background-color 0.2s ease-out;
+        }
+      }
+      .bottom-tab {
+        width: 100%;
+        height: 5%;
+        display: flex;
+        flex-direction: row;
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        border-top: 1px solid #504E4D;
+        align-items: center;
+        a {
+          background: #626262;
+          width: 5.5%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          font-family: monospace;
+          cursor:pointer;
+          font-size: 0.7rem;
+
+          -webkit-transition: background-color 0.3s ease-out;
+          -moz-transition: background-color 0.3s ease-out;
+          -o-transition: background-color 0.3s ease-out;
+          transition: background-color 0.3s ease-out;
+        }
+
+        a:hover {
+          background-color: #494848;
+        }
+      }
+    }
   }
 }
 

@@ -1,44 +1,22 @@
+//React
 import React from 'react';
 
-import { 
-  Container, 
-} from './styles';
-import theme from '../../theme';
+//Utils
+import Elements from '../../utils/Elements';
 
 export default function Side (){
-  
  return (
    <section className="side-area">
-      <a className="block" 
-       href="https://github.com/" 
-      >
-        Header
-      </a>
-      <a className="block" 
-       href="https://github.com/" 
-      >
-        Main 
-      </a>
-      <a className="block" 
-       href="https://github.com/" 
-      >
-        View
-      </a>
-      <a className="block" 
-       href="https://github.com/" 
-      >
-        Svg
-      </a>
-      <a className="block" 
-       href="https://github.com/" 
-      >
-        Image 
-      </a>
-      <a className="block" 
-       href="https://github.com/" 
-      >
-        Tab Nav
-      </a>
+    {Elements.map(({ name,fc }, index) => {
+      return (
+        <a key={index}
+           className="block" 
+           onClick={() => fc()}
+        >
+         {name}
+       </a>
+      )
+    })}
    </section>
  )
 }

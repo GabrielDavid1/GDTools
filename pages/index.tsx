@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Main from "../components/Main";
+import Settings from "../components/Settings";
 //import Image from 'next/image;'
 import Side from "../components/Side";
 
@@ -20,28 +22,13 @@ const Home: NextPage = () => {
 
       <div className="functionalities-block">
         <div className="control-block">
-          
           <Side />
-
-          <main className="content">
-            <span className="title-logo">
-              <p> GDTools </p>
-            </span>
-
-            <div className="app-content">
-
-            </div>
-
-            <span className="code-view">
-              <a> 
-                <p> View code </p>
-              </a>
-            </span>
-          </main>
-
+          <Main />
         </div> 
       </div>
-      <div className="control-settings"></div>
+      <div className="control-settings">
+        <Settings />
+      </div>
     </div>
   );
 };
