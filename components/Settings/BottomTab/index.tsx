@@ -4,8 +4,7 @@ export default function BottomTab (){
  return (
    <div className="bottom-tab">
      <a> Group </a>
-     <a> Select All </a>
-     <a> Delete </a>
+     <a> Delete All </a>
    </div>
  )
 }

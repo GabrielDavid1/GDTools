@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { Details, Home } from './styles';
 
 export default function Header (){
- const [ isActive, setIsActive ] = useState<boolean>(false);
+ const [ isActive, setIsActive ] = useState<boolean>(true);
  return (
    <header className="header-settings">
     <Home 

@@ -2,7 +2,7 @@
 import React from 'react';
 
 //Components
-import ElementList from './ElementList';
+import ElementList from './List';
 
 export default function Tree (){
  return (
