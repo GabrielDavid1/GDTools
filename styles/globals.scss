@@ -69,7 +69,7 @@ body {
         background: #504E4D;
         
         span.title-logo {
-          font-size: 1.5rem;
+          font-size: 2rem;
           font-weight: bold;
           color: #FD11F3;
         }
@@ -82,6 +82,7 @@ body {
         }
 
         .code-view {
+          cursor: pointer;
           color: #fff;
         }
         .code-view:hover {
@@ -114,6 +115,10 @@ body {
           -moz-transition: background-color 0.2s ease-out;
           -o-transition: background-color 0.2s ease-out;
           transition: background-color 0.2s ease-out;
+
+          svg {
+            width: 15%;
+          }
         }
       }
       .bottom-tab {
@@ -150,9 +155,10 @@ body {
       }
       .tree-list {
         margin-top: 5%;
-        overflow-y: scroll;
-        max-height: 88%;
         height: 100%;
+        max-height: 88%;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
 
         .element-list {
           color: #cdcdf7;
@@ -167,6 +173,10 @@ body {
             height: 30px;
             padding: 0px 10px;
           }
+        }
+
+        &::-webkit-scrollbar {
+          width: 0px;               /* width of the entire scrollbar */
         }
       }
     }
