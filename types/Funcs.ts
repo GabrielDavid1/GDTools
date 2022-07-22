@@ -13,8 +13,8 @@ export interface Funcs {
     id: string;
     name: string;
     type:string;
-    config: Config;
-    children: Funcs[];
+    config?: Config;
+    children?: Funcs[];
     index:number;
     path: number[];
 }

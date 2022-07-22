@@ -1,21 +1,27 @@
 //React
 import React, { useState } from 'react';
+import { useFuncs } from '../../../../contexts/Functionalities';
+import { Funcs } from '../../../../types/Funcs';
 
 interface Props {
+  id:string;
+  nodes:Funcs;
   inputName:string;
   setInputName: React.Dispatch<React.SetStateAction<string>>;
   children?: React.ReactNode;
 }
 
 export default function ElementList ({ 
+  id,
+  nodes,
   inputName,
   setInputName,
-  children 
+  children,
 }:Props){
-
- return (
+  const { deleteNode } = useFuncs();
+  return (
     <div className="element-list">
-      <div className="content"> 
+      <div className="content" onClick={() => {deleteNode(nodes)}}> 
         <input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
         <div className="actions">
           <a> 
