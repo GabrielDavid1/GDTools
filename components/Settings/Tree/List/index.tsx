@@ -1,17 +1,22 @@
 //React
-import React from 'react';
+import React, { useState } from 'react';
 
 interface Props {
+  inputName:string;
+  setInputName: React.Dispatch<React.SetStateAction<string>>;
   children?: React.ReactNode;
 }
 
 export default function ElementList ({ 
+  inputName,
+  setInputName,
   children 
 }:Props){
+
  return (
     <div className="element-list">
       <div className="content"> 
-        <input type="text" value="nome da pastakkkk" />
+        <input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
         <div className="actions">
           <a> 
             <svg

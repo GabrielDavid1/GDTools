@@ -1,48 +1,130 @@
 //React
-import React from 'react';
+import React, { useState } from 'react';
 
 //Components
 import ElementList from './List';
 
 export default function Tree (){
+ const [inputName, setInputName] = useState<string>('Nome da pasta');
  return (
     <div className="tree-list">
-      <ElementList>
-         <ElementList />           
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      >
+         <ElementList 
+            inputName={inputName}
+            setInputName={setInputName}
+         />           
       </ElementList>
-      <ElementList />
-      <ElementList />
-      <ElementList />
-      <ElementList>
-         <ElementList />
-         <ElementList>
-           <ElementList />           
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      />
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      />
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      />
+      <ElementList
+        inputName={inputName}
+        setInputName={setInputName}
+      >
+         <ElementList 
+            inputName={inputName}
+            setInputName={setInputName}
+         />
+         <ElementList
+            inputName={inputName}
+            setInputName={setInputName}
+         >
+           <ElementList 
+            inputName={inputName}
+            setInputName={setInputName}
+           />           
          </ElementList>          
       </ElementList>
-      <ElementList>
-         <ElementList />           
+      <ElementList
+        inputName={inputName}
+        setInputName={setInputName}
+      >
+         <ElementList 
+            inputName={inputName}
+            setInputName={setInputName}
+         />           
       </ElementList>
-      <ElementList />
-      <ElementList />
-      <ElementList />
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      />
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      />
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      />
 
-      <ElementList>
-         <ElementList />
-         <ElementList>
-           <ElementList />           
+      <ElementList
+        inputName={inputName}
+        setInputName={setInputName}
+      >
+         <ElementList 
+            inputName={inputName}
+            setInputName={setInputName}
+         />
+         <ElementList
+            inputName={inputName}
+            setInputName={setInputName}
+         >
+           <ElementList 
+                inputName={inputName}
+                setInputName={setInputName}
+           />           
          </ElementList>          
       </ElementList>
 
-      <ElementList>
-         <ElementList />           
+      <ElementList
+        inputName={inputName}
+        setInputName={setInputName}
+      >
+         <ElementList 
+            inputName={inputName}
+            setInputName={setInputName}
+         />           
       </ElementList>
-      <ElementList />
-      <ElementList />
-      <ElementList />
-      <ElementList>
-         <ElementList />
-         <ElementList>
-           <ElementList />           
+      <ElementList
+        inputName={inputName}
+        setInputName={setInputName}
+      />
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      />
+      <ElementList 
+        inputName={inputName}
+        setInputName={setInputName}
+      />
+      <ElementList
+        inputName={inputName}
+        setInputName={setInputName}
+      >
+         <ElementList 
+            inputName={inputName}
+            setInputName={setInputName}
+         />
+         <ElementList
+            inputName={inputName}
+            setInputName={setInputName}
+         >
+           <ElementList 
+            inputName={inputName}
+            setInputName={setInputName}
+           />           
          </ElementList>          
       </ElementList>
     </div>
