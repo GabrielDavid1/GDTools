@@ -55,6 +55,17 @@
       }]);
     },[])
 
+    function addNode(type:string) {
+      funcs.push({
+        id: funcs.length.toString(),
+        name: '',
+        type:'main',
+        children: [],
+        index: funcs.length,
+        path: [funcs.length],
+      })
+    }
+
     function deleteNode (obj:Funcs) {
       const target = JSON.stringify(obj);
       const base = JSON.stringify(funcs);
