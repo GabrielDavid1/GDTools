@@ -1,7 +1,9 @@
 //React
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useFuncs } from '../../../../contexts/Functionalities';
 import { Funcs } from '../../../../types/Funcs';
+
+import deleteIcon from '../../../../assets/icons/delete.svg';
 interface Props {
   id:string;
   nodes:Funcs;
@@ -27,26 +29,9 @@ export default function ElementList ({
            onChange={(e) => editNode(nodes, e.target.value)}
         />
         <div className="actions">
-          <a> 
-            <svg
-              focusable="false" 
-              aria-hidden="true" 
-              viewBox="0 0 24 24" 
-              data-testid="DownIcon" 
-            >
-              <path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z">
-              </path>
-            </svg>
-          </a>
           <a onClick={() => {deleteNode(nodes)}}> 
-            <svg
-              focusable="false" 
-              aria-hidden="true" 
-              viewBox="0 0 24 24" 
-              data-testid="DeleteIcon" 
-            >
-              <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z">
-              </path>
+            <svg width="18px" height="18px" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 18H5a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2zm3-15a1 1 0 0 1-1 1H3a1 1 0 0 1 0-2h3V1a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1h3a1 1 0 0 1 1 1z"/>
             </svg>
           </a>          
         </div>

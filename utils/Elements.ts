@@ -1,14 +1,6 @@
 export default [
     {
-      name: 'Header',
-      fc() { console.log('') }
-    },
-    {
-      name: 'Main',
-      fc() { console.log('') }
-    },
-    {
-      name: 'View',
+      name: 'Div',
       fc() { console.log('') }
     },
     {

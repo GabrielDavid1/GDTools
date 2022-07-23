@@ -55,7 +55,26 @@
                 id: '3',
                 name: 'numero 2',
                 type:'View',
-                children: [],
+                children: [{
+                  id: '4',
+                  name: 'numero 3',
+                  type:'View',
+                  children: [
+                    {
+                      id: '5',
+                      name: 'numero 4',
+                      type:'View',
+                      children: [
+                        {
+                          id: '6',
+                          name: 'numero 5',
+                          type:'View',
+                          children: [],
+                        },
+                      ],
+                    },
+                  ],
+                },],
               },
             ],
           },
