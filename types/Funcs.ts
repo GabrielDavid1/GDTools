@@ -16,20 +16,17 @@ export interface Config {
 }
 
 export const config = {
-    width: '150px',
-    height: '150px',
-    border: '1px solid #000',
-    boxShadow: 10,
-    borderRadius: '0px',
-    opacity: '1',
-    zIndex: '1',
-    transform: 'translate(0px, 0px)',
-    bgColor: '#fff',
-    color: '#000',
-    pxBorder: '1px',
-    typeBorder: 'solid',
-    colorBorder: '#000',
-    position: 'absolute'
+    tipo:'Retangulo',
+    width: "150px",
+    height: "150px",
+    bgColor: "orange",
+    pxBorder: "1px",
+    typeBorder: "3",
+    colorBorder: "#rrggbb",
+    boxShadow: 10, 
+    borderRadius: "0px",
+    opacity: "1",
+    zIndex: "1",
 };
 export interface Funcs {
     id: string;

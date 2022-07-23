@@ -1,5 +1,6 @@
 //React
 import React from "react";
+import { DivView } from "./Elements/Div";
 
 //Styled Components
 import { 
@@ -21,7 +22,7 @@ export default function Main() {
 
         </AppHeader>
         <AppBody>
-
+        <DivView />
         </AppBody>
         <AppTab>
 

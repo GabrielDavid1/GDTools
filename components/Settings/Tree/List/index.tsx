@@ -39,7 +39,6 @@ export default function ElementList ({
         <input
            type="text" 
            value={inputName} 
-           onMouseDown={(e) => console.log(e.button)}
            onChange={(e) => editNode(nodes, e.target.value)}
         />
         <div className="actions">

@@ -10,6 +10,9 @@ export const AppHeader = styled.div`
 
 export const AppBody = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
     height: 60%;
 `;
 

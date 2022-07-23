@@ -10,7 +10,6 @@ import { Selection } from '../Selection';
 const Draggable = require('react-draggable');
 
 interface Props {
-    id: string;
     width: string;
     height: string;
     refLeft:React.MutableRefObject<HTMLDivElement>;
@@ -23,7 +22,6 @@ interface Props {
 }
 // eslint-disable-next-line react/display-name
 export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( { 
-   id, 
    width,
    height,
    refLeft, 
@@ -34,8 +32,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    estado,
    setEstado,
 }, ref ) => {
-  const [visibilidade, setVisibilidade] = useState(false);
-
+  const [visibility, setVisibility] = useState(false);
   return (
     <Draggable
       disabled={estado} 
@@ -46,9 +43,9 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
         <Div 
           ref={ref} 
           className="resizeable" 
-          onMouseOver={() => setVisibilidade(true)} 
-          onMouseOut={() => setVisibilidade(false)}
-        //  onClick={(e) => (statusEdicao) && trocarLateral(e.detail)}
+          onMouseOver={() => setVisibility(true)} 
+          onMouseOut={() => setVisibility(false)}
+       //   onClick={(e) => setEstado(false)}
           bgColor={config?.bgColor}
           width={config?.width}
           height={config?.height}
@@ -60,7 +57,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
           transform={"translate(0px, 0px)"}
         > 
           <Selection
-              visibilidade={visibilidade}
+              visibility={visibility}
               refLeft={refLeft} 
               refTop={refTop}
               refRight={refRight}

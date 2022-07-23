@@ -11,17 +11,15 @@ import { useFuncs } from "../../../../contexts/Functionalities";
 import { config } from "../../../../types/Funcs";
 
 interface PropsComponentes {
-  id: string;
-
 }
 
-export const DivView = ({ id }: PropsComponentes) => {
+export const DivView = ({  }: PropsComponentes) => {
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refLeft = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refTop = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refRight = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refBottom = useRef<HTMLDivElement>({} as HTMLDivElement);
-
+  console.log('teste')
   const { funcs } = useFuncs(); 
 
   const [estado, setEstado] = useState(false);
@@ -173,7 +171,6 @@ export const DivView = ({ id }: PropsComponentes) => {
     if (config?.width !== undefined && config?.height !== undefined) {
       setEstadoWH({...estadoWH,  width: config?.width, height: config?.height});
     } 
-
     const resizeableEle2 = ref.current;
     if (config) {
       resizeableEle2.style.width = `${config.width}`;
@@ -184,7 +181,6 @@ export const DivView = ({ id }: PropsComponentes) => {
   
   return (
       <ElementDiv 
-        id={id} 
         width={estadoWH.width}
         height={estadoWH.height}
         ref={ref} 
