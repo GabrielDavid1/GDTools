@@ -19,11 +19,11 @@ export const DivView = ({  }: PropsComponentes) => {
   const refTop = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refRight = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refBottom = useRef<HTMLDivElement>({} as HTMLDivElement);
-  console.log('teste')
+
   const { funcs } = useFuncs(); 
 
-  const [estado, setEstado] = useState(false);
-  const [estadoWH, setEstadoWH] = useState({width: '150px', 
+  const [onResizing, setOnResizing] = useState(false);
+  const [dimension, setDimension] = useState({width: '150px', 
                                             height: '150px'});                                         
 
   useEffect(() => {
@@ -47,15 +47,15 @@ export const DivView = ({  }: PropsComponentes) => {
       x = event.clientX;
       width = width + dx;
       resizeableEle.style.width = `${width}px`;
-      setEstado(true);
+      setOnResizing(true);
     };
 
     const onMouseUpRightResize = (event: any) => {
       document.removeEventListener("mousemove", onMouseMoveRightResize);
-      setEstado(false);
+      setOnResizing(false);
       let w = String(width)+'px';
-      estadoWH.width = w;
-      setEstadoWH({...estadoWH});
+      dimension.width = w;
+      setDimension({...dimension});
     };
 
     const onMouseDownRightResize = (event: { clientX: number; }) => {
@@ -64,7 +64,7 @@ export const DivView = ({  }: PropsComponentes) => {
       resizeableEle.style.right = '';
       document.addEventListener("mousemove", onMouseMoveRightResize);
       document.addEventListener("mouseup", onMouseUpRightResize);
-      setEstado(true);
+      setOnResizing(true);
     };
 
     // Top resize
@@ -73,15 +73,15 @@ export const DivView = ({  }: PropsComponentes) => {
       height = height - dy;
       y = event.clientY;
       resizeableEle.style.height = `${height}px`;
-      setEstado(true);
+      setOnResizing(true);
     };
 
     const onMouseUpTopResize = (event: any) => {
       document.removeEventListener("mousemove", onMouseMoveTopResize);
-      setEstado(false);
+      setOnResizing(false);
       let h = String(height)+'px';
-      estadoWH.height = h;
-      setEstadoWH({...estadoWH});
+      dimension.height = h;
+      setDimension({...dimension});
     };
 
     const onMouseDownTopResize = (event: { clientY: number; }) => {
@@ -91,7 +91,7 @@ export const DivView = ({  }: PropsComponentes) => {
       resizeableEle.style.top = '';
       document.addEventListener("mousemove", onMouseMoveTopResize);
       document.addEventListener("mouseup", onMouseUpTopResize);
-      setEstado(true);
+      setOnResizing(true);
     };
 
     // Bottom resize
@@ -100,15 +100,15 @@ export const DivView = ({  }: PropsComponentes) => {
       height = height + dy;
       y = event.clientY;
       resizeableEle.style.height = `${height}px`;
-      setEstado(true);
+      setOnResizing(true);
     };
 
     const onMouseUpBottomResize = (event: any) => {
       document.removeEventListener("mousemove", onMouseMoveBottomResize);
       let h = String(height)+'px';
-      estadoWH.height = h;
-      setEstadoWH({...estadoWH});
-      setEstado(false);
+      dimension.height = h;
+      setDimension({...dimension});
+      setOnResizing(false);
     };
 
     const onMouseDownBottomResize = (event: { clientY: number; }) => {
@@ -118,7 +118,7 @@ export const DivView = ({  }: PropsComponentes) => {
       resizeableEle.style.bottom = '';
       document.addEventListener("mousemove", onMouseMoveBottomResize);
       document.addEventListener("mouseup", onMouseUpBottomResize);
-      setEstado(true);
+      setOnResizing(true);
     };
 
     // Left resize
@@ -127,15 +127,15 @@ export const DivView = ({  }: PropsComponentes) => {
       x = event.clientX;
       width = width - dx;
       resizeableEle.style.width = `${width}px`;
-      setEstado(true);
+      setOnResizing(true);
     };
 
     const onMouseUpLeftResize = (event: any) => {
       document.removeEventListener("mousemove", onMouseMoveLeftResize);
-      setEstado(false);
+      setOnResizing(false);
       let w = String(width)+'px';
-      estadoWH.width = w;
-      setEstadoWH({...estadoWH});
+      dimension.width = w;
+      setDimension({...dimension});
     };
 
     const onMouseDownLeftResize = (event: { clientX: number; }) => {
@@ -144,7 +144,7 @@ export const DivView = ({  }: PropsComponentes) => {
       resizeableEle.style.left = '';
       document.addEventListener("mousemove", onMouseMoveLeftResize);
       document.addEventListener("mouseup", onMouseUpLeftResize);
-      setEstado(true);
+      setOnResizing(true);
     };
 
     // Add mouse down event listener
@@ -162,14 +162,14 @@ export const DivView = ({  }: PropsComponentes) => {
       resizerTop.removeEventListener("mousedown", onMouseDownTopResize);
       resizerBottom.removeEventListener("mousedown", onMouseDownBottomResize);
       resizerLeft.removeEventListener("mousedown", onMouseDownLeftResize);
-      setEstado(false); 
+      setOnResizing(false); 
     };
     
   }, []);
 
   useEffect(() => {
     if (config?.width !== undefined && config?.height !== undefined) {
-      setEstadoWH({...estadoWH,  width: config?.width, height: config?.height});
+      setDimension({...dimension,  width: config?.width, height: config?.height});
     } 
     const resizeableEle2 = ref.current;
     if (config) {
@@ -181,16 +181,15 @@ export const DivView = ({  }: PropsComponentes) => {
   
   return (
       <ElementDiv 
-        width={estadoWH.width}
-        height={estadoWH.height}
+        width={dimension.width}
+        height={dimension.height}
         ref={ref} 
         refLeft={refLeft} 
         refTop={refTop}
         refRight={refRight}
         refBottom={refBottom}
         config={config}
-        estado={estado}
-        setEstado={setEstado}
+        onResizing={onResizing}
       />
   );
 }

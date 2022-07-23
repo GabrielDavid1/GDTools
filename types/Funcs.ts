@@ -17,8 +17,8 @@ export interface Config {
 
 export const config = {
     tipo:'Retangulo',
-    width: "150px",
-    height: "150px",
+    width: "100px",
+    height: "100px",
     bgColor: "orange",
     pxBorder: "1px",
     typeBorder: "3",
