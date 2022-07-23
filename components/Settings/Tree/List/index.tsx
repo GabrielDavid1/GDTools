@@ -1,9 +1,11 @@
 //React
 import React from 'react';
-import { useFuncs } from '../../../../contexts/Functionalities';
-import { Funcs } from '../../../../types/Funcs';
 
-import deleteIcon from '../../../../assets/icons/delete.svg';
+//Contexts
+import { useFuncs } from '../../../../contexts/Functionalities';
+
+//Types
+import { Funcs } from '../../../../types/Funcs';
 interface Props {
   id:string;
   nodes:Funcs;
@@ -21,8 +23,7 @@ export default function ElementList ({
   const { editNode, deleteNode } = useFuncs();
   return (
     <div className="element-list">
-      <div className="content"
-      >
+      <div className="content">
         {(nodes.children !== undefined) && 
           ( nodes.children.length > 0 ) ? ( 
             <svg width="512px" height="512px" fill={nodes.color} viewBox="-62 0 512 512" xmlns="http://www.w3.org/2000/svg" >
@@ -38,6 +39,7 @@ export default function ElementList ({
         <input
            type="text" 
            value={inputName} 
+           onMouseDown={(e) => console.log(e.button)}
            onChange={(e) => editNode(nodes, e.target.value)}
         />
         <div className="actions">
