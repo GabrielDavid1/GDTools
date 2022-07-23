@@ -164,7 +164,6 @@ export const DivView = ({  }: PropsComponentes) => {
       resizerLeft.removeEventListener("mousedown", onMouseDownLeftResize);
       setOnResizing(false); 
     };
-    
   }, []);
 
   useEffect(() => {
