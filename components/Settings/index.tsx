@@ -18,7 +18,6 @@ export default function Settings() {
         isActive={onToggle} 
         setIsActive={setOnToggle}
       />
-
       {onToggle ? (
         <>
           <BottomTab />
