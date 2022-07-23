@@ -36,7 +36,7 @@
   function FunctionalitiesProvider({ children }: AuthProviderProps) {
     const [funcs, setFuncs] = useState<Funcs[]>([]);
     const [lengthFuncs, setLengthFuncs] = useState(6);
-    const [onToggle, setOnToggle] = useState<boolean>(false);
+    const [onToggle, setOnToggle] = useState<boolean>(true);
 
     useEffect(() => {
       setFuncs([{
