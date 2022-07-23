@@ -11,9 +11,13 @@ import { useFuncs } from "../../../../contexts/Functionalities";
 import { config } from "../../../../types/Funcs";
 
 interface PropsComponentes {
+  dimensionNode: {
+    width: number;
+    height: number;
+  }
 }
 
-export const DivView = ({  }: PropsComponentes) => {
+export const DivView = ({ dimensionNode }: PropsComponentes) => {
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refLeft = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refTop = useRef<HTMLDivElement>({} as HTMLDivElement);
@@ -24,7 +28,7 @@ export const DivView = ({  }: PropsComponentes) => {
 
   const [onResizing, setOnResizing] = useState(false);
   const [dimension, setDimension] = useState({width: '150px', 
-                                            height: '150px'});                                         
+                                              height: '150px'});                                         
 
   useEffect(() => {
     const resizeableEle = ref.current;
