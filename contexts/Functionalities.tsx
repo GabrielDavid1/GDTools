@@ -39,36 +39,43 @@
         id: '0',
         name: 'John',
         type:'header',
+        color:'red',
         children: [
           {
               id: '1',
               name: 'Doe',
               type:'main',
+              color:'red',
               children: [
               {
                 id: '2',
                 name: 'numero 1',
                 type:'View',
                 children: [],
+                color:'red',
               },
               {
                 id: '3',
                 name: 'numero 2',
                 type:'View',
+                color: 'red',
                 children: [{
                   id: '4',
                   name: 'numero 3',
                   type:'View',
+                  color:'red',
                   children: [
                     {
                       id: '5',
                       name: 'numero 4',
                       type:'View',
+                      color:'red',
                       children: [
                         {
                           id: '6',
                           name: 'numero 5',
                           type:'View',
+                          color:'red',
                           children: [],
                         },
                       ],
@@ -77,6 +84,13 @@
                 },],
               },
             ],
+          },
+          {
+            id: '7',
+            name: 'numero 6',
+            type:'View',
+            children: [],
+            color:'pink',
           },
         ],
       }]);
@@ -88,7 +102,9 @@
             id: (lengthFuncs+1).toString(),
             name,
             type,
+            color: '#'+Math.floor(Math.random()*16777215).toString(16),
             children: [],
+            
           }]);
           setLengthFuncs(lengthFuncs+1);
       } else if (func.children !== undefined) {
@@ -96,6 +112,7 @@
             id: (lengthFuncs+1).toString(),
             name:name,
             type:type,
+            color: func.color,
             children: [],
           });
           setLengthFuncs(lengthFuncs+1);

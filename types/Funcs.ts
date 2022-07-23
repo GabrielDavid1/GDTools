@@ -14,4 +14,5 @@ export interface Funcs {
     type:string;
     config?: Config;
     children?: Funcs[];
+    color:string;
 }
