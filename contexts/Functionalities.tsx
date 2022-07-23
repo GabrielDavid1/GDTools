@@ -13,6 +13,7 @@
   type FunctionalitiesContextData = {
     funcs: Funcs[];
     setFuncs: (param: Funcs[]) => void;
+    editNode: (obj:Funcs, name:string) => void;
     deleteNode: (obj:Funcs) => void;
     deleteAll: () => void;
   }
@@ -53,9 +54,9 @@
         index: 0,
         path: [0],
       }]);
-    },[])
+    },[]);
 
-    function addNode(type:string) {
+    function addNode(type:string, ) {
       funcs.push({
         id: funcs.length.toString(),
         name: '',
@@ -65,6 +66,17 @@
         path: [funcs.length],
       })
     }
+
+    function editNode (obj:Funcs, name:string) {
+      let newObj = {...obj};
+      newObj.name = name;
+
+      const target = JSON.stringify(obj);
+      const base = JSON.stringify(funcs);
+      
+      const result = JSON.parse(base.replace(target, JSON.stringify(newObj)));
+      setFuncs(result);
+    } 
 
     function deleteNode (obj:Funcs) {
       const target = JSON.stringify(obj);
@@ -82,6 +94,7 @@
         funcs, setFuncs,
         deleteNode,
         deleteAll,
+        editNode,
       }}>
         {children}
       </FunctionalitiesContext.Provider>

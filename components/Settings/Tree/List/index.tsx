@@ -15,14 +15,17 @@ export default function ElementList ({
   id,
   nodes,
   inputName,
-  setInputName,
   children,
 }:Props){
-  const { deleteNode } = useFuncs();
+  const { editNode, deleteNode } = useFuncs();
   return (
     <div className="element-list">
-      <div className="content" onClick={() => {deleteNode(nodes)}}> 
-        <input type="text" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
+      <div className="content">
+        <input
+           type="text" 
+           value={inputName} 
+           onChange={(e) => editNode(nodes, e.target.value)}
+        />
         <div className="actions">
           <a> 
             <svg
@@ -35,7 +38,7 @@ export default function ElementList ({
               </path>
             </svg>
           </a>
-          <a> 
+          <a onClick={() => {deleteNode(nodes)}}> 
             <svg
               focusable="false" 
               aria-hidden="true" 
