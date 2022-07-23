@@ -1,8 +1,7 @@
 //React
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFuncs } from '../../../../contexts/Functionalities';
 import { Funcs } from '../../../../types/Funcs';
-
 interface Props {
   id:string;
   nodes:Funcs;
@@ -20,7 +19,8 @@ export default function ElementList ({
   const { editNode, deleteNode } = useFuncs();
   return (
     <div className="element-list">
-      <div className="content">
+      <div className="content"
+      >
         <input
            type="text" 
            value={inputName} 

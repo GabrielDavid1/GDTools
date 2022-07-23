@@ -13,6 +13,12 @@
   type FunctionalitiesContextData = {
     funcs: Funcs[];
     setFuncs: (param: Funcs[]) => void;
+
+    lengthFuncs:number;
+    setLengthFuncs: React.Dispatch<React.SetStateAction<number>>;
+
+    addNode: (name:string, type:string, param:string, func:Funcs) => void;
+
     editNode: (obj:Funcs, name:string) => void;
     deleteNode: (obj:Funcs) => void;
     deleteAll: () => void;
@@ -26,45 +32,55 @@
   
   function FunctionalitiesProvider({ children }: AuthProviderProps) {
     const [funcs, setFuncs] = useState<Funcs[]>([]);
-    
+    const [lengthFuncs, setLengthFuncs] = useState(3);
+
     useEffect(() => {
       setFuncs([{
         id: '0',
         name: 'John',
         type:'header',
         children: [
-            {
-                id: '1',
-                name: 'Doe',
-                type:'main',
-                children: [
-                    {
-                        id: '2',
-                        name: 'Bluezão',
-                        type:'View',
-                        children: [],
-                        index: 2,
-                        path: [0,1],
-                    },
-                ],
-                index: 1,
-                path: [0],
-            },
+          {
+              id: '1',
+              name: 'Doe',
+              type:'main',
+              children: [
+              {
+                id: '2',
+                name: 'numero 1',
+                type:'View',
+                children: [],
+              },
+              {
+                id: '3',
+                name: 'numero 2',
+                type:'View',
+                children: [],
+              },
+            ],
+          },
         ],
-        index: 0,
-        path: [0],
       }]);
     },[]);
 
-    function addNode(type:string, ) {
-      funcs.push({
-        id: funcs.length.toString(),
-        name: '',
-        type:'main',
-        children: [],
-        index: funcs.length,
-        path: [funcs.length],
-      })
+    function addNode(name:string, type:string, param:string, func:Funcs) {
+      if (param === 'solo') {
+          setFuncs([...funcs, {
+            id: (lengthFuncs+1).toString(),
+            name,
+            type,
+            children: [],
+          }]);
+          setLengthFuncs(lengthFuncs+1);
+      } else if (func.children !== undefined) {
+          func.children.push({
+            id: (lengthFuncs+1).toString(),
+            name:name,
+            type:type,
+            children: [],
+          });
+          setLengthFuncs(lengthFuncs+1);
+      }
     }
 
     function editNode (obj:Funcs, name:string) {
@@ -73,16 +89,36 @@
 
       const target = JSON.stringify(obj);
       const base = JSON.stringify(funcs);
-      
+
       const result = JSON.parse(base.replace(target, JSON.stringify(newObj)));
       setFuncs(result);
     } 
 
     function deleteNode (obj:Funcs) {
-      const target = JSON.stringify(obj);
       const base = JSON.stringify(funcs);
-      const result = JSON.parse(base.replace(target, ''));
-      setFuncs(result);
+
+      const targets = {
+        one: ','+JSON.stringify(obj),
+        two: JSON.stringify(obj)+',',
+        three: JSON.stringify(obj),
+      }
+
+      try {
+        const converted = base.replace(targets.one, '');
+        if (converted !== base) {
+            setFuncs(JSON.parse(converted)); 
+        } else {
+          const converted2 = base.replace(targets.two, '');
+          if (converted2 !== base) {
+              setFuncs(JSON.parse(converted2)); 
+          } else {
+            const converted3 = base.replace(targets.three, '');
+            setFuncs(JSON.parse(converted3)); 
+          }
+        }
+      } catch (error) {}
+
+      setLengthFuncs(lengthFuncs-1);
     } 
 
     function deleteAll () {
@@ -92,9 +128,9 @@
     return (
       <FunctionalitiesContext.Provider value={{
         funcs, setFuncs,
-        deleteNode,
-        deleteAll,
-        editNode,
+        lengthFuncs, setLengthFuncs,
+        addNode, deleteAll,
+        editNode, deleteNode,
       }}>
         {children}
       </FunctionalitiesContext.Provider>
