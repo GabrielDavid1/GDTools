@@ -1,11 +1,18 @@
 //React
-import React, { useState } from 'react';
+import React from 'react';
 
 //Components
 import { Details, Home } from './styles';
 
-export default function Header (){
- const [ isActive, setIsActive ] = useState<boolean>(true);
+interface Props {
+  isActive: boolean;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function Header ({
+  isActive,
+  setIsActive,
+}:Props){
  return (
    <header className="header-settings">
     <Home 

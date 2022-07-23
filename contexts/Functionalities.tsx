@@ -17,6 +17,9 @@
     lengthFuncs:number;
     setLengthFuncs: React.Dispatch<React.SetStateAction<number>>;
 
+    onToggle: boolean;
+    setOnToggle: React.Dispatch<React.SetStateAction<boolean>>;
+
     addNode: (name:string, type:string, param:string, func:Funcs) => void;
 
     editNode: (obj:Funcs, name:string) => void;
@@ -32,7 +35,8 @@
   
   function FunctionalitiesProvider({ children }: AuthProviderProps) {
     const [funcs, setFuncs] = useState<Funcs[]>([]);
-    const [lengthFuncs, setLengthFuncs] = useState(3);
+    const [lengthFuncs, setLengthFuncs] = useState(6);
+    const [onToggle, setOnToggle] = useState<boolean>(false);
 
     useEffect(() => {
       setFuncs([{
@@ -164,6 +168,7 @@
     return (
       <FunctionalitiesContext.Provider value={{
         funcs, setFuncs,
+        onToggle, setOnToggle,
         lengthFuncs, setLengthFuncs,
         addNode, deleteAll,
         editNode, deleteNode,

@@ -1,10 +1,10 @@
 /* React */
 import React, { useState, useEffect, forwardRef } from 'react';
 
-/* Tipagens */
+/* Types */
 import { Config } from '../../../../types/Funcs';
 
-/* Componentes */
+/* Components */
 import Div from './Div';
 import { Selection } from '../Selection';
 interface Props {
@@ -15,7 +15,6 @@ interface Props {
     refRight:React.MutableRefObject<HTMLDivElement>;
     refBottom:React.MutableRefObject<HTMLDivElement>; 
     config?: Config;
-    onResizing: boolean;
 }
 // eslint-disable-next-line react/display-name
 export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( { 
@@ -26,7 +25,6 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    refRight, 
    refBottom,
    config,
-   onResizing,
 }, ref ) => {
   const [visibility, setVisibility] = useState(false);
   return (   
@@ -47,7 +45,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       transform={"translate(0px, 0px)"}
     > 
       <Selection
-          visibility={(onResizing || visibility)}
+          visibility={visibility}
           refLeft={refLeft} 
           refTop={refTop}
           refRight={refRight}

@@ -1,17 +1,32 @@
 //React
-import React from 'react';
+import React from "react";
 
-//Components  
-import BottomTab from './BottomTab';
-import Header from './Header';
-import Tree from './Tree';
+//Contexts
+import { useFuncs } from "../../contexts/Functionalities";
 
-export default function Settings (){
- return (
-   <div className="content">
-     <Header />
-     <BottomTab />
-     <Tree />
-   </div>
- )
+//Components
+import BottomTab from "./BottomTab";
+import Header from "./Header";
+import ModelSetting from "./ModelSetting";
+import Tree from "./Tree";
+
+export default function Settings() {
+  const { onToggle, setOnToggle } = useFuncs();
+  return (
+    <div className="content">
+      <Header 
+        isActive={onToggle} 
+        setIsActive={setOnToggle}
+      />
+
+      {onToggle ? (
+        <>
+          <BottomTab />
+          <Tree />
+        </>
+      ) : (
+        <ModelSetting />
+      )}
+    </div>
+  );
 }
