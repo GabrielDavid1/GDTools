@@ -154,10 +154,13 @@ body {
       overflow-y: scroll;
       height: 100%;
 
-      .color-area {
+      h2 {
         color:white;
-        margin-bottom: 20%;
-        border-bottom: 3px solid #373636;
+      }
+
+      .color-area {
+        color: white;
+        margin-bottom: 10%;
       }
 
       .dimension-area {
@@ -165,6 +168,7 @@ body {
         color:white;
         text-align: center;
         color: white;
+        border-top: 1px solid #373636;
         border-bottom: 1px solid #373636;
 
         .slider {
@@ -281,7 +285,7 @@ body {
       .margin-area {
         color: white;
         width: 100%;
-        border-top: 1px solid #262525;
+        border-top: 1px solid #373636;
 
         .wrapper {
           display: flex;
@@ -368,7 +372,7 @@ body {
         align-items: baseline;
         gap: 5px;
         margin-left: 2%;
-        border-top: 1px solid #282828;
+        border-top: 1px solid #373636;
 
         select {
           outline: 0;

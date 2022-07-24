@@ -23,10 +23,10 @@ export default function Border() {
           </select>
 
           <select onChange={(e) => setValueShadowBox(Number(e.target.value))}>
-            <option value={0}>0%</option>
-            <option value={1}>10%</option>
-            <option value={5}>50%</option>
-            <option value={10}>100%</option>
+            <option value="none">none</option>
+            <option value="solid">solid</option>
+            <option value="dashed">dashed</option>
+            <option value="dotted">dotted</option>
           </select>
 
           <input type="color" value={color} onChange={handleChange} /> 

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 export default function Margin (){
-
-    const [dimensions, setDimensions] = useState({
-        left: '0',
-        right: '0',
-        top: '0',
-        down:'0',
-     });
+  const [dimensions, setDimensions] = useState({
+    left: '0',
+    right: '0',
+    top: '0',
+    down:'0',
+  });
+  
  return (
   <div className="margin-area"> 
     <h2> Margin </h2>
