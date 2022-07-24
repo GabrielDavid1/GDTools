@@ -5,9 +5,9 @@ interface Props {
 }
 
 export const Home = styled.a<Props>`
-    background-color: ${(props) => props.isActive ? '#626262' : '#434141'};
+    background-color: ${(props) => props.isActive ? '#626262' : '#494949'};
 `;
 
 export const Details = styled.a<Props>`
-    background-color: ${(props) => props.isActive ? '#434141' : '#626262'};
+    background-color: ${(props) => props.isActive ? '#494949' : '#626262'};
 `;

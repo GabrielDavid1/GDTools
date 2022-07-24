@@ -146,21 +146,26 @@ body {
     overflow-x: hidden;
     
     .model-settings {
+      max-height: 100%;
       font-size: 0.8rem;
       font-family: roboto;
       padding: 0px 10px;
+      overflow-y: scroll;
 
       .color-area {
         color:white;
         margin-bottom: 20%;
+        border-bottom: 3px solid #373636;
       }
 
-      .dimension-area{
+      .dimension-area {
         text-align: center;
         color:white;
         text-align: center;
         color: white;
         margin-bottom: 10%;
+        border-bottom: 1px solid #373636;
+
         .slider {
           -webkit-appearance: none;
           width: 100%;
@@ -199,7 +204,7 @@ body {
           align-items: center;
           margin-left: 4%;
           gap: 4px;
-    
+          
           input[type=text] {
             width: 50%;
             height: 20%;
@@ -230,6 +235,8 @@ body {
         align-items: center;
         gap: 5px;
         margin-left: 2%;
+        margin-bottom: 10%;
+        border-bottom: 1px solid #373636;
 
         select {
           outline: 0;
@@ -240,6 +247,40 @@ body {
         }
       }
 
+      .border-area {
+        color:white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .actions {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          
+          input[type=text] {
+            width: 50%;
+            height: 20%;
+            outline: 0;
+            border: none;
+            font-family: monospace;
+          }
+
+          input[type="color"] {
+            border: none;
+            outline: 0;
+            height: 18px;
+          }
+          
+        }
+      }
+
+    }
+
+    .model-settings::-webkit-scrollbar {
+      width: 0px;
     }
 
     .content {

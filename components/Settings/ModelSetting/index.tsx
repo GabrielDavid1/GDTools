@@ -5,6 +5,7 @@ import React from 'react';
 import ColorArea from './Div/ColorArea';
 import Dimension from './Div/Dimension';
 import BoxShadow from './Div/BoxShadow';
+import Border from './Div/Border';
 
 export default function ModelSetting (){
  return (
@@ -12,6 +13,7 @@ export default function ModelSetting (){
       <ColorArea />
       <Dimension />
       <BoxShadow />
+      <Border />
    </div>
  )
 }
