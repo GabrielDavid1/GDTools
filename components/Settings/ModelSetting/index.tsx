@@ -3,11 +3,12 @@ import React from 'react';
 
 //Components
 import Div from './Div';
+import Text from './Text';
 
 export default function ModelSetting (){
   return (
    <div className="model-settings"> 
-      <Div title="Divs" />
+      <Text title="Text" />
    </div>
   )
 }

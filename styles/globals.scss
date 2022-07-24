@@ -208,26 +208,28 @@ body {
           justify-content: center;
           align-items: center;
           margin-left: 4%;
-          gap: 4px;
+          gap: 5px;
           
           input[type=text] {
             width: 50%;
-            height: 20%;
             outline: 0;
             border: none;
             font-family: monospace;
+            border-radius: 2px;
           }
     
           .width-field {
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 2px;
           }
     
           .height-field {
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 2px;
           }
         }
       }
