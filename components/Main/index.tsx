@@ -1,6 +1,5 @@
 //React
 import React, { useEffect, useRef, useState } from "react";
-import { DivView } from "./Elements/Div";
 
 //Styled Components
 import { 
@@ -8,6 +7,10 @@ import {
   AppHeader, 
   AppTab
 } from "./styles";
+
+//Components
+import { DivView } from "./Elements/Div";
+import { TextView } from "./Elements/Text";
 
 export default function Main() {  
   const [headerDimension, setHeaderDimension] = useState({ width: 0, height: 0 });
@@ -52,11 +55,11 @@ export default function Main() {
         <AppHeader ref={refHeader}> 
 
         </AppHeader>
+
         <AppBody ref={refBody}>
-          <DivView 
-            dimensionNode={bodyDimension}  
-          />
+          <TextView dimensionNode={bodyDimension} />
         </AppBody>
+        
         <AppTab ref={refTab}>
 
         </AppTab>

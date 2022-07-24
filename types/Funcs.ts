@@ -13,10 +13,15 @@ export interface Config {
     typeBorder?:string;
     colorBorder?:string;
     position?:string;
+    fontFamily?:string;
+    fontSize?:string;
+    fontWeight?:string;
+    textAlign?:string;
+    textContent?:string;
 }
 
 export const config = {
-    tipo:'Retangulo',
+    type:'Div',
     width: "100px",
     height: "100px",
     bgColor: "orange",
@@ -27,6 +32,16 @@ export const config = {
     borderRadius: "0px",
     opacity: "1",
     zIndex: "1",
+};
+
+export const configText = {
+    type:'Text',
+    fontSize: "1rem",
+    fontWeight: "100",
+    color: "black",
+    fontFamily: "Arial",
+    textAlign: "left",
+    textContent: "Text",
 };
 export interface Funcs {
     id: string;
