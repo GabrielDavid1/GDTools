@@ -11,6 +11,7 @@ export default function Margin (){
  return (
   <div className="margin-area"> 
     <h2> Margin </h2>
+      <div className="wrapper">
         <div className="left-field">
           <p> Left: </p>  
           <input 
@@ -35,14 +36,22 @@ export default function Margin (){
             onChange={(e) => setDimensions({...dimensions, top: e.target.value})} 
           />
         </div>
-        <div className="down-field">
-          <p> Down: </p> 
+        <div className="bottom-field">
+          <p> Bottom: </p> 
           <input 
             type="text"
             value={dimensions.down} 
             onChange={(e) => setDimensions({...dimensions, down: e.target.value})} 
           />
         </div>
+      </div>
   </div>
  )
 }
+/*
+          .height-field {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+*/
