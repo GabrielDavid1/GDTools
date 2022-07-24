@@ -149,7 +149,7 @@ body {
     .model-settings {
       max-height: 100%;
       font-size: 0.8rem;
-      font-family: roboto;
+      font-family: arial;
       padding: 0px 10px;
       overflow-y: scroll;
       height: 100%;
@@ -165,7 +165,6 @@ body {
         color:white;
         text-align: center;
         color: white;
-        margin-bottom: 10%;
         border-bottom: 1px solid #373636;
 
         .slider {
@@ -237,7 +236,6 @@ body {
         align-items: center;
         gap: 5px;
         margin-left: 2%;
-        margin-bottom: 10%;
         border-bottom: 1px solid #373636;
 
         select {
@@ -284,7 +282,6 @@ body {
         color: white;
         width: 100%;
         border-top: 1px solid #262525;
-        height: 100%;
 
         .wrapper {
           display: flex;
@@ -359,6 +356,26 @@ body {
             font-family: monospace;
             border-radius: 2px;
           }
+        }
+      }
+
+      .position-area {
+        color: white;
+        height: 14%;
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 5px;
+        margin-left: 2%;
+        border-top: 1px solid #282828;
+
+        select {
+          outline: 0;
+          background-color: #1eff97;
+          cursor: pointer;
+          border: 1px solid #11dd88;
+          color: #ffffff;
         }
       }
 
