@@ -293,12 +293,14 @@ body {
           width: 100%;
 
           .left-field {
+            width: 50%;
+            height: 30px;
             display: flex;
             align-items: center;
             gap:5px;
 
             input[type=text] {
-              width: 100%;
+              width: 50%;
               height: 30%;
               outline: 0;
               border: none;
@@ -308,12 +310,14 @@ body {
           }
 
           .right-field {
+            width: 50%;
+            height: 30px;
             display: flex;
             align-items: center;
             gap:5px;
 
             input[type=text] {
-              width: 100%;
+              width: 50%;
               height: 30%;
               outline: 0;
               border: none;
@@ -324,12 +328,14 @@ body {
         }
 
         .top-field {
+          width: 50%;
+          height: 30px;
           display: flex;
           align-items: center;
           gap:5px;
 
           input[type=text] {
-            width: 100%;
+            width: 50%;
             height: 30%;
             outline: 0;
             border: none;
@@ -339,12 +345,14 @@ body {
         }
 
         .bottom-field {
+          width: 50%;
+          height: 30px;
           display: flex;
           align-items: center;
           gap:5px;
 
           input[type=text] {
-            width: 100%;
+            width: 50%;
             height: 30%;
             outline: 0;
             border: none;
