@@ -2,12 +2,12 @@
 import React from 'react';
 
 //Components
-import Image from './Image';
+import ScrollList from './ScrollList';
 
 export default function ModelSetting (){
   return (
    <div className="model-settings"> 
-      <Image title="Image" />
+      <ScrollList title="ScrollList" />
    </div>
   )
 }

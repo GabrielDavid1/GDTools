@@ -13,7 +13,7 @@ export const AppBody = styled.div`
     justify-content: center;
     align-items: center;
     background: red;
-    height: 60%;
+    height: 100%;
 `;
 
 export const AppTab = styled.div`
