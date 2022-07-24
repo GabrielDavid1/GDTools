@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 
 export default function Border() {
-
     const [valuePx, setValuePx] = useState(0); 
     const [valueShadowBox, setValueShadowBox] = useState<number>(0);
     const [color, setColor] = useState<string>('#fff');

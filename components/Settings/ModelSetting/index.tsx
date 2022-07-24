@@ -6,6 +6,7 @@ import ColorArea from './Div/ColorArea';
 import Dimension from './Div/Dimension';
 import BoxShadow from './Div/BoxShadow';
 import Border from './Div/Border';
+import Margin from './Div/Margin';
 
 export default function ModelSetting (){
  return (
@@ -14,6 +15,7 @@ export default function ModelSetting (){
       <Dimension />
       <BoxShadow />
       <Border />
+      <Margin />
    </div>
  )
 }
