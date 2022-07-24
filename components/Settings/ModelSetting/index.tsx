@@ -2,12 +2,12 @@
 import React from 'react';
 
 //Components
-import Text from './Text';
+import Svg from './Svg';
 
 export default function ModelSetting (){
   return (
    <div className="model-settings"> 
-      <Text title="Text" />
+      <Svg title="Svg" />
    </div>
   )
 }
