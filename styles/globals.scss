@@ -140,17 +140,106 @@ body {
   }
   .control-settings {
     width: 16%;
-    background-color: #434141;
+    background: linear-gradient(179deg, #494949, #4e4949);
     border: 1px solid #3d3c3c;
     max-width: 16%;
     overflow-x: hidden;
     
     .model-settings {
+      font-size: 0.8rem;
+      font-family: roboto;
       padding: 0px 10px;
 
       .color-area {
         color:white;
+        margin-bottom: 20%;
       }
+
+      .dimension-area{
+        text-align: center;
+        color:white;
+        text-align: center;
+        color: white;
+        margin-bottom: 10%;
+        .slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 5px;
+          outline: none;
+          transition: opacity 0.2s;
+          border-radius: 10px;
+      
+
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: #00D084;
+            cursor: pointer;
+            border-radius:20px;
+          }
+
+          &::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: #00D084;
+            cursor: pointer;
+            border-radius:50px;
+          }
+        }
+
+        p {
+          font-family: arial;
+        }
+    
+        .width-height-area {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 4%;
+          gap: 4px;
+    
+          input[type=text] {
+            width: 50%;
+            height: 20%;
+            outline: 0;
+            border: none;
+            font-family: monospace;
+          }
+    
+          .width-field {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+    
+          .height-field {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+
+      .boxShadow-area {
+        color: white;
+        font-size: 0.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        margin-left: 2%;
+
+        select {
+          outline: 0;
+          background-color: #1eff97;
+          cursor: pointer;
+          border: 1px solid #11dd88;
+          color: #ffffff;
+        }
+      }
+
     }
 
     .content {
@@ -180,6 +269,7 @@ body {
           }
         }
       }
+
       .bottom-tab {
         width: 16%;
         height: 5%;
@@ -236,7 +326,7 @@ body {
 
             input[type=text] {
               max-width: 70%;
-              background: #434141;
+              background: #43414100;
               border: none;
               outline: 0;
               color:#cdcdf7;

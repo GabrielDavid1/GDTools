@@ -8,7 +8,7 @@
   } from "react";
   
   //Types
-  import { Funcs } from "../types/Funcs";
+  import { Config, Funcs } from "../types/Funcs";
 
   type FunctionalitiesContextData = {
     funcs: Funcs[];
@@ -20,8 +20,9 @@
     onToggle: boolean;
     setOnToggle: React.Dispatch<React.SetStateAction<boolean>>;
 
-    addNode: (name:string, type:string, param:string, func:Funcs) => void;
+    editNodeConfig: (obj:Funcs, config:Config) => void;
 
+    addNode: (name:string, type:string, param:string, func:Funcs) => void;
     editNode: (obj:Funcs, name:string) => void;
     deleteNode: (obj:Funcs) => void;
     deleteAll: () => void;
@@ -161,6 +162,18 @@
       setLengthFuncs(lengthFuncs-1);
     } 
 
+    function editNodeConfig (obj:Funcs, config:Config) {
+      let newObj = {...obj};
+
+      newObj.config = config;
+
+      const target = JSON.stringify(obj);
+      const base = JSON.stringify(funcs);
+
+      const result = JSON.parse(base.replace(target, JSON.stringify(newObj)));
+      setFuncs(result);
+    } 
+
     function deleteAll () {
       setFuncs([]);
     }
@@ -170,6 +183,7 @@
         funcs, setFuncs,
         onToggle, setOnToggle,
         lengthFuncs, setLengthFuncs,
+        editNodeConfig,
         addNode, deleteAll,
         editNode, deleteNode,
       }}>
