@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 
 export default function FontSize () {
- const [value, setValue] = useState<number>(0);
+ const [value, setValue] = useState<string>('10px');
 
  return (
    <div className="fontSize-area">
       <h2> Font Size </h2> 
-      <select onChange={(e) => setValue(Number(e.target.value))}>
+      <select onChange={(e) => setValue(e.target.value)}>
         <option value="10px">10px</option>
         <option value="12px">12px</option>
         <option value="16px">16px</option>

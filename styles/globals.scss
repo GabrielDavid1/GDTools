@@ -389,12 +389,11 @@ body {
         color: white;
         font-size: 0.8rem;
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 5px;
         margin-left: 2%;
         border-bottom: 1px solid #373636;
-
+        
         select {
           outline: 0;
           background-color: #1eff97;
@@ -403,7 +402,23 @@ body {
           color: #ffffff;
         }
       }
-
+      
+      .fontFamily-area {
+        color: white;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-left: 2%;
+  
+        select {
+          outline: 0;
+          background-color: #1eff97;
+          cursor: pointer;
+          border: 1px solid #11dd88;
+          color: #ffffff;
+        }
+      }
     }
 
     .model-settings::-webkit-scrollbar {
