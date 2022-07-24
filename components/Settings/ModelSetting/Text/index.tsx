@@ -5,8 +5,8 @@ import React from 'react';
 import ColorArea from '../Default/ColorArea';
 import FontFamily from '../Default/FontFamily';
 import FontSize from '../Default/FontSize';
+import FontWeight from '../Default/FontWeight';
 import Margin from '../Default/Margin';
-
 interface Props {
     title:string;
 }
@@ -18,6 +18,7 @@ export default function Text ({ title }:Props){
      <ColorArea />
      <FontSize />
      <FontFamily />
+     <FontWeight />
      <Margin />
     </>
  )
