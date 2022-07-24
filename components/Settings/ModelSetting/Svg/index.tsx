@@ -10,7 +10,7 @@ interface Props {
     title:string;
 }
 
-export default function Svg ({ title }:Props){
+export default function Svg ({ title }: Props) {
  return (
     <>
      <h2> {title} </h2>
