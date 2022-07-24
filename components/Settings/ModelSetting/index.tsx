@@ -2,12 +2,12 @@
 import React from 'react';
 
 //Components
-import ScrollList from './ScrollList';
+import Button from './Button';
 
 export default function ModelSetting (){
   return (
    <div className="model-settings"> 
-      <ScrollList title="ScrollList" />
+      <Button title="Button" />
    </div>
   )
 }
