@@ -3,6 +3,7 @@ import React from 'react';
 
 //Components
 import ColorArea from '../Default/ColorArea';
+import FontSize from '../Default/FontSize';
 import Margin from '../Default/Margin';
 
 interface Props {
@@ -14,6 +15,7 @@ export default function Text ({ title }:Props){
     <>
      <h2> {title} </h2>
      <ColorArea />
+     <FontSize />
      <Margin />
     </>
  )

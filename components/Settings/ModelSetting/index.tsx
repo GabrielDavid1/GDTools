@@ -2,7 +2,6 @@
 import React from 'react';
 
 //Components
-import Div from './Div';
 import Text from './Text';
 
 export default function ModelSetting (){
