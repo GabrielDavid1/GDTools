@@ -9,14 +9,6 @@ import {
 } from "./styles";
 
 //Components
-import { DivView } from "./Elements/Div";
-import { TextView } from "./Elements/Text";
-import { ImageView } from "./Elements/Image";
-import ButtonView from "./Elements/Button";
-
-//Utils
-import SvgView from "./Elements/Svg";
-import { ScrollListView } from "./Elements/ScrollList";
 import InputView from "./Elements/Input";
 
 export default function Main() {  
@@ -37,7 +29,7 @@ export default function Main() {
         </AppBody>
         
         <AppTab>
-          <SvgView name="circle" />
+          
         </AppTab>
       </div>
     </main>
