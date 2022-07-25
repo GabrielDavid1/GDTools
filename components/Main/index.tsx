@@ -17,6 +17,7 @@ import ButtonView from "./Elements/Button";
 //Utils
 import SvgView from "./Elements/Svg";
 import { ScrollListView } from "./Elements/ScrollList";
+import InputView from "./Elements/Input";
 
 export default function Main() {  
   return (
@@ -32,16 +33,7 @@ export default function Main() {
         </AppHeader>
 
         <AppBody>
-          <ScrollListView>
-              <p> teste </p>
-              <p> teste </p>
-              <p> teste </p>
-              <p> teste </p>
-              <p> teste </p>
-              <p> teste </p>
-              <p> teste </p>
-
-          </ScrollListView>
+          <InputView />
         </AppBody>
         
         <AppTab>

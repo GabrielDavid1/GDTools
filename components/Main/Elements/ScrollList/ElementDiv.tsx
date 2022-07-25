@@ -28,13 +28,11 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    config,
    children,
 }, ref ) => {
-  const [visibility, setVisibility] = useState(false);
+
   return (   
     <Div 
       ref={ref} 
       className="resizeable" 
-      onMouseOver={() => setVisibility(true)} 
-      onMouseOut={() => setVisibility(false)}
       bgColor={config?.bgColor}
       width={config?.width}
       height={config?.height}
