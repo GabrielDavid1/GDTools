@@ -2,12 +2,12 @@
 import React from 'react';
 
 //Components
-import TabNav from './TabNav';
+import Div from './Div';
 
 export default function ModelSetting (){
   return (
    <div className="model-settings"> 
-      <TabNav title="TabNav" />
+      <Div title="Div" />
    </div>
   )
 }

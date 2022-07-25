@@ -8,7 +8,8 @@ import ColorArea from '../Default/ColorArea';
 import Dimension from '../Default/Dimension';
 import Margin from '../Default/Margin';
 import Position from '../Default/Position';
-
+import PositionHorizontal from '../Default/PositionHorizontal';
+import PositionVertical from '../Default/PositionVertical';
 interface Props {
     title:string;
 }
@@ -21,6 +22,8 @@ export default function Div ({ title }:Props){
      <Dimension />
      <BoxShadow />
      <Border />
+     <PositionHorizontal />
+     <PositionVertical />
      <Margin />
      <Position />
     </>

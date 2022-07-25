@@ -15,6 +15,7 @@ interface Props {
     refRight:React.MutableRefObject<HTMLDivElement>;
     refBottom:React.MutableRefObject<HTMLDivElement>; 
     config?: Config;
+    children?: React.ReactNode;
 }
 // eslint-disable-next-line react/display-name
 export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( { 
@@ -25,6 +26,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    refRight, 
    refBottom,
    config,
+   children,
 }, ref ) => {
   const [visibility, setVisibility] = useState(false);
   return (   
@@ -42,8 +44,13 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       borderRadius={config?.borderRadius}
       opacity={config?.opacity}
       zIndex={config?.zIndex}
+      flexDirection={config?.flexDirection}
+      flexWrap={config?.flexWrap}
+      justifyContent={config?.justifyContent}
+      alignItems={config?.alignItems}
       transform={"translate(0px, 0px)"}
     > 
+      {children}
       <Selection
           visibility={visibility}
           refLeft={refLeft} 

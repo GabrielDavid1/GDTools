@@ -15,8 +15,10 @@ const Div = styled.div<Config>`
       z-index: ${(p) => p.zIndex};
       transform: ${(p) => p.transform};
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-wrap: ${(p) => p.flexWrap};
+      flex-direction: ${(p) => p.flexDirection};
+      justify-content: ${(p) => p.justifyContent};
+      align-items: ${(p) => p.alignItems};
 `;
 
 export default Div;

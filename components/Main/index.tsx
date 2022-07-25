@@ -57,7 +57,10 @@ export default function Main() {
         </AppHeader>
 
         <AppBody ref={refBody}>
-          <TextView dimensionNode={bodyDimension} />
+          <DivView dimensionNode={bodyDimension}>
+            <p> um </p>
+            <p> dois </p>
+          </DivView>
         </AppBody>
         
         <AppTab ref={refTab}>

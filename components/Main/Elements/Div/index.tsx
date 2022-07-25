@@ -14,10 +14,11 @@ interface PropsComponentes {
   dimensionNode: {
     width: number;
     height: number;
-  }
+  };
+  children?: React.ReactNode;
 }
 
-export const DivView = ({ dimensionNode }: PropsComponentes) => {
+export const DivView = ({ dimensionNode, children }: PropsComponentes) => {
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refLeft = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refTop = useRef<HTMLDivElement>({} as HTMLDivElement);
@@ -50,6 +51,8 @@ export const DivView = ({ dimensionNode }: PropsComponentes) => {
         refRight={refRight}
         refBottom={refBottom}
         config={config}
-      />
+      >
+       {children}
+      </ElementDiv>
   );
 }

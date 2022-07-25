@@ -18,6 +18,10 @@ export interface Config {
     fontWeight?:string;
     textAlign?:string;
     textContent?:string;
+    flexDirection?:string;
+    flexWrap?:string;
+    justifyContent?:string;
+    alignItems?:string;
 }
 
 export const config = {
@@ -32,6 +36,10 @@ export const config = {
     borderRadius: "0px",
     opacity: "1",
     zIndex: "1",
+    flexWrap: "none",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
 };
 
 export const configText = {
