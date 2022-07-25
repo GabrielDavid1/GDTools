@@ -35,7 +35,6 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       className="resizeable" 
       onMouseOver={() => setVisibility(true)} 
       onMouseOut={() => setVisibility(false)}
-    //   onClick={(e) => setEstado(false)}
       bgColor={config?.bgColor}
       width={config?.width}
       height={config?.height}
