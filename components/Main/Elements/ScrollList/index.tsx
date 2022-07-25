@@ -9,8 +9,7 @@ import { useFuncs } from "../../../../contexts/Functionalities";
 
 /* Types */
 import { config } from "../../../../types/Funcs";
-import { SecondaryDiv } from "../Selection/SecondaryDiv";
-
+import { SecondaryDiv } from "./SecondaryDiv";
 interface PropsComponentes {
   children?: React.ReactNode;
 }
