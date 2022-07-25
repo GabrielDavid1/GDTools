@@ -14,6 +14,9 @@ import { TextView } from "./Elements/Text";
 import { ImageView } from "./Elements/Image";
 import ButtonView from "./Elements/Button";
 
+//Utils
+import { GetSvgIcon } from "../../utils/GetSvgIcon";
+
 export default function Main() {  
   return (
     <main className="content">
@@ -32,7 +35,12 @@ export default function Main() {
         </AppBody>
         
         <AppTab>
-
+          {GetSvgIcon('circle')}
+          {GetSvgIcon('circle')}
+          {GetSvgIcon('circle')}
+          {GetSvgIcon('circle')}
+          {GetSvgIcon('circle')}
+          {GetSvgIcon('circle')}
         </AppTab>
       </div>
     </main>

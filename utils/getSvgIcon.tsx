@@ -1,4 +1,4 @@
-export function getSvgIcon(type: string) {
+export function GetSvgIcon(type: string) {
   switch (type) {
     case "circle":
       return (
