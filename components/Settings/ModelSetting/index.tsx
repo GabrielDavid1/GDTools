@@ -2,12 +2,12 @@
 import React from 'react';
 
 //Components
-import Div from './Div';
+import Image from './Image';
 
 export default function ModelSetting (){
   return (
    <div className="model-settings"> 
-      <Div title="Div" />
+      <Image title="Image" />
    </div>
   )
 }

@@ -11,11 +11,12 @@ import {
 //Components
 import { DivView } from "./Elements/Div";
 import { TextView } from "./Elements/Text";
+import { ImageView } from "./Elements/Image";
 
 export default function Main() {  
-  const [headerDimension, setHeaderDimension] = useState({ width: 0, height: 0 });
-  const [bodyDimension, setBodyDimension] = useState({ width: 0, height: 0 });
-  const [tabDimension, setTabDimension] = useState({ width: 0, height: 0 });
+  const [headerDimension, setHeaderDimension] = useState({ width: '0', height: '0' });
+  const [bodyDimension, setBodyDimension] = useState({ width: '0', height: '0' });
+  const [tabDimension, setTabDimension] = useState({ width: '0', height: '0' });
 
   const refHeader = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refBody = useRef<HTMLDivElement>({} as HTMLDivElement);
@@ -23,24 +24,22 @@ export default function Main() {
 
   useEffect(() => {
     //BODY DIMENSION
-    const resizeableBody = refBody.current;
-    const styles = window.getComputedStyle(resizeableBody);
-    const widthBody = parseInt(styles.width, 10);
-    const heightBody = parseInt(styles.height, 10);
+    const DimensionBody = refBody.current;
+    const styles = window.getComputedStyle(DimensionBody);
+    const widthBody = styles.width;
+    const heightBody = styles.height;
     setBodyDimension({ width: widthBody, height: heightBody });
 
     //HEADER DIMENSION
-    const resizeableHeader = refHeader.current;
-    const stylesHeader = window.getComputedStyle(resizeableHeader);
-    const widthHeader = parseInt(stylesHeader.width, 10);
-    const heightHeader = parseInt(stylesHeader.height, 10);
-    setHeaderDimension({  width: widthHeader, height: heightHeader });
+    const DimensionHeader = refHeader.current;
+    const stylesHeader = window.getComputedStyle(DimensionHeader);
+    setHeaderDimension({  width: stylesHeader.width, height: stylesHeader.height });
 
     //TAB DIMENSION
-    const resizeableTab = refTab.current;
-    const stylesTab = window.getComputedStyle(resizeableTab);
-    const widthTab = parseInt(stylesTab.width, 10);
-    const heightTab = parseInt(stylesTab.height, 10);
+    const DimensionTab = refTab.current;
+    const stylesTab = window.getComputedStyle(DimensionTab);
+    const widthTab = stylesTab.width;
+    const heightTab = stylesTab.height;
     setTabDimension({  width: widthTab, height: heightTab });
   },[]);
 
@@ -57,7 +56,7 @@ export default function Main() {
         </AppHeader>
 
         <AppBody ref={refBody}>
-          <TextView dimensionNode={bodyDimension} />
+          <ImageView dimensionNode={bodyDimension} />
         </AppBody>
         
         <AppTab ref={refTab}>

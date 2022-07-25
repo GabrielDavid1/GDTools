@@ -9,16 +9,11 @@ import { useFuncs } from "../../../../contexts/Functionalities";
 
 /* Types */
 import { config } from "../../../../types/Funcs";
-
 interface PropsComponentes {
-  dimensionNode: {
-    width: number;
-    height: number;
-  };
   children?: React.ReactNode;
 }
 
-export const DivView = ({ dimensionNode, children }: PropsComponentes) => {
+export const DivView = ({children }: PropsComponentes) => {
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refLeft = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refTop = useRef<HTMLDivElement>({} as HTMLDivElement);
