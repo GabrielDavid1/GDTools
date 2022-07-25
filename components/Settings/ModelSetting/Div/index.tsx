@@ -6,6 +6,7 @@ import Border from '../Default/Border';
 import BoxShadow from '../Default/BoxShadow';
 import ColorArea from '../Default/ColorArea';
 import Dimension from '../Default/Dimension';
+import Gap from '../Default/Gap';
 import Margin from '../Default/Margin';
 import Position from '../Default/Position';
 import PositionHorizontal from '../Default/PositionHorizontal';
@@ -24,6 +25,7 @@ export default function Div ({ title }:Props){
      <Border />
      <PositionHorizontal />
      <PositionVertical />
+     <Gap />
      <Margin />
      <Position />
     </>
