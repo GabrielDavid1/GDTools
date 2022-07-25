@@ -16,6 +16,7 @@ import ButtonView from "./Elements/Button";
 
 //Utils
 import { GetSvgIcon } from "../../utils/GetSvgIcon";
+import SvgView from "./Elements/Svg";
 
 export default function Main() {  
   return (
@@ -35,12 +36,7 @@ export default function Main() {
         </AppBody>
         
         <AppTab>
-          {GetSvgIcon('circle')}
-          {GetSvgIcon('circle')}
-          {GetSvgIcon('circle')}
-          {GetSvgIcon('circle')}
-          {GetSvgIcon('circle')}
-          {GetSvgIcon('circle')}
+          <SvgView name="circle" />
         </AppTab>
       </div>
     </main>

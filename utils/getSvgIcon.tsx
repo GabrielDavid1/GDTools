@@ -1,6 +1,6 @@
 export function GetSvgIcon(type: string) {
   switch (type) {
-    case "circle":
+    default:
       return (
         <div className="field-tab">
           <svg
