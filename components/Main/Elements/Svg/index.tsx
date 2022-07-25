@@ -18,7 +18,7 @@ export default function SvgView({ name }: Props) {
               y="0px"
               width="20%"
               viewBox="0 0 120 120"
-              enable-background="new 0 0 120 120"
+              enableBackground="new 0 0 120 120"
             >
               <circle cx="60" cy="60.834" r="54.167" />
             </svg>
