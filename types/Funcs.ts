@@ -22,6 +22,8 @@ export interface Config {
     flexWrap?:string;
     justifyContent?:string;
     alignItems?:string;
+    isScrollX?:boolean;
+    isScrollY?:boolean;
 }
 
 export const config = {
@@ -40,6 +42,8 @@ export const config = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    isScrollX: false,
+    isScrollY: true,
 };
 
 export const configText = {

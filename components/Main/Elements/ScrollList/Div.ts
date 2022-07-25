@@ -4,7 +4,12 @@ import styled from 'styled-components';
 /* Types */
 import { Config } from '../../../../types/Funcs';
 
-const Div = styled.div<Config>`
+interface Props extends Config {
+  isScrollX: boolean;
+  isScrollY: boolean;
+}
+
+const Div = styled.div<Props>`
       background: ${(p) => p.bgColor};
       width: ${(p) => p.width};
       height: ${(p) => p.height};
@@ -19,6 +24,8 @@ const Div = styled.div<Config>`
       flex-direction: ${(p) => p.flexDirection};
       justify-content: ${(p) => p.justifyContent};
       align-items: ${(p) => p.alignItems};
+      overflow-x: ${ ( { isScrollX } ) => (isScrollX) ? 'scroll' : 'hidden'};
+      overflow-y: ${ ( { isScrollY } ) => (isScrollY) ? 'scroll' : 'hidden'};
 `;
 
 export default Div;
