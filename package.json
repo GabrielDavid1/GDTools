@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@rpldy/upload-preview": "^1.0.1",
     "@rpldy/uploady": "^1.0.1",
     "next": "12.2.2",
     "react": "18.2.0",
