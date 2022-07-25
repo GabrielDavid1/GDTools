@@ -15,7 +15,7 @@ interface Props {
     title:string;
 }
 
-export default function Div ({ title }:Props){
+export default function Div ({ title }:Props) {
  return (
     <>
      <h2> {title} </h2>
