@@ -8,7 +8,7 @@ import { InputElement } from "./InputElement";
 import { Config } from "../../../../types/Funcs";
 
 //Utils
-import ChangeSection from "../../../../utils/changeSection";
+import changeSection from "../../../../utils/changeSection";
 interface Props {
   config: Config;
   children?: React.ReactNode;
@@ -21,7 +21,7 @@ export default function InputView({
 }: Props) {
   return (
     <InputElement
-      onClick={() => ChangeSection(config as Config, true)}
+      onClick={() => changeSection(config as Config, true)}
       color={`${config?.color}`}
       bgColor={`${config?.bgColor}`}
       width={config?.width}

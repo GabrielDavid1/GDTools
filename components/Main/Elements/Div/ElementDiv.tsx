@@ -9,7 +9,7 @@ import Div from './Div';
 import { Selection } from '../Selection';
 
 //Utils
-import ChangeSection from '../../../../utils/changeSection';
+import changeSection from '../../../../utils/changeSection';
 interface Props {
     refLeft:React.MutableRefObject<HTMLDivElement>;
     refTop:React.MutableRefObject<HTMLDivElement>; 
@@ -32,7 +32,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
   return (   
     <Div 
       ref={ref}
-      onClick={() => ChangeSection(config as Config, true)}
+      onClick={() => changeSection(config as Config, true)}
       onMouseOver={() => setVisibility(true)} 
       onMouseOut={() => setVisibility(false)}
       bgColor={config?.bgColor}

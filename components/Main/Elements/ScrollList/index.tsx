@@ -12,7 +12,7 @@ import { useFuncs } from "../../../../contexts/Functionalities";
 import { Config } from "../../../../types/Funcs";
 
 // Utils
-import ChangeSection from "../../../../utils/changeSection";
+import changeSection from "../../../../utils/changeSection";
 
 interface PropsComponentes {
   config: Config;
@@ -37,7 +37,7 @@ export const ScrollListView = ({ config, children }: PropsComponentes) => {
     <ElementDiv ref={ref} config={config}>
       <SecondaryDiv 
         direction="vertical"
-        onClick={() => ChangeSection(config as Config, true)}
+        onClick={() => changeSection(config as Config, true)}
       >
         {children}
       </SecondaryDiv>

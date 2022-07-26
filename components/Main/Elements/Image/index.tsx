@@ -8,7 +8,7 @@ import ImageArea from "./ImageArea";
 import { Config } from "../../../../types/Funcs";
 
 //Utils
-import ChangeSection from "../../../../utils/changeSection";
+import changeSection from "../../../../utils/changeSection";
 interface Props {
   config:Config;
 }
@@ -33,7 +33,7 @@ export default function ImageView({ config }:Props) {
           src={image}
           width={`${config?.width}`}
           height={`${config?.height}`}
-          onClick={() => ChangeSection(config as Config, true)}
+          onClick={() => changeSection(config as Config, true)}
         />
       )}
       {image === "" && <label htmlFor="upload"> upload </label>}

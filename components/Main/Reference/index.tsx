@@ -6,7 +6,7 @@ import { Config, Funcs } from "../../../types/Funcs";
 
 //Utils
 import GetElement from "../../../utils/GetElement";
-import ChangeSection from "../../../utils/changeSection";
+import changeSection from "../../../utils/changeSection";
 
 //Components
 import { DivView } from "../Elements/Div";
@@ -32,19 +32,19 @@ export default function Reference({ node, children }: Props) {
 
     case "header":
       return (
-        <AppHeader onClick={() => ChangeSection(node.type as Config, true)}>
+        <AppHeader onClick={() => changeSection(node.type as Config, true)}>
           {children}
         </AppHeader>
       );
     case "main":
       return (
-        <AppBody onClick={() => ChangeSection(node.type as Config, true)}>
+        <AppBody onClick={() => changeSection(node.type as Config, true)}>
           {children}
         </AppBody>
       );
     case "tab":
       return (
-        <AppTab onClick={() => ChangeSection(node.type as Config, true)}>
+        <AppTab onClick={() => changeSection(node.type as Config, true)}>
           {children}
         </AppTab>
       );

@@ -5,7 +5,7 @@ import React from "react";
 import { Config } from "../../../../types/Funcs";
 
 //Utils
-import ChangeSection from "../../../../utils/changeSection";
+import changeSection from "../../../../utils/changeSection";
 interface Props {
   config: Config;
 }
@@ -17,7 +17,7 @@ export default function SvgView({ config }: Props) {
         return (
           <div 
             className="field-tab"
-            onClick={() => ChangeSection(config as Config, true)}
+            onClick={() => changeSection(config as Config, true)}
           >
             <svg
               version="1.1"
