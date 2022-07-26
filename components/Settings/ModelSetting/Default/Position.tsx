@@ -1,13 +1,24 @@
 //React
-import React, { useState } from 'react';
+import React from 'react';
+
+//Components
+import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function Position () {
- const [value, setValue] = useState<string>('');
+ const { funcs, setFuncs, selected } = useFuncs();
+
+ function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
+   if (selected.config !== undefined) {
+       selected.config.position = e.target.value;
+   }
+   setFuncs([...funcs]);
+   e.preventDefault();
+ }
 
  return (
    <div className="position-area">
       <h2> Position </h2> 
-      <select onChange={(e) => setValue(e.target.value)}>
+      <select onChange={(e) => handleChange(e)}>
         <option value="absolute">absolute</option>
         <option value="fixed">fixed</option>
         <option value="inherit">inherit</option>

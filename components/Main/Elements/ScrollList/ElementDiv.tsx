@@ -33,6 +33,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       flexWrap={config?.flexWrap}
       justifyContent={config?.justifyContent}
       alignItems={config?.alignItems}
+      position={config?.position}
       isScrollX={(config?.isScrollX !== undefined) && config?.isScrollX}
       isScrollY={(config?.isScrollY !== undefined) && config?.isScrollY}
       transform={"translate(0px, 0px)"}

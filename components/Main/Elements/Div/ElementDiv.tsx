@@ -44,6 +44,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       marginTop={config?.marginTop}
       marginBottom={config?.marginBottom}
       gap={config?.gap}
+      position={config?.position}
       transform={"translate(0px, 0px)"}
       { ...rest} 
     > 

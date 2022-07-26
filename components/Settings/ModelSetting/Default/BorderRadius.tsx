@@ -1,13 +1,20 @@
 //React
-import React, { useState } from 'react';
+import React from 'react';
+
+//Contexts
+import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function BorderRadius () {
- const [value, setValue] = useState<number>(0);
+ const { funcs, setFuncs, selected } = useFuncs();
 
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
-    setValue(Number(e.target.value));
-    e.preventDefault();
- }
+  const value = Number(e.target.value); 
+  if (selected.config !== undefined) {
+    selected.config.boxShadow = value;
+  }
+  setFuncs([...funcs]);
+  e.preventDefault();
+ } 
 
  return (
    <div className="boxShadow-area">
@@ -19,11 +26,11 @@ export default function BorderRadius () {
         <option value={3}>3px</option>
         <option value={4}>4px</option>
         <option value={5}>5px</option>
-        <option value={10}>1px</option> 
+        <option value={10}>10px</option> 
         <option value={20}>20px</option>
         <option value={30}>30px</option>
         <option value={50}>50px</option>
-        <option value={100}>10px</option>
+        <option value={100}>100px</option>
       </select>
    </div>
  )
