@@ -2,12 +2,11 @@
 import React from "react";
 import { Config } from "../../../../types/Funcs";
 
-//Utils
-import ChangeSection from "../../../../utils/changeSection";
-
 //Components
 import { ButtonElement } from "./ButtonElement";
 
+//Utils
+import ChangeSection from "../../../../utils/changeSection";
 interface Props {
   config:Config;
 }
