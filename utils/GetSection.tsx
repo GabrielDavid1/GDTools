@@ -2,15 +2,10 @@
 import React from 'react';
 
 //Components 
-import Header from '../components/Settings/Header';
-interface Props {
-    type:string;
-}
+import AppContent from '../components/Settings/ModelSetting/AppContent';
 
-export default function GetSection ({
-    type,
-}:Props) {
+export default function GetSection (type:string | undefined) {
     switch(type) {
-        case 'header': return <Header />;
+        default: return <AppContent title={(type !== undefined) ? type : ''} />;
     }
 } 

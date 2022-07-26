@@ -1,19 +1,17 @@
 //React
+import { useFuncs } from '../../../contexts/Functionalities';
+
+//Utils
+import GetSection from '../../../utils/GetSection';
+
+//Contexts
 import React from 'react';
 
-//Components
-import Div from './Div';
-
-//Static
-import { Config } from '../../../types/Funcs';
-interface Props {
-  config: Config | undefined;
-}
-
-export default function ModelSetting ({ config }:Props) {
+export default function ModelSetting () {
+  const { selected } = useFuncs();
   return (
    <div className="model-settings"> 
-      
+      {GetSection((selected !== undefined) ? selected.type : '')}
    </div>
   )
 }

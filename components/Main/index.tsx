@@ -1,11 +1,8 @@
 //React
 import React, { useCallback } from "react";
 
-//Styled Components
-import { AppBody, AppHeader, AppTab } from "./styles";
-
 //Types
-import { Config, Funcs } from "../../types/Funcs";
+import { Funcs } from "../../types/Funcs";
 
 //Contexts
 import { useFuncs } from "../../contexts/Functionalities";
@@ -13,17 +10,13 @@ import { useFuncs } from "../../contexts/Functionalities";
 //Components
 import Reference from "./Reference";
 
-interface Props {
-  config: Config | undefined;
-}
-
-export default function Main({ config }: Props) {
+export default function Main() {
   const { funcs } = useFuncs();
 
   const renderer = useCallback(
     (nodes: Funcs) =>
       (nodes !== undefined) && (
-        <Reference node={nodes}>
+        <Reference node={nodes} key={nodes.id}>
           {Array.isArray(nodes.children)
             ? nodes.children.map((node) => nodes.type && renderer(node))
             : null}
