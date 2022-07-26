@@ -27,7 +27,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    ...rest
 }, ref ) => {
   const [visibility, setVisibility] = useState(false);
-  return (   
+  return (
     <Div 
       ref={ref}
       onMouseOver={() => setVisibility(true)} 

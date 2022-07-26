@@ -31,19 +31,28 @@ export default function Reference({ node, children }: Props) {
 
     case "header":
       return (
-        <AppHeader>
+        <AppHeader 
+          height={`${node?.config?.height}`}
+          bgColor={`${node?.config?.bgColor}`}
+        >
           {children}
         </AppHeader>
       );
     case "main":
       return (
-        <AppBody>
+        <AppBody
+          height={`${node?.config?.height}`}
+          bgColor={`${node?.config?.bgColor}`}  
+        >
           {children}
         </AppBody>
       );
     case "tab":
       return (
-        <AppTab>
+        <AppTab 
+          height={`${node?.config?.height}`}
+          bgColor={`${node?.config?.bgColor}`}
+        >
           {children}
         </AppTab>
       );

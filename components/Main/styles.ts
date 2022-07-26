@@ -1,27 +1,30 @@
 //Styled Components
 import styled from 'styled-components';
 
-export const AppHeader = styled.div`
+//Types
+import { Config } from '../../types/Funcs';
+
+export const AppHeader = styled.div<Config>`
     display: flex;
-    height: 25%;
+    height: ${props => props.height};
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background:red;
+    background: ${props => props.bgColor};
 `;
 
-export const AppBody = styled.div`
+export const AppBody = styled.div<Config>`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    background:green;
+    height: ${props => props.height};
+    background: ${props => props.bgColor};
 `;
 
-export const AppTab = styled.div`
+export const AppTab = styled.div<Config>`
     display: flex;
     flex-direction: row;
-    height: 15%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background:purple;
+    height: ${props => props.height};
+    background: ${props => props.bgColor};
 `;

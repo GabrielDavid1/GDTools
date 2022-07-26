@@ -1,38 +1,36 @@
 //React
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 
 //Contexts
 import { useFuncs } from '../../../contexts/Functionalities';
+
+//Types
 import { Funcs } from '../../../types/Funcs';
 
 //Components
 import ElementList from './List';
 
 export default function Tree (){
-  const [inputName, setInputName] = useState<string>('Nome da pasta');
-
   const { funcs } = useFuncs();
   
-  const renderTree = useCallback((nodes:Funcs, setInputName: React.Dispatch<React.SetStateAction<string>>) => (      
+  const renderTree = useCallback((nodes:Funcs) => (      
     ((nodes !== undefined )) && (    
       <ElementList 
         nodes={nodes}
         key={nodes.id} 
         inputName={(nodes.name !== undefined) ? nodes.name : ''}
-        setInputName={setInputName}
       >
         {Array.isArray(nodes.children)
-          ? nodes.children.map((node) => renderTree(node, setInputName)) 
+          ? nodes.children.map((node) => renderTree(node)) 
           : null}
       </ElementList>
-    )
-  ), [funcs]);
+  )), [funcs]);
 
   return (
     <div className="tree-list">
-      {renderTree(funcs[0], setInputName)}
-      {renderTree(funcs[1], setInputName)}
-      {renderTree(funcs[2], setInputName)}
+      {renderTree(funcs[0])} {/* <- Header  */} 
+      {renderTree(funcs[1])} {/* <- Main    */} 
+      {renderTree(funcs[2])} {/* <- Tab Nav */} 
     </div>
   );
 }

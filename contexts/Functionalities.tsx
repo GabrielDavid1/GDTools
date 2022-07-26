@@ -14,8 +14,8 @@
     funcs: Funcs[];
     setFuncs: (param: Funcs[]) => void;
 
-    selected: Config;
-    setSelected: (param: Config) => void;
+    selected: Funcs;
+    setSelected: (param: Funcs) => void;
 
     lengthFuncs:number;
     setLengthFuncs: React.Dispatch<React.SetStateAction<number>>;
@@ -40,7 +40,7 @@
   function FunctionalitiesProvider({ children }: AuthProviderProps) {
     const [funcs, setFuncs] = useState<Funcs[]>([]);
 
-    const [selected, setSelected] = useState<Config>({} as Config);
+    const [selected, setSelected] = useState<Funcs>({} as Funcs);
 
     const [lengthFuncs, setLengthFuncs] = useState(2);
     const [onToggle, setOnToggle] = useState<boolean>(true);
@@ -55,7 +55,7 @@
         isRoot: true,
         config: {
           width: "100%",
-          height: "100%",
+          height: "25%",
           bgColor: "#f8f8f8",
         },
         children: [],
@@ -66,7 +66,7 @@
           type:'main',
           children: [
             {
-              id: '4',
+              id: '3',
               name: 'testando',
               type:'div',
               color:'green',
@@ -87,7 +87,7 @@
           },
         },
         {
-          id: '3',
+          id: '2',
           name: 'Tab Nav',
           type:'tab',
           children: [],
@@ -96,7 +96,7 @@
           config:{
             bgColor: '#c4c4c4',
             width:'100%',
-            height:'100%',
+            height:'15%',
           },
         },
     ]);
