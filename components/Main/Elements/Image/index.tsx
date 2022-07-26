@@ -7,14 +7,16 @@ import ImageArea from "./ImageArea";
 //Types
 import { Config } from "../../../../types/Funcs";
 
-//Utils
-import changeSection from "../../../../utils/changeSection";
+//Contexts
+import { useFuncs } from "../../../../contexts/Functionalities";
 interface Props {
   config:Config;
 }
 
 export default function ImageView({ config }:Props) {
   const [image, setImage] = useState<any>("");
+
+  const {setOnToggle, setSelected} = useFuncs();
 
   const imageHandler = (e: any) => {
     const reader = new FileReader();
@@ -33,7 +35,10 @@ export default function ImageView({ config }:Props) {
           src={image}
           width={`${config?.width}`}
           height={`${config?.height}`}
-          onClick={() => changeSection(config as Config, true)}
+          onClick={() => {
+            setOnToggle(true);
+            setSelected(config as Config);
+          }}
         />
       )}
       {image === "" && <label htmlFor="upload"> upload </label>}

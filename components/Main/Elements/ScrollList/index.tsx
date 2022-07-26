@@ -11,18 +11,14 @@ import { useFuncs } from "../../../../contexts/Functionalities";
 /* Types */
 import { Config } from "../../../../types/Funcs";
 
-// Utils
-import changeSection from "../../../../utils/changeSection";
-
 interface PropsComponentes {
   config: Config;
   children?: React.ReactNode;
 }
 
 export const ScrollListView = ({ config, children }: PropsComponentes) => {
+  const { funcs, setOnToggle, setSelected } = useFuncs();
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
-
-  const { funcs } = useFuncs();
 
   useEffect(() => {
     const ScrollList = ref.current;
@@ -37,7 +33,10 @@ export const ScrollListView = ({ config, children }: PropsComponentes) => {
     <ElementDiv ref={ref} config={config}>
       <SecondaryDiv 
         direction="vertical"
-        onClick={() => changeSection(config as Config, true)}
+        onClick={() => {
+          setOnToggle(true);
+          setSelected(config as Config);
+        }}
       >
         {children}
       </SecondaryDiv>

@@ -6,18 +6,22 @@ import { Config, Funcs } from "../../../types/Funcs";
 
 //Utils
 import GetElement from "../../../utils/GetElement";
-import changeSection from "../../../utils/changeSection";
 
 //Components
 import { DivView } from "../Elements/Div";
 import { ScrollListView } from "../Elements/ScrollList";
 import { AppBody, AppHeader, AppTab } from "../styles";
+
+//Contexts
+import { useFuncs } from "../../../contexts/Functionalities";
 interface Props {
   node: Funcs;
   children?: React.ReactNode;
 }
 
 export default function Reference({ node, children }: Props) {
+  const { setOnToggle, setSelected } = useFuncs();
+
   switch (node.type) {
     case "text":
       return GetElement(node.type, node.config as Config);
@@ -32,19 +36,34 @@ export default function Reference({ node, children }: Props) {
 
     case "header":
       return (
-        <AppHeader onClick={() => changeSection(node.type as Config, true)}>
+        <AppHeader
+          onClick={() => {
+            setOnToggle(true);
+            setSelected(node.config as Config);
+          }}
+        >
           {children}
         </AppHeader>
       );
     case "main":
       return (
-        <AppBody onClick={() => changeSection(node.type as Config, true)}>
+        <AppBody
+          onClick={() => {
+            setOnToggle(true);
+            setSelected(node.config as Config);
+          }}
+        >
           {children}
         </AppBody>
       );
     case "tab":
       return (
-        <AppTab onClick={() => changeSection(node.type as Config, true)}>
+        <AppTab
+          onClick={() => {
+            setOnToggle(true);
+            setSelected(node.config as Config);
+          }}
+        >
           {children}
         </AppTab>
       );

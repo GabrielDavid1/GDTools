@@ -4,7 +4,12 @@ import { useFuncs } from '../contexts/Functionalities';
 //types
 import { Config } from '../types/Funcs';
 
-export default function changeSection (config:Config, value:boolean) {
+interface Props {
+    config: Config;
+    value:boolean;
+}
+
+export default function changeSection ({ config, value }:Props) {
     const { setOnToggle, setSelected } = useFuncs();
     setOnToggle(value);
     setSelected(config as Config);

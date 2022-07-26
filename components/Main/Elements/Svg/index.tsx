@@ -1,23 +1,27 @@
 //React
 import React from "react";
 
+//Contexts
+import { useFuncs } from "../../../../contexts/Functionalities";
+
 //Types
 import { Config } from "../../../../types/Funcs";
-
-//Utils
-import changeSection from "../../../../utils/changeSection";
 interface Props {
   config: Config;
 }
 
 export default function SvgView({ config }: Props) {
+  const {setOnToggle, setSelected} = useFuncs();
   const GetSvgIcon = (type: string | undefined) => {
     switch (type) {
       default:
         return (
           <div 
             className="field-tab"
-            onClick={() => changeSection(config as Config, true)}
+            onClick={() => {
+              setOnToggle(true);
+              setSelected(config as Config);
+            }}
           >
             <svg
               version="1.1"
