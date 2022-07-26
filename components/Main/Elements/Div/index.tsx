@@ -8,38 +8,32 @@ import { ElementDiv } from "./ElementDiv";
 import { useFuncs } from "../../../../contexts/Functionalities";
 
 /* Types */
-import { config } from "../../../../types/Funcs";
-interface PropsComponentes {
+import { Config } from "../../../../types/Funcs";
+interface Props {
+  config: Config | undefined;
   children?: React.ReactNode;
 }
 
-export const DivView = ({children }: PropsComponentes) => {
+export const DivView = ({ config, children }: Props) => {
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refLeft = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refTop = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refRight = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refBottom = useRef<HTMLDivElement>({} as HTMLDivElement);
 
-  const { funcs } = useFuncs(); 
-
-  const [dimension, setDimension] = useState({ width: '150px', height: '150px' });                                         
+  const { funcs, setFuncs, editNodeConfig } = useFuncs();
 
   useEffect(() => {
-    if (config?.width !== undefined && config?.height !== undefined) {
-      setDimension({...dimension,  width: config?.width, height: config?.height});
-    } 
-    const resizeableEle2 = ref.current;
+    const div = ref.current;
     if (config) {
-      resizeableEle2.style.width = `${config.width}`;
-      resizeableEle2.style.height = `${config.height}`;
-      resizeableEle2.style.borderRadius = `${config.borderRadius}`;
+      div.style.width = `${config.width}`;
+      div.style.height = `${config.height}`;
+      div.style.borderRadius = `${config.borderRadius}`;
     }
   }, [funcs]);
   
   return (
       <ElementDiv 
-        width={dimension.width}
-        height={dimension.height}
         ref={ref} 
         refLeft={refLeft} 
         refTop={refTop}

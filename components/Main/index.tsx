@@ -2,16 +2,23 @@
 import React from "react";
 
 //Styled Components
-import { 
-  AppBody, 
-  AppHeader, 
-  AppTab
-} from "./styles";
+import { AppBody, AppHeader, AppTab } from "./styles";
 
 //Components
 import InputView from "./Elements/Input";
+import { DivView } from "./Elements/Div";
 
-export default function Main() {  
+//Static
+import { Config } from "../../types/Funcs";
+
+interface Props {
+  config: Config | undefined;
+}
+
+export default function Main({ config }: Props) {
+
+  
+
   return (
     <main className="content">
       <span className="code-view">
@@ -20,17 +27,13 @@ export default function Main() {
         </a>
       </span>
       <div className="app-content">
-        <AppHeader> 
-
-        </AppHeader>
+        <AppHeader> </AppHeader>
 
         <AppBody>
-          <InputView />
+          <DivView config={config} />
         </AppBody>
-        
-        <AppTab>
-          
-        </AppTab>
+
+        <AppTab> </AppTab>
       </div>
     </main>
   );

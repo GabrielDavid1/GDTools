@@ -1,4 +1,5 @@
 export interface Config {
+    type?:string;
     width?: string;
     height?: string;
     border?: string;
@@ -26,7 +27,7 @@ export interface Config {
     isScrollY?:boolean;
 }
 
-export const config = {
+export let config = {
     type:'Div',
     width: "100px",
     height: "100px",

@@ -16,10 +16,6 @@ export default [
       fc() { console.log('') }
     },
     {
-      name: 'Tab Nav',
-      fc() { console.log('') }
-    },
-    {
       name: 'Button',
       fc() { console.log('') }
     },

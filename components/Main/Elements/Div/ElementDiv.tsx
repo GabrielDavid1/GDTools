@@ -1,5 +1,5 @@
 /* React */
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, forwardRef } from 'react';
 
 /* Types */
 import { Config } from '../../../../types/Funcs';
@@ -8,8 +8,6 @@ import { Config } from '../../../../types/Funcs';
 import Div from './Div';
 import { Selection } from '../Selection';
 interface Props {
-    width: string;
-    height: string;
     refLeft:React.MutableRefObject<HTMLDivElement>;
     refTop:React.MutableRefObject<HTMLDivElement>; 
     refRight:React.MutableRefObject<HTMLDivElement>;
@@ -19,20 +17,19 @@ interface Props {
 }
 // eslint-disable-next-line react/display-name
 export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( { 
-   width,
-   height,
    refLeft, 
    refTop, 
    refRight, 
    refBottom,
    config,
    children,
+   ...rest
 }, ref ) => {
   const [visibility, setVisibility] = useState(false);
   return (   
     <Div 
       ref={ref} 
-      className="resizeable" 
+      { ...rest} 
       onMouseOver={() => setVisibility(true)} 
       onMouseOut={() => setVisibility(false)}
       bgColor={config?.bgColor}

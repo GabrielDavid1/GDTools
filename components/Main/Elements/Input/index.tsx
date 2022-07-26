@@ -4,30 +4,25 @@ import React from "react";
 //Component Styles
 import { InputElement } from "./InputElement";
 
+//Types
+import { Config } from "../../../../types/Funcs";
 interface Props {
-  color?: string;
-  width?: string;
-  height?: string;
-  border?: string;
-  borderRadius?: string;
+  config: Config;
 }
 
 export default function InputView({
-  color,
-  width,
-  height,
-  border,
-  borderRadius,
+  config,
   ...rest
 }: Props) {
   return (
     <InputElement
       {...rest}
-      color={color}
-      width={width}
-      height={height}
-      border={border}
-      borderRadius={borderRadius}
+      color={`${config?.color}`}
+      bgColor={`${config?.bgColor}`}
+      width={config?.width}
+      height={config?.height}
+      border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
+      borderRadius={config?.borderRadius}
     />
   );
 }

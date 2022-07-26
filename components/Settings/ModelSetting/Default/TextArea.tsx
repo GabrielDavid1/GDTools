@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function ButtonArea (){
+export default function TextArea (){
  const [value, setValue] = useState('Button');
 
  return (

@@ -1,12 +1,21 @@
 /* Componente Framework react color */
 import React, { useState } from 'react';
+
+//Components
 import { TwitterPicker } from 'react-color';
+import { useFuncs } from '../../../../contexts/Functionalities';
+import { Config } from '../../../../types/Funcs';
+interface Props {
+  config:Config | undefined;
+}
 
 export default function ColorArea () {
   const [bgColor, setBgColor] = useState('#fff');
 
+  const { funcs, setFuncs } = useFuncs();
+
   function handleChange (event = {} as React.ChangeEvent<HTMLInputElement>, color = '#fff') {
-    setBgColor(color); 
+    setFuncs([...funcs]);
     event.preventDefault();
   }
 

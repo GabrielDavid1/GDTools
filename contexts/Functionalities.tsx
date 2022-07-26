@@ -20,7 +20,7 @@
     onToggle: boolean;
     setOnToggle: React.Dispatch<React.SetStateAction<boolean>>;
 
-    editNodeConfig: (obj:Funcs, config:Config) => void;
+    editNodeConfig: (obj:Funcs, oldConfig:Config, config:Config) => void;
 
     addNode: (name:string, type:string, param:string, func:Funcs) => void;
     editNode: (obj:Funcs, name:string) => void;
@@ -45,6 +45,25 @@
         name: 'John',
         type:'header',
         color:'red',
+        config: {
+          type:'Div',
+          width: "100%",
+          height: "100px",
+          bgColor: "orange",
+          pxBorder: "1px",
+          typeBorder: "3",
+          colorBorder: "#rrggbb",
+          boxShadow: 10, 
+          borderRadius: "0px",
+          opacity: "1",
+          zIndex: "1",
+          flexWrap: "none",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          isScrollX: false,
+          isScrollY: true,
+        },
         children: [
           {
               id: '1',
@@ -52,13 +71,6 @@
               type:'main',
               color:'red',
               children: [
-              {
-                id: '2',
-                name: 'numero 1',
-                type:'View',
-                children: [],
-                color:'red',
-              },
               {
                 id: '3',
                 name: 'numero 2',
@@ -162,15 +174,16 @@
       setLengthFuncs(lengthFuncs-1);
     } 
 
-    function editNodeConfig (obj:Funcs, config:Config) {
-      let newObj = {...obj};
+    function editNodeConfig (obj:Funcs, oldConfig:Config, config:Config) {
+      const newObj = {...obj};
 
       newObj.config = config;
-
-      const target = JSON.stringify(obj);
+     
+      const target = JSON.stringify(oldConfig);
       const base = JSON.stringify(funcs);
 
-      const result = JSON.parse(base.replace(target, JSON.stringify(newObj)));
+      const result = JSON.parse(base.replace(target, JSON.stringify(config)));
+
       setFuncs(result);
     } 
 

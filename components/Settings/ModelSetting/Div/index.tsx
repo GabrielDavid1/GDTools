@@ -1,5 +1,6 @@
 //React
 import React from 'react';
+import { Config } from '../../../../types/Funcs';
 
 //Components
 import Border from '../Default/Border';
@@ -13,13 +14,14 @@ import PositionHorizontal from '../Default/PositionHorizontal';
 import PositionVertical from '../Default/PositionVertical';
 interface Props {
     title:string;
+    config:Config | undefined;
 }
 
-export default function Div ({ title }:Props) {
+export default function Div ({ title, config }:Props) {
  return (
     <>
      <h2> {title} </h2>
-     <ColorArea />
+     <ColorArea config={config} />
      <Dimension />
      <BoxShadow />
      <Border />

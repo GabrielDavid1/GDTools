@@ -1,16 +1,16 @@
 //React
 import React from 'react';
-import Border from '../Default/Border';
 
 //Components
+import Border from '../Default/Border';
+import Margin from '../Default/Margin';
+import FontSize from '../Default/FontSize';
+import Position from '../Default/Position';
 import ColorArea from '../Default/ColorArea';
 import Dimension from '../Default/Dimension';
 import FontFamily from '../Default/FontFamily';
-import FontSize from '../Default/FontSize';
 import FontWeight from '../Default/FontWeight';
-import Margin from '../Default/Margin';
-import Position from '../Default/Position';
-
+import BorderRadius from '../Default/BorderRadius';
 interface Props{
    title:string;
 }
@@ -18,11 +18,13 @@ interface Props{
 export default function Input ({ title }:Props) {
  return (
    <>
+     <h2> {title} </h2>
      <ColorArea />
      <Dimension />
      <Border />
      <FontSize />
      <FontFamily />
+     <BorderRadius />
      <FontWeight />
      <Margin />
      <Position />

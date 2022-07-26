@@ -2,12 +2,18 @@
 import React from 'react';
 
 //Components
-import Input from './Input';
+import Div from './Div';
 
-export default function ModelSetting (){
+//Static
+import { Config } from '../../../types/Funcs';
+interface Props {
+  config: Config | undefined;
+}
+
+export default function ModelSetting ({ config }:Props){
   return (
    <div className="model-settings"> 
-      <Input title="Input" />
+      <Div config={config} title="Div" />
    </div>
   )
 }

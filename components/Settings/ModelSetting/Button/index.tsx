@@ -8,8 +8,7 @@ import Position from '../Default/Position';
 import Border from '../Default/Border';
 import BoxShadow from '../Default/BoxShadow';
 import ColorArea from '../Default/ColorArea';
-import Direction from '../Default/Direction';
-import ButtonArea from '../Default/TextArea';
+import TextArea from '../Default/TextArea';
 
 interface Props {
     title:string;
@@ -21,10 +20,9 @@ export default function Button ({ title }: Props) {
      <h2> {title} </h2>
      <ColorArea />
      <Dimension />
-     <Direction />
      <BoxShadow />
      <Border />
-     <ButtonArea />
+     <TextArea />
      <Margin />
      <Position />
     </>

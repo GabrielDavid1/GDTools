@@ -5,17 +5,14 @@ import React from "react";
 import { ElementText } from "./ElementText";
 
 /* Types */
-import { configText } from "../../../../types/Funcs";
+import { Config } from "../../../../types/Funcs";
 
-interface PropsComponentes {
-  dimensionNode: {
-    width: number;
-    height: number;
-  }
+interface Props {
+  config:Config;
 }
 
-export const TextView = ({ dimensionNode }: PropsComponentes) => {
+export const TextView = ({ config }: Props) => {
   return (
-      <ElementText config={configText} />
+      <ElementText config={config} />
   );
 }

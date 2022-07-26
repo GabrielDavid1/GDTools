@@ -1,7 +1,16 @@
+//React
 import React, { useState } from "react";
+
+//Components
 import ImageArea from "./ImageArea";
 
-export default function Element() {
+//Types
+import { Config } from "../../../../types/Funcs";
+interface Props {
+  config:Config;
+}
+
+export default function Element({ config }:Props) {
   const [image, setImage] = useState<any>("");
 
   const imageHandler = (e: any) => {
@@ -18,8 +27,8 @@ export default function Element() {
     <div className="image">
       {image !== "" && (
         <ImageArea
-          width="100%"
-          height="100%"
+          width={`${config?.width}`}
+          height={`${config?.height}`}
           src={image}
         />
       )}

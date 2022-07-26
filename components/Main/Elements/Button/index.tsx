@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
-import { ButtonElement } from './ButtonElement';
+//React
+import React from "react";
+import { Config } from "../../../../types/Funcs";
+
+//Components
+import { ButtonElement } from "./ButtonElement";
 
 interface Props {
-    title?:string;
-    color?:string;
-    bgColor?:string;
+  config:Config;
 }
 
-export default function ButtonView ({ 
-    title = 'Button',
-    color = '#000',
-    bgColor = '#fff',
-    ...rest
-}:Props) {
- const [properties, setProperties] = useState({
-    color: color,
-    bgColor: bgColor,
- });
- return <ButtonElement {...rest}
-          color={properties.color}
-          bgColor={properties.bgColor}
-          
-        > 
-          {title} 
-        </ButtonElement>;
+export default function ButtonView({
+  config,
+  ...rest
+}: Props) {
+  return (
+    <ButtonElement
+      {...rest}
+      width={`${config?.width}`}
+      height={`${config?.height}`}
+      boxShadow={(config?.boxShadow !== undefined) ? config.boxShadow : 0}
+      border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
+      color={`${config?.color}`}
+      bgColor={`${config?.bgColor}`}
+    >
+      {`${config?.textContent}`}
+    </ButtonElement>
+  );
 }

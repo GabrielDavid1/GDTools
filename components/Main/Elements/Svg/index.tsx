@@ -1,11 +1,14 @@
 //React
 import React from "react";
+
+//Types
+import { Config } from "../../../../types/Funcs";
 interface Props {
-  name: string;
+  config: Config;
 }
 
-export default function SvgView({ name }: Props) {
-  const GetSvgIcon = (type: string) => {
+export default function SvgView({ config }: Props) {
+  const GetSvgIcon = (type: string | undefined) => {
     switch (type) {
       default:
         return (
@@ -26,5 +29,5 @@ export default function SvgView({ name }: Props) {
         );
     }
   };
-  return GetSvgIcon(name);
+  return GetSvgIcon(config?.type);
 }

@@ -1,5 +1,5 @@
 /* React */
-import React, { useState, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
 /* Types */
 import { Config } from '../../../../types/Funcs';
@@ -8,23 +8,11 @@ import { Config } from '../../../../types/Funcs';
 import Div from './Div';
 
 interface Props {
-    width: string;
-    height: string;
-    refLeft:React.MutableRefObject<HTMLDivElement>;
-    refTop:React.MutableRefObject<HTMLDivElement>; 
-    refRight:React.MutableRefObject<HTMLDivElement>;
-    refBottom:React.MutableRefObject<HTMLDivElement>; 
     config?: Config;
     children?: React.ReactNode;
 }
 // eslint-disable-next-line react/display-name
 export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( { 
-   width,
-   height,
-   refLeft, 
-   refTop, 
-   refRight, 
-   refBottom,
    config,
    children,
 }, ref ) => {
@@ -32,7 +20,6 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
   return (   
     <Div 
       ref={ref} 
-      className="resizeable" 
       bgColor={config?.bgColor}
       width={config?.width}
       height={config?.height}
