@@ -40,15 +40,9 @@ export default function Main({ config }: Props) {
         </a>
       </span>
       <div className="app-content">
-        <AppHeader>
-          {renderer(funcs[1])}  
-        </AppHeader>
-        <AppBody> 
-          {renderer(funcs[0])}
-        </AppBody>
-        <AppTab>
-          {renderer(funcs[2])}
-        </AppTab>
+        {renderer(funcs[0])}  
+        {renderer(funcs[1])}
+        {renderer(funcs[2])}
       </div>
     </main>
   );

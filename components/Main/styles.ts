@@ -1,11 +1,12 @@
+//Styled Components
 import styled from 'styled-components';
-import theme from '../../theme';
 
 export const AppHeader = styled.div`
     display: flex;
     height: 25%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    background:red;
 `;
 
 export const AppBody = styled.div`
@@ -13,6 +14,7 @@ export const AppBody = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
+    background:green;
 `;
 
 export const AppTab = styled.div`
@@ -21,4 +23,5 @@ export const AppTab = styled.div`
     height: 15%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    background:purple;
 `;

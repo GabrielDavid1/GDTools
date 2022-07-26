@@ -9,6 +9,7 @@ import GetElement from "../../../utils/GetElement";
 
 import { DivView } from "../Elements/Div";
 import { ScrollListView } from "../Elements/ScrollList";
+import { AppBody, AppHeader, AppTab } from "../styles";
 
 interface Props {
   node: Funcs;
@@ -27,6 +28,24 @@ export default function Reference({ node, children }: Props) {
       return GetElement(node.type, node.config as Config);
     case "input":
       return GetElement(node.type, node.config as Config);
+    case "header": 
+    return (
+      <AppHeader>
+        {children}
+      </AppHeader>
+    );
+    case "main": 
+    return (
+      <AppBody>
+        {children}
+      </AppBody>
+    )
+    case "tab": 
+    return (
+      <AppTab>
+        {children}
+      </AppTab>
+    )
     case "scrollList":
     return (
        <ScrollListView config={node.config as Config}>

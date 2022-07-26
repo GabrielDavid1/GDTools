@@ -43,99 +43,21 @@
       setFuncs([
         {
         id: '0',
-        name: 'Main',
-        type:'div',
+        name: 'Header',
+        type:'header',
         color:'red',
         isRoot: true,
         config: {
-          type:'Div',
           width: "100%",
           height: "100%",
           bgColor: "#f8f8f8",
-          pxBorder: "1px",
-          typeBorder: "3",
-          colorBorder: "#rrggbb",
-          boxShadow: 10, 
-          borderRadius: "0px",
-          opacity: "1",
-          zIndex: "1",
-          flexWrap: "none",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          isScrollX: false,
-          isScrollY: true,
         },
-        children: [
-          {
-              id: '1',
-              name: 'Div',
-              type:'div',
-              color:'red',
-    
-              children: [
-              {
-                id: '3',
-                name: 'numero 2',
-                type:'div',
-                color: 'red',
-      
-                children: [{
-                  id: '4',
-                  name: 'numero 3',
-                  type:'div',
-                  color:'red',
-                  config: {
-                    bgColor: 'pink',
-                  },
-                  children: [
-                    {
-                      id: '5',
-                      name: 'numero 4',
-                      type:'div',
-            
-                      color:'red',
-                      children: [
-                        {
-                          id: '6',
-                          name: 'numero 5',
-                          type:'input',
-                          color:'red',
-                          children: [],
-                        },
-                      ],
-                    },
-                  ],
-                },
-                {
-                  id: '10',
-                  name: 'numero 10',
-                  type:'text',
-                  color: 'red',
-                  config: {
-                    type: 'Text',
-                    textContent: 'testando kkkkkk',
-                    color: 'purple',
-                  },
-                  children: []
-                },
-                ],
-              },
-            ],
-          },
-          {
-            id: '7',
-            name: 'numero 6',
-            type:'button',
-            children: [],
-            color:'red',
-          },
-        ],
+        children: [],
         },
         {
           id: '17',
-          name: 'Header',
-          type:'div',
+          name: 'Main',
+          type:'main',
           children: [],
           color:'green',
           isRoot: true,
@@ -148,7 +70,7 @@
         {
           id: '27',
           name: 'Tab Nav',
-          type:'div',
+          type:'tab',
           children: [],
           color:'purple',
           isRoot: true,
