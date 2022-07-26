@@ -18,7 +18,6 @@ export default function Tree (){
       <ElementList 
         nodes={nodes}
         key={nodes.id} 
-        id={(nodes.id !== undefined) ? nodes.id : ''}
         inputName={(nodes.name !== undefined) ? nodes.name : ''}
         setInputName={setInputName}
       >

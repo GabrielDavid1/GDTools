@@ -46,6 +46,7 @@
         name: 'Main',
         type:'div',
         color:'red',
+        isRoot: true,
         config: {
           type:'Div',
           width: "100%",
@@ -137,6 +138,7 @@
           type:'div',
           children: [],
           color:'green',
+          isRoot: true,
           config:{
             bgColor: '#dfdfdf',
             width:'100%',
@@ -149,6 +151,7 @@
           type:'div',
           children: [],
           color:'purple',
+          isRoot: true,
           config:{
             bgColor: '#c4c4c4',
             width:'100%',

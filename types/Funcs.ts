@@ -64,5 +64,6 @@ export interface Funcs {
     config?: Config;
     children?: Funcs[];
     section?:string;
+    isRoot?:boolean;
     color?:string;
 }
