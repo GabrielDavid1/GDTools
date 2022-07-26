@@ -69,7 +69,7 @@
               id: '4',
               name: 'testando',
               type:'div',
-              color:'red',
+              color:'green',
               config: {
                 width: "50%",
                 height: "50%",

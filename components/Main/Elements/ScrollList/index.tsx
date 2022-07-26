@@ -11,6 +11,9 @@ import { useFuncs } from "../../../../contexts/Functionalities";
 /* Types */
 import { Config } from "../../../../types/Funcs";
 
+// Utils
+import ChangeSection from "../../../../utils/changeSection";
+
 interface PropsComponentes {
   config: Config;
   children?: React.ReactNode;
@@ -32,7 +35,12 @@ export const ScrollListView = ({ config, children }: PropsComponentes) => {
 
   return (
     <ElementDiv ref={ref} config={config}>
-      <SecondaryDiv direction="vertical">{children}</SecondaryDiv>
+      <SecondaryDiv 
+        direction="vertical"
+        onClick={() => ChangeSection(config as Config, true)}
+      >
+        {children}
+      </SecondaryDiv>
     </ElementDiv>
   );
 };

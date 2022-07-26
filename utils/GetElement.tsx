@@ -5,7 +5,7 @@ import { Config } from "../types/Funcs";
 import { DivView } from "../components/Main/Elements/Div";
 import { TextView } from "../components/Main/Elements/Text";
 import ButtonView from "../components/Main/Elements/Button";
-import { ImageView } from "../components/Main/Elements/Image";
+import ImageView from "../components/Main/Elements/Image";
 import InputView from "../components/Main/Elements/Input";
 import { ScrollListView } from "../components/Main/Elements/ScrollList";
 import SvgView from "../components/Main/Elements/Svg";

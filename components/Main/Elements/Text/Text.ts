@@ -4,13 +4,9 @@ import styled from 'styled-components';
 /* Tipagens */
 import { Config } from '../../../../types/Funcs';
 
-interface Props  extends Config{
-  isActive?:boolean;
-}
-
-const Text = styled.p<Props>`
+const Text = styled.p<Config>`
       background: ${(p) => p.bgColor};
-      border: ${ ( { isActive } ) => isActive ? '1px solid blue' : 'none' };
+      border: ${(p) => p.border};
       font-size: ${(p) => p.fontSize};
       font-weight: ${(p) => p.fontWeight};
       color: ${(p) => p.color};
