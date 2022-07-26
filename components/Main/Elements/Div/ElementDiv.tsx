@@ -27,7 +27,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    ...rest
 }, ref ) => {
   const [visibility, setVisibility] = useState(false);
-  return (
+  return (   
     <Div 
       ref={ref}
       onMouseOver={() => setVisibility(true)} 
@@ -36,7 +36,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       width={config?.width}
       height={config?.height}
       border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
-      boxShadow={config?.boxShadow}
+      boxShadowConverted={'0px 0px '+config?.boxShadow+'px'+' 0px'}
       borderRadius={config?.borderRadius}
       opacity={config?.opacity}
       zIndex={config?.zIndex}

@@ -26,7 +26,7 @@ export default function Dimension({ width, height }:Props) {
     e.preventDefault();
   }
 
-  function handleChangeRange (e = {} as React.ChangeEvent<HTMLInputElement>,) {
+  function handleChangeRange (e = {} as React.ChangeEvent<HTMLInputElement>) {
     if (selected.config !== undefined) { 
         selected.config.height = e.target.value+'%';
         setFuncs([...funcs]);
