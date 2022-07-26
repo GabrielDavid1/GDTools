@@ -13,7 +13,7 @@ interface Props {
 export default function ModelSetting ({ config }:Props){
   return (
    <div className="model-settings"> 
-      <Div config={config} title="Div" />
+      <Div config={(config !== undefined) ? config : {}} title="Div" />
    </div>
   )
 }
