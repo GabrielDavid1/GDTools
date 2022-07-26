@@ -1,36 +1,68 @@
 //React
-import React, { useState } from 'react';
+import React from "react";
+
+//Contexts
+import { useFuncs } from "../../../../contexts/Functionalities";
 
 export default function Border() {
-    const [valuePx, setValuePx] = useState(0); 
-    const [valueShadowBox, setValueShadowBox] = useState<number>(0);
-    const [color, setColor] = useState<string>('#fff');
+  const { funcs, setFuncs, selected } = useFuncs();
 
-    function handleChange (event = {} as React.ChangeEvent<HTMLInputElement>, color = '#fff') {
-        setColor(event.target.value); 
-        event.preventDefault();
+  function handleChangePxBorder(
+    e = {} as React.ChangeEvent<HTMLSelectElement>
+  ) {
+    if (selected.config !== undefined) {
+      selected.config.pxBorder = e.target.value;
     }
+    setFuncs([...funcs]);
+    e.preventDefault();
+  }
 
-    return (
-      <div className="border-area">
-        <h2> Border </h2>
-        <div className="actions">
-          <select onChange={(e) => setValuePx(Number(e.target.value))}>
-            <option value={1}>1px</option>
-            <option value={2}>2px</option>
-            <option value={3}>3px</option>
-            <option value={5}>5px</option>
-          </select>
+  function handleChangeStyleBorder(
+    e = {} as React.ChangeEvent<HTMLSelectElement>
+  ) {
+    if (selected.config !== undefined) {
+      selected.config.typeBorder = e.target.value;
+    }
+    setFuncs([...funcs]);
+    e.preventDefault();
+  }
 
-          <select onChange={(e) => setValueShadowBox(Number(e.target.value))}>
-            <option value="none">none</option>
-            <option value="solid">solid</option>
-            <option value="dashed">dashed</option>
-            <option value="dotted">dotted</option>
-          </select>
+  function handleChangeColorBorder(
+    e = {} as React.ChangeEvent<HTMLInputElement>
+  ) {
+    if (selected.config !== undefined) {
+      selected.config.colorBorder = e.target.value;
+    }
+    setFuncs([...funcs]);
+    e.preventDefault();
+  }
 
-          <input type="color" value={color} onChange={handleChange} /> 
-        </div>
+  return (
+    <div className="border-area">
+      <h2> Border </h2>
+      <div className="actions">
+        <select onChange={(e) => handleChangePxBorder(e)}>
+          <option value="0px">0px</option>
+          <option value="1px">1px</option>
+          <option value="2px">2px</option>
+          <option value="3px">3px</option>
+          <option value="4px">4px</option>
+          <option value="5px">5px</option>
+        </select>
+
+        <select onChange={(e) => handleChangeStyleBorder(e)}>
+          <option value="none">none</option>
+          <option value="solid">solid</option>
+          <option value="dashed">dashed</option>
+          <option value="dotted">dotted</option>
+        </select>
+
+        <input
+          type="color"
+          value={selected?.config?.colorBorder}
+          onChange={handleChangeColorBorder}
+        />
       </div>
-    )
+    </div>
+  );
 }

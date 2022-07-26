@@ -14,7 +14,6 @@ const Div = styled.div<Props>`
       width: ${(p) => p.width};
       height: ${(p) => p.height};
       border: ${(p) => p.border};
-      box-shadow: ${(p) => p.boxShadow};
       border-radius: ${(p) => p.borderRadius};
       opacity: ${(p) => p.opacity};
       z-index: ${(p) => p.zIndex};

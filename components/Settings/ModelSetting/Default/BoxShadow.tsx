@@ -1,18 +1,16 @@
 //React
-import React, { useState } from 'react';
+import React from 'react';
 
 //Contexts
 import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function BoxShadow () {
- const [value, setValue] = useState<number>(0);
  const { funcs, setFuncs, selected } = useFuncs();
 
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
-    const valueAll = Number(e.target.value); 
-    setValue(valueAll);
+    const value = Number(e.target.value); 
     if (selected.config !== undefined) {
-      selected.config.boxShadow = valueAll;
+      selected.config.boxShadow = value;
     }
     setFuncs([...funcs]);
     e.preventDefault();

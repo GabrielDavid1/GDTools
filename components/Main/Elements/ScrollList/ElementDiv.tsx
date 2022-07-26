@@ -24,7 +24,6 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       width={config?.width}
       height={config?.height}
       border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
-      boxShadow={config?.boxShadow}
       borderRadius={config?.borderRadius}
       opacity={config?.opacity}
       zIndex={config?.zIndex}
