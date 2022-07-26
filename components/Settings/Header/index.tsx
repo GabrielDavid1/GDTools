@@ -4,12 +4,16 @@ import React from 'react';
 //Components
 import { Details, Home } from './styles';
 
+//Types
+import { Config } from '../../../types/Funcs';
 interface Props {
+  config: Config;
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function Header ({
+  config,
   isActive,
   setIsActive,
 }:Props){

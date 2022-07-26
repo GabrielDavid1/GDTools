@@ -36,7 +36,7 @@
   
   function FunctionalitiesProvider({ children }: AuthProviderProps) {
     const [funcs, setFuncs] = useState<Funcs[]>([]);
-    const [lengthFuncs, setLengthFuncs] = useState(6);
+    const [lengthFuncs, setLengthFuncs] = useState(2);
     const [onToggle, setOnToggle] = useState<boolean>(true);
 
     useEffect(() => {
@@ -55,10 +55,23 @@
         children: [],
         },
         {
-          id: '17',
+          id: '1',
           name: 'Main',
           type:'main',
-          children: [],
+          children: [
+            {
+              id: '4',
+              name: 'testando',
+              type:'div',
+              color:'red',
+              config: {
+                width: "50%",
+                height: "50%",
+                bgColor: "orange",
+              },
+              children: [],
+            },
+          ],
           color:'green',
           isRoot: true,
           config:{
@@ -68,7 +81,7 @@
           },
         },
         {
-          id: '27',
+          id: '3',
           name: 'Tab Nav',
           type:'tab',
           children: [],

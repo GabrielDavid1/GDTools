@@ -21,7 +21,7 @@ export const DivView = ({ config, children }: Props) => {
   const refRight = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refBottom = useRef<HTMLDivElement>({} as HTMLDivElement);
 
-  const { funcs, setFuncs, editNodeConfig } = useFuncs();
+  const { funcs } = useFuncs();
 
   useEffect(() => {
     const div = ref.current;
