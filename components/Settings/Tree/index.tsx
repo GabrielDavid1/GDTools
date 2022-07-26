@@ -18,20 +18,22 @@ export default function Tree (){
       <ElementList 
         nodes={nodes}
         key={nodes.id} 
-        id={nodes.id}
-        inputName={nodes.name}
+        id={(nodes.id !== undefined) ? nodes.id : ''}
+        inputName={(nodes.name !== undefined) ? nodes.name : ''}
         setInputName={setInputName}
       >
         {Array.isArray(nodes.children)
           ? nodes.children.map((node) => renderTree(node, setInputName)) 
           : null}
       </ElementList>
-    )   
+    )
   ), [funcs]);
 
   return (
     <div className="tree-list">
       {renderTree(funcs[0], setInputName)}
+      {renderTree(funcs[1], setInputName)}
+      {renderTree(funcs[2], setInputName)}
     </div>
   );
 }

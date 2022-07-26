@@ -544,14 +544,16 @@ body {
         }
       }
       .tree-list {
+        max-width: 100%;
         margin-top: 5%;
         height: 100%;
         max-height: 88%;
         scroll-behavior: smooth;
         overflow-x: hidden;
         overflow-y: scroll;
-        
+
         .element-list {
+          padding: 0px 5px;
           .content {
             display: flex;
             flex-direction: row;

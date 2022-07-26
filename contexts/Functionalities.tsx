@@ -43,14 +43,14 @@
       setFuncs([
         {
         id: '0',
-        name: 'John',
+        name: 'Main',
         type:'div',
         color:'red',
         config: {
           type:'Div',
           width: "100%",
-          height: "40px",
-          bgColor: "orange",
+          height: "100%",
+          bgColor: "#f8f8f8",
           pxBorder: "1px",
           typeBorder: "3",
           colorBorder: "#rrggbb",
@@ -68,15 +68,17 @@
         children: [
           {
               id: '1',
-              name: 'Doe',
+              name: 'Div',
               type:'div',
               color:'red',
+    
               children: [
               {
                 id: '3',
                 name: 'numero 2',
                 type:'div',
                 color: 'red',
+      
                 children: [{
                   id: '4',
                   name: 'numero 3',
@@ -90,6 +92,7 @@
                       id: '5',
                       name: 'numero 4',
                       type:'div',
+            
                       color:'red',
                       children: [
                         {
@@ -124,23 +127,33 @@
             name: 'numero 6',
             type:'button',
             children: [],
-            color:'pink',
+            color:'red',
           },
         ],
         },
         {
-          id: '11',
-          name: 'numero 1',
+          id: '17',
+          name: 'Header',
           type:'div',
-          color:'red',
           children: [],
+          color:'green',
+          config:{
+            bgColor: '#dfdfdf',
+            width:'100%',
+            height:'100%',
+          },
         },
         {
-          id: '12',
-          name: 'numero 1',
+          id: '27',
+          name: 'Tab Nav',
           type:'div',
-          color:'red',
           children: [],
+          color:'purple',
+          config:{
+            bgColor: '#c4c4c4',
+            width:'100%',
+            height:'100%',
+          },
         },
     ]);
     },[]);

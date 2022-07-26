@@ -22,7 +22,7 @@ export default function Main({ config }: Props) {
 
   const renderer = useCallback(
     (nodes: Funcs) =>
-      nodes !== undefined && (
+      (nodes !== undefined) && (
         <Reference node={nodes}>
           {Array.isArray(nodes.children)
             ? nodes.children.map((node) => nodes.type && renderer(node))
@@ -41,13 +41,13 @@ export default function Main({ config }: Props) {
       </span>
       <div className="app-content">
         <AppHeader>
-         
+          {renderer(funcs[1])}  
         </AppHeader>
         <AppBody> 
-          
+          {renderer(funcs[0])}
         </AppBody>
         <AppTab>
-         
+          {renderer(funcs[2])}
         </AppTab>
       </div>
     </main>

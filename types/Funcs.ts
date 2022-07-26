@@ -1,6 +1,5 @@
 export interface Config {
     type?:string;
-    section?:string;
     width?: string;
     height?: string;
     border?: string;
@@ -59,10 +58,11 @@ export const configText = {
     textContent: "Text",
 };
 export interface Funcs {
-    id: string;
-    name: string;
-    type:string;
+    id?: string;
+    name?: string;
+    type?:string;
     config?: Config;
     children?: Funcs[];
-    color:string;
+    section?:string;
+    color?:string;
 }
