@@ -74,6 +74,8 @@
                 width: "50%",
                 height: "50%",
                 bgColor: "orange",
+                justifyContent: 'center',
+                alignItems: 'center',
               },
               children: [],
             },

@@ -6,8 +6,6 @@ import { Config } from '../../../../types/Funcs';
 
 /* Components */
 import Div from './Div';
-import { Selection } from '../Selection';
-
 interface Props {
     refLeft:React.MutableRefObject<HTMLDivElement>;
     refTop:React.MutableRefObject<HTMLDivElement>; 
@@ -26,12 +24,9 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    children,
    ...rest
 }, ref ) => {
-  const [visibility, setVisibility] = useState(false);
   return (   
     <Div 
       ref={ref}
-      onMouseOver={() => setVisibility(true)} 
-      onMouseOut={() => setVisibility(false)}
       bgColor={config?.bgColor}
       width={config?.width}
       height={config?.height}
@@ -48,13 +43,6 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       { ...rest} 
     > 
       {children}
-      <Selection
-          visibility={visibility}
-          refLeft={refLeft} 
-          refTop={refTop}
-          refRight={refRight}
-          refBottom={refBottom}
-      />
     </Div>
   )
 });
