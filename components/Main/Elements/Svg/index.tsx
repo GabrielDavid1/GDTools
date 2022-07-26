@@ -1,9 +1,6 @@
 //React
 import React from "react";
 
-//Contexts
-import { useFuncs } from "../../../../contexts/Functionalities";
-
 //Types
 import { Config } from "../../../../types/Funcs";
 interface Props {
@@ -11,18 +8,11 @@ interface Props {
 }
 
 export default function SvgView({ config }: Props) {
-  const {setOnToggle, setSelected} = useFuncs();
   const GetSvgIcon = (type: string | undefined) => {
     switch (type) {
       default:
         return (
-          <div 
-            className="field-tab"
-            onClick={() => {
-              setOnToggle(true);
-              setSelected(config as Config);
-            }}
-          >
+          <div className="field-tab">
             <svg
               version="1.1"
               id="Layer_1"

@@ -13,5 +13,5 @@ export default function ModelSetting () {
    <div className="model-settings"> 
       {GetSection((selected !== undefined) ? selected.type : '')}
    </div>
-  )
+  );
 }

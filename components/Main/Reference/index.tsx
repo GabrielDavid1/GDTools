@@ -11,17 +11,12 @@ import GetElement from "../../../utils/GetElement";
 import { DivView } from "../Elements/Div";
 import { ScrollListView } from "../Elements/ScrollList";
 import { AppBody, AppHeader, AppTab } from "../styles";
-
-//Contexts
-import { useFuncs } from "../../../contexts/Functionalities";
 interface Props {
   node: Funcs;
   children?: React.ReactNode;
 }
 
 export default function Reference({ node, children }: Props) {
-  const { setOnToggle, setSelected } = useFuncs();
-
   switch (node.type) {
     case "text":
       return GetElement(node.type, node.config as Config);
@@ -36,34 +31,19 @@ export default function Reference({ node, children }: Props) {
 
     case "header":
       return (
-        <AppHeader
-          onClick={() => {
-            setOnToggle(true);
-            setSelected(node.config as Config);
-          }}
-        >
+        <AppHeader>
           {children}
         </AppHeader>
       );
     case "main":
       return (
-        <AppBody
-          onClick={() => {
-            setOnToggle(true);
-            setSelected(node.config as Config);
-          }}
-        >
+        <AppBody>
           {children}
         </AppBody>
       );
     case "tab":
       return (
-        <AppTab
-          onClick={() => {
-            setOnToggle(true);
-            setSelected(node.config as Config);
-          }}
-        >
+        <AppTab>
           {children}
         </AppTab>
       );

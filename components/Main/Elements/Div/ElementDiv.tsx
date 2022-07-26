@@ -8,8 +8,6 @@ import { Config } from '../../../../types/Funcs';
 import Div from './Div';
 import { Selection } from '../Selection';
 
-//Contexts
-import { useFuncs } from '../../../../contexts/Functionalities';
 interface Props {
     refLeft:React.MutableRefObject<HTMLDivElement>;
     refTop:React.MutableRefObject<HTMLDivElement>; 
@@ -28,15 +26,10 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    children,
    ...rest
 }, ref ) => {
-  const {setOnToggle, setSelected} = useFuncs();
   const [visibility, setVisibility] = useState(false);
   return (   
     <Div 
       ref={ref}
-      onClick={() => {
-        setOnToggle(true);
-        setSelected(config as Config);
-      }}
       onMouseOver={() => setVisibility(true)} 
       onMouseOut={() => setVisibility(false)}
       bgColor={config?.bgColor}

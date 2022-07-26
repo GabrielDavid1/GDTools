@@ -1,9 +1,6 @@
 /* React */
 import React from 'react';
 
-//Contexts
-import { useFuncs } from '../../../../contexts/Functionalities';
-
 /* Types */
 import { Config } from '../../../../types/Funcs';
 
@@ -17,17 +14,9 @@ interface Props {
 export const TextView = (({ 
    config,
 }:Props) => {
-  const { setOnToggle, setSelected } = useFuncs();
-
-  function handleChange () {
-    setOnToggle(false);
-    setSelected(config as Config);
-  }
-
   return (   
     <> 
       <Text 
-        onClick={handleChange}
         fontSize={config?.fontSize}
         color={config?.color}
         fontWeight={config?.fontWeight}

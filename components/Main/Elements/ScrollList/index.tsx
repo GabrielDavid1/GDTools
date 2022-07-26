@@ -17,7 +17,7 @@ interface PropsComponentes {
 }
 
 export const ScrollListView = ({ config, children }: PropsComponentes) => {
-  const { funcs, setOnToggle, setSelected } = useFuncs();
+  const { funcs } = useFuncs();
   const ref = useRef<HTMLDivElement>({} as HTMLDivElement);
 
   useEffect(() => {
@@ -31,13 +31,7 @@ export const ScrollListView = ({ config, children }: PropsComponentes) => {
 
   return (
     <ElementDiv ref={ref} config={config}>
-      <SecondaryDiv 
-        direction="vertical"
-        onClick={() => {
-          setOnToggle(true);
-          setSelected(config as Config);
-        }}
-      >
+      <SecondaryDiv direction="vertical">
         {children}
       </SecondaryDiv>
     </ElementDiv>
