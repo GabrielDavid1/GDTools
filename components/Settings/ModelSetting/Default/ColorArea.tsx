@@ -6,10 +6,10 @@ import { TwitterPicker } from 'react-color';
 import { useFuncs } from '../../../../contexts/Functionalities';
 import { Config } from '../../../../types/Funcs';
 interface Props {
-  config:Config | undefined;
+  config?:Config | undefined;
 }
 
-export default function ColorArea ({config}:Props) {
+export default function ColorArea ({ config }:Props) {
   const [bgColor, setBgColor] = useState('#fff');
 
   const { funcs, setFuncs } = useFuncs();
