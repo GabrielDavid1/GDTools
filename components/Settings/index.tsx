@@ -18,13 +18,10 @@ interface Props {
 }
 
 export default function Settings({ config }:Props) {
-  const { onToggle, setOnToggle } = useFuncs();
+  const { onToggle } = useFuncs();
   return (
     <div className="content">
-      <Header 
-        isActive={onToggle} 
-        setIsActive={setOnToggle}
-      />
+      <Header />
       {onToggle ? (
         <>
           <BottomTab />

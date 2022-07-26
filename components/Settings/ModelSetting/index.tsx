@@ -10,10 +10,10 @@ interface Props {
   config: Config | undefined;
 }
 
-export default function ModelSetting ({ config }:Props){
+export default function ModelSetting ({ config }:Props) {
   return (
    <div className="model-settings"> 
-      <Div config={(config !== undefined) ? config : {}} title="Div" />
+      
    </div>
   )
 }

@@ -14,6 +14,9 @@
     funcs: Funcs[];
     setFuncs: (param: Funcs[]) => void;
 
+    selected: Config;
+    setSelected: (param: Config) => void;
+
     lengthFuncs:number;
     setLengthFuncs: React.Dispatch<React.SetStateAction<number>>;
 
@@ -36,6 +39,9 @@
   
   function FunctionalitiesProvider({ children }: AuthProviderProps) {
     const [funcs, setFuncs] = useState<Funcs[]>([]);
+
+    const [selected, setSelected] = useState<Config>({} as Config);
+
     const [lengthFuncs, setLengthFuncs] = useState(2);
     const [onToggle, setOnToggle] = useState<boolean>(true);
 
@@ -177,6 +183,7 @@
     return (
       <FunctionalitiesContext.Provider value={{
         funcs, setFuncs,
+        selected, setSelected,
         onToggle, setOnToggle,
         lengthFuncs, setLengthFuncs,
         editNodeConfig,
