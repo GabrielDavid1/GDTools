@@ -14,7 +14,7 @@ import PositionHorizontal from '../Default/PositionHorizontal';
 import PositionVertical from '../Default/PositionVertical';
 interface Props {
     title:string;
-    config:Config | undefined;
+    config:Config;
 }
 
 export default function Div ({ title, config }:Props) {

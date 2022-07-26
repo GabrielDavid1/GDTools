@@ -9,7 +9,7 @@ interface Props {
   config:Config | undefined;
 }
 
-export default function ColorArea () {
+export default function ColorArea ({config}:Props) {
   const [bgColor, setBgColor] = useState('#fff');
 
   const { funcs, setFuncs } = useFuncs();
