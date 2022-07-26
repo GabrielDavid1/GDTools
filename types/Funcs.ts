@@ -26,6 +26,10 @@ export interface Config {
     isScrollX?:boolean;
     isScrollY?:boolean;
     gap?:string;
+    marginLeft?:string;
+    marginRight?:string;
+    marginTop?:string;
+    marginBottom?:string;
 }
 
 export let config = {

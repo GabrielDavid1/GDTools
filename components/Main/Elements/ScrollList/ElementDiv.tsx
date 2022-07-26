@@ -25,15 +25,18 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       height={config?.height}
       border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
       borderRadius={config?.borderRadius}
-      opacity={config?.opacity}
-      zIndex={config?.zIndex}
+      marginLeft={config?.marginLeft}
+      marginRight={config?.marginRight}
+      marginTop={config?.marginTop}
+      marginBottom={config?.marginBottom}
       flexDirection={config?.flexDirection}
       flexWrap={config?.flexWrap}
       justifyContent={config?.justifyContent}
       alignItems={config?.alignItems}
-      transform={"translate(0px, 0px)"}
       isScrollX={(config?.isScrollX !== undefined) && config?.isScrollX}
       isScrollY={(config?.isScrollY !== undefined) && config?.isScrollY}
+      transform={"translate(0px, 0px)"}
+      gap={config?.gap}
     > 
       {children}
     </Div>

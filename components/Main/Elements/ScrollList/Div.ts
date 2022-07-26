@@ -23,6 +23,12 @@ const Div = styled.div<Props>`
       flex-direction: ${(p) => p.flexDirection};
       justify-content: ${(p) => p.justifyContent};
       align-items: ${(p) => p.alignItems};
+      gap: ${(p) => p.gap};
+      margin-left: ${(p) => p.marginLeft};
+      margin-right: ${(p) => p.marginRight};
+      margin-top: ${(p) => p.marginTop};
+      margin-bottom: ${(p) => p.marginBottom};
+      position: ${(p) => p.position};
       overflow-x: ${ ( { isScrollX } ) => (isScrollX) ? 'scroll' : 'hidden'};
       overflow-y: ${ ( { isScrollY } ) => (isScrollY) ? 'scroll' : 'hidden'};
 `;

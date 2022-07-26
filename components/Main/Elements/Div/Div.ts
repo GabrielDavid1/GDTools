@@ -24,6 +24,11 @@ const Div = styled.div<Props>`
       justify-content: ${(p) => p.justifyContent};
       align-items: ${(p) => p.alignItems};
       gap: ${(p) => p.gap};
+      margin-left: ${(p) => p.marginLeft};
+      margin-right: ${(p) => p.marginRight};
+      margin-top: ${(p) => p.marginTop};
+      margin-bottom: ${(p) => p.marginBottom};
+      position: ${(p) => p.position};
 `;
 
 export default Div;
