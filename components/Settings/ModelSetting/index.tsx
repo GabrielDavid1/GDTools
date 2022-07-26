@@ -5,13 +5,10 @@ import { useFuncs } from '../../../contexts/Functionalities';
 import GetSection from '../../../utils/GetSection';
 
 //Contexts
-import React, { useEffect } from 'react';
+import React from 'react';
 
 export default function ModelSetting () {
-  const { funcs, selected } = useFuncs();
-  useEffect(() => {
-    console.log(funcs)
-  }, [funcs]);
+  const { selected } = useFuncs();
   return (
    <div className="model-settings"> 
       {(selected.type !== undefined) 
