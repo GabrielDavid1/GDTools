@@ -76,6 +76,7 @@
                 bgColor: "orange",
                 justifyContent: 'center',
                 alignItems: 'center',
+                gap:'0px',
               },
               children: [],
             },

@@ -39,6 +39,7 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       flexWrap={config?.flexWrap}
       justifyContent={config?.justifyContent}
       alignItems={config?.alignItems}
+      gap={config?.gap}
       transform={"translate(0px, 0px)"}
       { ...rest} 
     > 

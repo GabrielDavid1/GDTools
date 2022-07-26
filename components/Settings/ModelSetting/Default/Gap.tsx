@@ -1,13 +1,26 @@
 //React
-import React, { useState } from 'react';
+import React from 'react';
+
+//Contexts
+import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function Gap () {
- const [value, setValue] = useState<string>('');
+  const { funcs, setFuncs, selected } = useFuncs();
 
- return (
+  function handleChange(
+    e = {} as React.ChangeEvent<HTMLSelectElement>
+  ) {
+    if (selected.config !== undefined) {
+        selected.config.gap = e.target.value;
+    }
+    setFuncs([...funcs]);
+    e.preventDefault();
+  }
+
+  return (
    <div className="position-area">
       <h2> Gap Area </h2> 
-      <select onChange={(e) => setValue(e.target.value)}>
+      <select onChange={(e) => handleChange(e)}>
         <option value="0px">0px</option>
         <option value="1px">1px</option>
         <option value="2px">2px</option>
@@ -17,5 +30,5 @@ export default function Gap () {
         <option value="10px">10px</option> 
       </select>
    </div>
- )
+  )
 }

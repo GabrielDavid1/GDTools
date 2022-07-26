@@ -25,6 +25,7 @@ export interface Config {
     alignItems?:string;
     isScrollX?:boolean;
     isScrollY?:boolean;
+    gap?:string;
 }
 
 export let config = {

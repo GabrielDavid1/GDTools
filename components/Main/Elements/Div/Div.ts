@@ -23,6 +23,7 @@ const Div = styled.div<Props>`
       flex-direction: ${(p) => p.flexDirection};
       justify-content: ${(p) => p.justifyContent};
       align-items: ${(p) => p.alignItems};
+      gap: ${(p) => p.gap};
 `;
 
 export default Div;
