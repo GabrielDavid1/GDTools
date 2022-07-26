@@ -12,31 +12,26 @@ import Tree from "../components/Settings/Tree";
 import ModelSetting from "../components/Settings/ModelSetting";
 
 const Home: NextPage = () => {
-
-  const { funcs } = useFuncs();
-  const { onToggle, setOnToggle } = useFuncs();
+  const { onToggle } = useFuncs();
   return (
     <div className="Container">
       <HeaderPage />
       <div className="functionalities-block">
         <div className="control-block">
           <Side />
-          <Main config={(funcs[0] !== undefined) ? funcs[0].config : {}} />
+          <Main />
         </div> 
       </div>
       <div className="control-settings">
         <div className="content">
-          <Header 
-            isActive={onToggle} 
-            setIsActive={setOnToggle}
-          />
+          <Header />
           {onToggle ? (
             <>
               <BottomTab />
               <Tree />
             </>
           ) : (
-              <ModelSetting config={(funcs[0] !== undefined) ? funcs[0].config : {}}  />
+              <ModelSetting />
           )}
         </div>
       </div>
