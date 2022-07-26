@@ -40,15 +40,16 @@
     const [onToggle, setOnToggle] = useState<boolean>(true);
 
     useEffect(() => {
-      setFuncs([{
+      setFuncs([
+        {
         id: '0',
         name: 'John',
-        type:'header',
+        type:'div',
         color:'red',
         config: {
           type:'Div',
           width: "100%",
-          height: "100px",
+          height: "40px",
           bgColor: "orange",
           pxBorder: "1px",
           typeBorder: "3",
@@ -68,49 +69,80 @@
           {
               id: '1',
               name: 'Doe',
-              type:'main',
+              type:'div',
               color:'red',
               children: [
               {
                 id: '3',
                 name: 'numero 2',
-                type:'View',
+                type:'div',
                 color: 'red',
                 children: [{
                   id: '4',
                   name: 'numero 3',
-                  type:'View',
+                  type:'div',
                   color:'red',
+                  config: {
+                    bgColor: 'pink',
+                  },
                   children: [
                     {
                       id: '5',
                       name: 'numero 4',
-                      type:'View',
+                      type:'div',
                       color:'red',
                       children: [
                         {
                           id: '6',
                           name: 'numero 5',
-                          type:'View',
+                          type:'input',
                           color:'red',
                           children: [],
                         },
                       ],
                     },
                   ],
-                },],
+                },
+                {
+                  id: '10',
+                  name: 'numero 10',
+                  type:'text',
+                  color: 'red',
+                  config: {
+                    type: 'Text',
+                    textContent: 'testando kkkkkk',
+                    color: 'purple',
+                  },
+                  children: []
+                },
+                ],
               },
             ],
           },
           {
             id: '7',
             name: 'numero 6',
-            type:'View',
+            type:'button',
             children: [],
             color:'pink',
           },
         ],
-      }]);
+        },
+        {
+          id: '11',
+          name: 'numero 1',
+          type:'div',
+          color:'red',
+          children: [],
+        },
+        {
+          id: '12',
+          name: 'numero 1',
+          type:'div',
+          color:'red',
+          children: [],
+        },
+    ]);
     },[]);
 
     function addNode(name:string, type:string, param:string, func:Funcs) {

@@ -1,5 +1,6 @@
 export interface Config {
     type?:string;
+    section?:string;
     width?: string;
     height?: string;
     border?: string;
@@ -29,6 +30,7 @@ export interface Config {
 
 export let config = {
     type:'Div',
+    section: '',
     width: "100px",
     height: "100px",
     bgColor: "orange",

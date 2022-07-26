@@ -8,10 +8,12 @@ import { InputElement } from "./InputElement";
 import { Config } from "../../../../types/Funcs";
 interface Props {
   config: Config;
+  children?: React.ReactNode;
 }
 
 export default function InputView({
   config,
+  children,
   ...rest
 }: Props) {
   return (
