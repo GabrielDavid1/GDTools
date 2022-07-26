@@ -1,12 +1,14 @@
 //React
 import React from "react";
+
+//Contexts
+import { useFuncs } from "../../../../contexts/Functionalities";
+
+//Types
 import { Config } from "../../../../types/Funcs";
 
 //Components
 import { ButtonElement } from "./ButtonElement";
-
-//Utils
-import ChangeSection from "../../../../utils/changeSection";
 interface Props {
   config:Config;
 }
@@ -15,9 +17,16 @@ export default function ButtonView({
   config,
   ...rest
 }: Props) {
+
+  function ChangeSection() {
+    const { setOnToggle, setSelected } = useFuncs();
+    setOnToggle(true);
+    setSelected(config as Config);
+  }
+
   return (
     <ButtonElement
-      onClick={() => ChangeSection(config as Config, true)}
+      onClick={() => ChangeSection()}
       width={`${config?.width}`}
       height={`${config?.height}`}
       boxShadow={(config?.boxShadow !== undefined) ? config.boxShadow : 0}
