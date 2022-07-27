@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+//React
+import React from 'react';
+
+//Contexts
+import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function TextArea (){
- const [value, setValue] = useState('Button');
+  const { funcs, setFuncs, selected } = useFuncs();
+
+  function handleChange (e: React.ChangeEvent<HTMLInputElement>) {
+       if (selected.config !== undefined) {
+           selected.config.textContent = e.target.value;
+       }
+       setFuncs([...funcs]);
+       e.preventDefault();
+  }
 
  return (
   <div className="text-area">
@@ -9,8 +21,8 @@ export default function TextArea (){
       <h2> Text Content: </h2>  
       <input 
           type="text"
-          value={value} 
-          onChange={(e) => setValue(e.target.value)} 
+          value={selected?.config?.textContent} 
+          onChange={(e) => handleChange(e)} 
       />
     </div>  
   </div>

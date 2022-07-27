@@ -68,8 +68,9 @@
             {
               id: '3',
               name: 'testando',
-              type:'div',
+              type:'button',
               color:'green',
+              isRoot:false,
               config: {
                 fontSize: '16px',
                 width: "50%",
@@ -80,6 +81,7 @@
                 marginRight:'0px',
                 marginBottom:'0px',
                 border:'none',
+                textContent: 'button',
               },
               children: [],
             },

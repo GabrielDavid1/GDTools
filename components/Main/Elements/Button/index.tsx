@@ -16,10 +16,14 @@ export default function ButtonView({
     <ButtonElement
       width={`${config?.width}`}
       height={`${config?.height}`}
-      boxShadow={(config?.boxShadow !== undefined) ? config.boxShadow : 0}
       border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
       color={`${config?.color}`}
       bgColor={`${config?.bgColor}`}
+      fontSize={config?.fontSize}
+      marginLeft={config?.marginLeft}
+      marginRight={config?.marginRight}
+      marginTop={config?.marginTop}
+      marginBottom={config?.marginBottom}
       {...rest}
     >
       {`${config?.textContent}`}

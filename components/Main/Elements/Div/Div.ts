@@ -15,8 +15,6 @@ const Div = styled.div<Props>`
       border: ${(p) => p.border};
       box-shadow: ${(p) => p.boxShadowConverted};
       border-radius: ${(p) => p.borderRadius};
-      opacity: ${(p) => p.opacity};
-      z-index: ${(p) => p.zIndex};
       transform: ${(p) => p.transform};
       display: flex;
       flex-wrap: ${(p) => p.flexWrap};

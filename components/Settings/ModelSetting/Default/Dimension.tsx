@@ -9,7 +9,6 @@ interface Props {
 }
 
 export default function Dimension({ width, height }:Props) {
-  const [value, setValue] = useState("0");
   const { funcs, setFuncs, selected } = useFuncs();
 
   function handleChange(
@@ -28,6 +27,7 @@ export default function Dimension({ width, height }:Props) {
 
   function handleChangeRange (e = {} as React.ChangeEvent<HTMLInputElement>) {
     if (selected.config !== undefined) { 
+        selected.config.width = e.target.value+'%';
         selected.config.height = e.target.value+'%';
         setFuncs([...funcs]);
         e.preventDefault();
