@@ -24,6 +24,9 @@ export default function InputView({
       height={config?.height}
       border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
       borderRadius={config?.borderRadius}
+      fontSize={config?.fontSize}
+      fontWeight={config?.fontWeight}
+      fontFamily={config?.fontFamily}
       {...rest}
     />
   );

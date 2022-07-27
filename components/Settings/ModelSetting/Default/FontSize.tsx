@@ -1,13 +1,24 @@
 //React
-import React, { useState } from 'react';
+import React from 'react';
+
+//Contexts
+import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function FontSize () {
- const [value, setValue] = useState<string>('10px');
+  const { funcs, setFuncs, selected } = useFuncs();
+
+  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
+     if (selected.config !== undefined) {
+         selected.config.fontSize = e.target.value;
+     }
+     setFuncs([...funcs]);
+     e.preventDefault();
+  }
 
  return (
    <div className="fontSize-area">
       <h2> Font Size </h2> 
-      <select onChange={(e) => setValue(e.target.value)}>
+      <select onChange={(e) => handleChange(e)}>
         <option value="10px">10px</option>
         <option value="12px">12px</option>
         <option value="16px">16px</option>
