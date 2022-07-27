@@ -1,13 +1,24 @@
 //React
-import React, { useState } from 'react';
+import React from 'react';
+
+//Contexts
+import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function FontFamily () {
- const [value, setValue] = useState<string>('10px');
- 
+ const { funcs, setFuncs, selected } = useFuncs();
+
+ function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
+    if (selected.config !== undefined) {
+        selected.config.fontFamily = e.target.value;
+    }
+    setFuncs([...funcs]);
+    e.preventDefault();
+ }
+
  return (
    <div className="fontFamily-area">
       <h2> Font Family </h2> 
-      <select onChange={(e) => setValue(e.target.value)}>
+      <select onChange={(e) => handleChange(e)}>
         <option value="arial">Arial</option>
         <option value="monospace">Monospace</option>
         <option value="cursive">Cursive</option>
