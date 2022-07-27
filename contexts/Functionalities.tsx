@@ -193,7 +193,47 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
   }
 
   function deleteAll() {
-    setFuncs([]);
+    setFuncs([
+      {
+        id: "0",
+        name: "Header",
+        type: "header",
+        color: "red",
+        isRoot: true,
+        config: {
+          width: "100%",
+          height: "25%",
+          bgColor: "#f8f8f8",
+        },
+        children: [],
+      },
+      {
+        id: "1",
+        name: "Main",
+        type: "main",
+        color: "green",
+        isRoot: true,
+        config: {
+          bgColor: "#dfdfdf",
+          width: "100%",
+          height: "100%",
+        },
+        children: [],
+      },
+      {
+        id: "2",
+        name: "Tab Nav",
+        type: "tab",
+        color: "purple",
+        isRoot: true,
+        config: {
+          bgColor: "#c4c4c4",
+          width: "100%",
+          height: "15%",
+        },
+        children: [],
+      },
+    ]);
   }
 
   return (
