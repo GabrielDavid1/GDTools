@@ -1,13 +1,23 @@
 //React
-import React, { useState } from 'react';
+import React from 'react';
+
+//Contexts
+import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function Direction () {
- const [value, setValue] = useState<string>('10px');
- 
+ const { funcs, setFuncs, selected } = useFuncs();
+
+ function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) { 
+    if (selected.config !== undefined) {
+        selected.config.flexDirection = e.target.value;
+    }
+    setFuncs([...funcs]);
+    e.preventDefault();
+ }
  return (
    <div className="fontFamily-area">
       <h2> Direction </h2> 
-      <select onChange={(e) => setValue(e.target.value)}>
+      <select onChange={(e) => handleChange(e)}>
         <option value="row">Horizontal</option>
         <option value="column">Vertical</option>
       </select>

@@ -68,13 +68,13 @@
             {
               id: '3',
               name: 'testando',
-              type:'input',
+              type:'div',
               color:'green',
               config: {
                 fontSize: '16px',
                 width: "50%",
                 height: "50%",
-                color: "orange",
+                bgColor: "orange",
                 marginLeft:'0px',
                 marginTop:'0px',
                 marginRight:'0px',
