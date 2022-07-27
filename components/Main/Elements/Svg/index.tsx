@@ -23,7 +23,6 @@ import Profile from "/assets/svg/profile.svg";
 
 export default function SvgView({ config }: Props) {
   const GetSvgIcon = (type: string | undefined) => {
-    if (config?.svgName !== undefined) {
       switch (type) {
         case "books":
           return (
@@ -122,18 +121,16 @@ export default function SvgView({ config }: Props) {
             />
           );
         default:
-          return (
-            <div className="field-tab">
-              <Circle
-                width={config?.width}
-                height={config?.height}
-                fill={config?.bgColor}
-              />
-              ;
-            </div>
-          );
+        return (
+          <div className="field-tab">
+            <Circle
+              width={config?.width}
+              height={config?.height}
+              fill={config?.bgColor}
+            />
+          </div>
+        );
       }
-    }
   };
   return GetSvgIcon(config?.svgName);
 }
