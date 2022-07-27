@@ -62,6 +62,7 @@ export default function Dimension({ width, height }:Props) {
           <p> Height: </p>
           <input
             type="text"
+            disabled={height}
             value={selected?.config?.height}
             onChange={(e) => handleChange(e, "height")}
           />

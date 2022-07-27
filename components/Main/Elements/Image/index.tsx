@@ -7,10 +7,10 @@ import ImageArea from "./ImageArea";
 //Types
 import { Config } from "../../../../types/Funcs";
 interface Props {
-  config:Config;
+  config: Config;
 }
 
-export default function ImageView({ config }:Props) {
+export default function ImageView({ config }: Props) {
   const [image, setImage] = useState<any>("");
 
   const imageHandler = (e: any) => {

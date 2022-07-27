@@ -36,6 +36,7 @@ export default function Main() {
         {renderer(funcs[0])}  
         {renderer(funcs[1])}
         {renderer(funcs[2])}
+
       </div>
     </main>
   );
