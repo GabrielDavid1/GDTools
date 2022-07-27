@@ -23,7 +23,6 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       bgColor={config?.bgColor}
       width={config?.width}
       height={config?.height}
-      border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
       borderRadius={config?.borderRadius}
       marginLeft={config?.marginLeft}
       marginRight={config?.marginRight}

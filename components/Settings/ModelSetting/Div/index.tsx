@@ -13,6 +13,7 @@ import Margin from '../Default/Margin';
 import Position from '../Default/Position';
 import PositionHorizontal from '../Default/PositionHorizontal';
 import PositionVertical from '../Default/PositionVertical';
+import ScrollArea from '../Default/ScrollArea';
 interface Props {
     title:string;
 }
@@ -26,6 +27,7 @@ export default function Div ({ title }:Props) {
      <BoxShadow />
      <BorderRadius />
      <Direction />
+     <ScrollArea />
      <Border />
      <PositionHorizontal />
      <PositionVertical />

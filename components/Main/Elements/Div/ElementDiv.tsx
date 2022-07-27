@@ -43,6 +43,8 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
       marginRight={config?.marginRight}
       marginTop={config?.marginTop}
       marginBottom={config?.marginBottom}
+      isScrollX={(config?.isScrollX !== undefined) && config?.isScrollX}
+      isScrollY={(config?.isScrollY !== undefined) && config?.isScrollY}
       gap={config?.gap}
       position={config?.position}
       transform={"translate(0px, 0px)"}

@@ -27,6 +27,8 @@ const Div = styled.div<Props>`
       margin-top: ${(p) => p.marginTop};
       margin-bottom: ${(p) => p.marginBottom};
       position: ${(p) => p.position};
+      overflow-x: ${ ( { isScrollX } ) => (isScrollX) ? 'scroll' : 'hidden'};
+      overflow-y: ${ ( { isScrollY } ) => (isScrollY) ? 'scroll' : 'hidden'};
 `;
 
 export default Div;

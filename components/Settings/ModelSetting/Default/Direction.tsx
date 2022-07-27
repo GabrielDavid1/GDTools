@@ -18,6 +18,7 @@ export default function Direction () {
    <div className="fontFamily-area">
       <h2> Direction </h2> 
       <select onChange={(e) => handleChange(e)}>
+        <option value="none">none</option>
         <option value="row">Horizontal</option>
         <option value="column">Vertical</option>
       </select>
