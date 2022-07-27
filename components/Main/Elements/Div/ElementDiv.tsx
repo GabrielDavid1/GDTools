@@ -1,5 +1,5 @@
 /* React */
-import React, { useState, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
 /* Types */
 import { Config } from '../../../../types/Funcs';
