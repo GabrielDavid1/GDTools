@@ -3,6 +3,7 @@ import React from 'react';
 
 //Components
 import Border from '../Default/Border';
+import BorderRadius from '../Default/BorderRadius';
 import BoxShadow from '../Default/BoxShadow';
 import ColorArea from '../Default/ColorArea';
 import Dimension from '../Default/Dimension';
@@ -22,6 +23,7 @@ export default function Div ({ title }:Props) {
      <ColorArea />
      <Dimension />
      <BoxShadow />
+     <BorderRadius />
      <Border />
      <PositionHorizontal />
      <PositionVertical />
