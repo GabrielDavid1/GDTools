@@ -68,7 +68,7 @@
             {
               id: '3',
               name: 'testando',
-              type:'button',
+              type:'text',
               color:'green',
               isRoot:false,
               config: {
@@ -81,7 +81,7 @@
                 marginRight:'0px',
                 marginBottom:'0px',
                 border:'none',
-                textContent: 'button',
+                textContent: 'testando',
               },
               children: [],
             },

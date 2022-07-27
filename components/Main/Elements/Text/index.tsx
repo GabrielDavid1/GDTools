@@ -18,11 +18,14 @@ export const TextView = (({
     <> 
       <Text 
         fontSize={config?.fontSize}
-        color={config?.color}
+        bgColor={config?.bgColor}
         fontWeight={config?.fontWeight}
         fontFamily={config?.fontFamily}
         textAlign={config?.textAlign}
-        border={config?.pxBorder+' '+config?.typeBorder+' '+config?.colorBorder}
+        marginLeft={config?.marginLeft}
+        marginRight={config?.marginRight}
+        marginTop={config?.marginTop}
+        marginBottom={config?.marginBottom}
       >
         {config?.textContent}
       </Text>
