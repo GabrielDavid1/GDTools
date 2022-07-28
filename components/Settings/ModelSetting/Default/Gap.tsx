@@ -11,9 +11,12 @@ export default function Gap () {
     e = {} as React.ChangeEvent<HTMLSelectElement>
   ) {
     if (selected.config !== undefined) {
-        selected.config.gap = e.target.value;
+        const oldFunc = JSON.stringify(selected);
+        const newFunc = JSON.parse(oldFunc);
+        newFunc.config.gap = e.target.value;
+        selected.config = newFunc.config;
+        setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 
