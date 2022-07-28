@@ -11,9 +11,12 @@ export default function Border() {
     e = {} as React.ChangeEvent<HTMLSelectElement>
   ) {
     if (selected.config !== undefined) {
-      selected.config.pxBorder = e.target.value;
+      const oldFunc = JSON.stringify(selected);
+      const newFunc = JSON.parse(oldFunc);
+      newFunc.config.pxBorder = e.target.value;
+      selected.config = newFunc.config;
+      setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 
@@ -21,9 +24,12 @@ export default function Border() {
     e = {} as React.ChangeEvent<HTMLSelectElement>
   ) {
     if (selected.config !== undefined) {
-      selected.config.typeBorder = e.target.value;
+      const oldFunc = JSON.stringify(selected);
+      const newFunc = JSON.parse(oldFunc);
+      newFunc.config.typeBorder = e.target.value;
+      selected.config = newFunc.config;
+      setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 
@@ -31,9 +37,12 @@ export default function Border() {
     e = {} as React.ChangeEvent<HTMLInputElement>
   ) {
     if (selected.config !== undefined) {
-      selected.config.colorBorder = e.target.value;
+      const oldFunc = JSON.stringify(selected);
+      const newFunc = JSON.parse(oldFunc);
+      newFunc.config.colorBorder = e.target.value;
+      selected.config = newFunc.config;
+      setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 

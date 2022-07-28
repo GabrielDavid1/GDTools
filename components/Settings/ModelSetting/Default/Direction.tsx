@@ -15,7 +15,6 @@ export default function Direction () {
         selected.config = newFunc.config;
         setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
  }
  return (
