@@ -8,11 +8,14 @@ export default function TextArea (){
   const { funcs, setFuncs, selected } = useFuncs();
 
   function handleChange (e: React.ChangeEvent<HTMLInputElement>) {
-       if (selected.config !== undefined) {
-           selected.config.textContent = e.target.value;
-       }
-       setFuncs([...funcs]);
-       e.preventDefault();
+      if (selected.config !== undefined) {
+          const oldFunc = JSON.stringify(selected);
+          const newFunc = JSON.parse(oldFunc);
+          newFunc.config.textContent = e.target.value;
+          selected.config = newFunc.config;
+          setFuncs([...funcs]); 
+      }
+      e.preventDefault();
   }
 
  return (

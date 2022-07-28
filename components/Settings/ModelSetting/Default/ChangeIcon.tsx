@@ -9,9 +9,12 @@ export default function ChangeIcon () {
 
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
     if (selected.config !== undefined) {
-        selected.config.svgName = e.target.value;
+        const oldFunc = JSON.stringify(selected);
+        const newFunc = JSON.parse(oldFunc);
+        newFunc.config.svgName = e.target.value;
+        selected.config = newFunc.config;
+        setFuncs([...funcs]); 
     }
-    setFuncs([...funcs]);
     e.preventDefault();
  }
 
