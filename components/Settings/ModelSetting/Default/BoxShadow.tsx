@@ -10,9 +10,14 @@ export default function BoxShadow () {
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
     const value = Number(e.target.value); 
     if (selected.config !== undefined) {
-      selected.config.boxShadow = value;
+        const oldFunc = JSON.stringify(selected);
+        const newFunc = JSON.parse(oldFunc);
+
+        newFunc.config.boxShadow = value;
+
+        selected.config = newFunc.config;
+        setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
  }
 

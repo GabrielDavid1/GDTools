@@ -8,7 +8,7 @@ import { Details, Home } from "./styles";
 import { useFuncs } from "../../../contexts/Functionalities";
 
 export default function Header() {
-  const { onToggle, setOnToggle, funcs, selected } = useFuncs();
+  const { onToggle, setOnToggle } = useFuncs();
   return (
     <header className="header-settings">
       <Home isActive={onToggle} onClick={() => {
