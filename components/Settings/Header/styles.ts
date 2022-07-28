@@ -1,5 +1,5 @@
+//Styled Components
 import styled from 'styled-components';
-
 interface Props {
   isActive:boolean;
 }

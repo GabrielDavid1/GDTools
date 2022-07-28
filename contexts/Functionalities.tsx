@@ -23,9 +23,12 @@ type FunctionalitiesContextData = {
   onToggle: boolean;
   setOnToggle: React.Dispatch<React.SetStateAction<boolean>>;
 
-  editNodeConfig: (obj: Funcs, oldConfig: Config, config: Config) => void;
+  touched: boolean;
+  setTouched: React.Dispatch<React.SetStateAction<boolean>>;
 
-  addNode: (name: string, type: string, param: string, func: Funcs) => void;
+  editNodeConfig: (oldConfig: Config, newConfig: Config) => void;
+
+  addNode: (name: string, type: string, config:Config) => void;
   editNode: (obj: Funcs, name: string) => void;
   deleteNode: (obj: Funcs) => void;
   deleteAll: () => void;
@@ -46,6 +49,8 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   const [lengthFuncs, setLengthFuncs] = useState(2);
   const [onToggle, setOnToggle] = useState<boolean>(true);
+
+  const [touched, setTouched] = useState<boolean>(false);
 
   useEffect(() => {
     setFuncs([
@@ -76,7 +81,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
             config: {
               fontSize: "16px",
               width: "10%",
-              height: "auto",
+              height: "10%",
               bgColor: "orange",
               marginLeft: "0px",
               marginTop: "0px",
@@ -116,28 +121,32 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     ]);
   }, []);
 
-  function addNode(name: string, type: string, param: string, func: Funcs) {
-    if (param === "solo") {
-      setFuncs([
-        ...funcs,
-        {
+  function addNode(name: string, type: string, config:Config) {
+    if (selected.children === undefined) {
+        setFuncs([
+          ...funcs,
+          {
+            id: (lengthFuncs + 1).toString(),
+            name,
+            type,
+            isRoot:false,
+            color: "#" + Math.floor(Math.random() * 16777215).toString(16),
+            config:config,
+            children: [],
+          },
+        ]);
+        setLengthFuncs(lengthFuncs + 1);
+    } else if (selected.children !== undefined) {
+        selected.children.push({
           id: (lengthFuncs + 1).toString(),
-          name,
-          type,
-          color: "#" + Math.floor(Math.random() * 16777215).toString(16),
+          name: name,
+          type: type,
+          isRoot: false,
+          color: selected.color,
+          config:config,
           children: [],
-        },
-      ]);
-      setLengthFuncs(lengthFuncs + 1);
-    } else if (func.children !== undefined) {
-      func.children.push({
-        id: (lengthFuncs + 1).toString(),
-        name: name,
-        type: type,
-        color: func.color,
-        children: [],
-      });
-      setLengthFuncs(lengthFuncs + 1);
+        });
+        setLengthFuncs(lengthFuncs + 1);
     }
   }
 
@@ -179,17 +188,11 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     setLengthFuncs(lengthFuncs - 1);
   }
 
-  function editNodeConfig(obj: Funcs, oldConfig: Config, config: Config) {
-    const newObj = { ...obj };
-
-    newObj.config = config;
-
+  function editNodeConfig(oldConfig: Funcs, newConfig: Funcs) {
     const target = JSON.stringify(oldConfig);
     const base = JSON.stringify(funcs);
-
-    const result = JSON.parse(base.replace(target, JSON.stringify(config)));
-
-    setFuncs(result);
+    const result = JSON.parse(base.replace(target, JSON.stringify(newConfig)));
+    setFuncs(result); 
   }
 
   function deleteAll() {
@@ -252,6 +255,8 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         deleteAll,
         editNode,
         deleteNode,
+        touched,
+        setTouched,
       }}
     >
       {children}

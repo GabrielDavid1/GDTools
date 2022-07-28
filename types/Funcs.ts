@@ -1,4 +1,5 @@
 export interface Config {
+    id?:string;
     type?:string;
     width?: string;
     height?: string;

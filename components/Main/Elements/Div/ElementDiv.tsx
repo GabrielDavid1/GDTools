@@ -25,7 +25,8 @@ export const ElementDiv = forwardRef<HTMLDivElement,  Props>(( {
    ...rest
 }, ref ) => {
   return (   
-    <Div 
+    <Div
+      className={String(Math.random())}
       ref={ref}
       bgColor={config?.bgColor}
       width={config?.width}

@@ -20,17 +20,6 @@ export const DivView = ({ config, children }: Props) => {
   const refTop = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refRight = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refBottom = useRef<HTMLDivElement>({} as HTMLDivElement);
-
-  const { funcs } = useFuncs();
-
-  useEffect(() => {
-    const div = ref.current;
-    if (config) {
-      div.style.width = `${config.width}`;
-      div.style.height = `${config.height}`;
-      div.style.borderRadius = `${config.borderRadius}`;
-    }
-  }, [funcs]);
   
   return (
       <ElementDiv 

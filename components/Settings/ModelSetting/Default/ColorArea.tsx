@@ -6,13 +6,18 @@ import { TwitterPicker } from 'react-color';
 import { useFuncs } from '../../../../contexts/Functionalities';
 
 export default function ColorArea () {
-  const { funcs, setFuncs, selected } = useFuncs();
+  const { funcs, setFuncs, selected, editNodeConfig } = useFuncs();
 
   function handleChange (event = {} as React.ChangeEvent<HTMLInputElement>, color = '#fff') {
     if (selected.config !== undefined) {
-        selected.config.bgColor = color;
+        const oldFunc = JSON.stringify(selected);
+        const newFunc = JSON.parse(oldFunc);
+
+        newFunc.config.bgColor = color;
+
+        selected.config = newFunc.config;
+        setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     event.preventDefault();
   }
 

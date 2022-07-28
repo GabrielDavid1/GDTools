@@ -19,7 +19,7 @@ const Div = styled.div<Props>`
       display: flex;
       flex-wrap: ${(p) => p.flexWrap};
       flex-direction: ${(p) => p.flexDirection};
-      justify-content: ${(p) => p.justifyContent};
+      justify-content: ${(p:any) => p.justifyContent};
       align-items: ${(p) => p.alignItems};
       gap: ${(p) => p.gap};
       margin-left: ${(p) => p.marginLeft};

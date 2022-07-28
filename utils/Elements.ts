@@ -1,30 +1,55 @@
 export default [
     {
       name: 'Div',
-      fc() { console.log('') }
+      type: 'div',
+      config: {
+        bgColor: 'orange',
+        width: '50%',
+        height: '50%',
+        border: '0px solid black',
+        borderRadius: '0px',
+        boxShadow:0,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        isScrollY: false,
+        isScrollX: false,
+        gap:'0px',
+        marginLeft:'0px',
+        marginRight:'0px',
+        marginTop:'0px',
+        marginBottom:'0px',
+        position:'none',
+      },
     },
     {
       name: 'Text',
-      fc() { console.log('') }
-    },
-    {
-      name: 'Svg',
-      fc() { console.log('') }
+      type: 'text',
+      config: {},
+  },
+  {
+    name: 'Svg',
+    type: 'svg',
+      config: {},
     },
     {
       name: 'Image',
-      fc() { console.log('') }
+      type: 'image',
+        config: {},
     },
     {
       name: 'Button',
-      fc() { console.log('') }
+      type: 'button',
+      config: {},
     },
     {
       name: 'Input',
-      fc() { console.log('') }
+      type: 'input',
+      config: {},
     },
     {
       name: 'Scroll list',
-      fc() { console.log('') }
+      type: 'div',
+      config: {},
     }
   ];

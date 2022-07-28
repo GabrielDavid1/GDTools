@@ -1,11 +1,12 @@
 //React
-import React from "react";
+import React, { useState } from "react";
 
 //Contexts
 import { useFuncs } from "../../../../contexts/Functionalities";
 
 //Types
 import { Funcs } from "../../../../types/Funcs";
+
 interface Props {
   nodes: Funcs;
   inputName: string;
@@ -13,17 +14,27 @@ interface Props {
 }
 
 export default function ElementList({ nodes, inputName, children }: Props) {
-  const { editNode, deleteNode, setOnToggle, setSelected } = useFuncs();
+  const [inputStatus, setInputStatus] = useState(true);
+
+  const { 
+    editNode, 
+    deleteNode, 
+    setSelected, 
+  } = useFuncs();
+
   return (
     <div className="element-list">
       <div
         className="content"
-        onClick={() => {
-          setSelected(nodes!!);
-          setOnToggle(false);
+        onClick={(e) => {
+          if(e.detail === 2) {
+            setInputStatus(false);
+          } else {
+            setSelected(nodes!!);
+          }
         }}
       >
-        {(nodes.children !== undefined && nodes.children.length > 0) ? (
+        {nodes.children !== undefined && nodes.children.length > 0 ? (
           <svg
             width="512px"
             height="512px"
@@ -49,12 +60,15 @@ export default function ElementList({ nodes, inputName, children }: Props) {
             <circle cx="60" cy="60.834" r="54.167" />
           </svg>
         )}
+
         <input
           type="text"
           value={inputName}
-          disabled={nodes.isRoot}
+          disabled={nodes.isRoot || inputStatus}
+          onKeyDown={(e) => e.key === "Enter" && setInputStatus(true)}
           onChange={(e) => editNode(nodes, e.target.value)}
         />
+
         <div className="actions">
           {!nodes.isRoot && (
             <a onClick={() => deleteNode(nodes)}>
