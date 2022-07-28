@@ -9,9 +9,12 @@ export default function Position () {
 
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
    if (selected.config !== undefined) {
-       selected.config.position = e.target.value;
+       const oldFunc = JSON.stringify(selected);
+       const newFunc = JSON.parse(oldFunc);
+       newFunc.config.position = e.target.value;
+       selected.config = newFunc.config;
+       setFuncs([...funcs]);
    }
-   setFuncs([...funcs]);
    e.preventDefault();
  }
 
