@@ -5,7 +5,7 @@ import React from "react";
 import { useFuncs } from "../../../../contexts/Functionalities";
 
 export default function Border() {
-  const { funcs, setFuncs, selected } = useFuncs();
+  const { funcs, setFuncs, selected } = useFuncs()
 
   function handleChangePxBorder(
     e = {} as React.ChangeEvent<HTMLSelectElement>
