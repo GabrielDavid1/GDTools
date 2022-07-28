@@ -9,7 +9,11 @@ export default function Direction () {
 
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) { 
     if (selected.config !== undefined) {
-        selected.config.flexDirection = e.target.value;
+        const oldFunc = JSON.stringify(selected);
+        const newFunc = JSON.parse(oldFunc);
+        newFunc.config.flexDirection = e.target.value;
+        selected.config = newFunc.config;
+        setFuncs([...funcs]);
     }
     setFuncs([...funcs]);
     e.preventDefault();
