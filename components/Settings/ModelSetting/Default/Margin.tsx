@@ -9,33 +9,45 @@ export default function Margin() {
 
   function handleChangeLeft(e: React.ChangeEvent<HTMLInputElement>) {
     if (selected.config !== undefined) {
-        selected.config.marginLeft = e.target.value;
+      const oldFunc = JSON.stringify(selected);
+      const newFunc = JSON.parse(oldFunc);
+      newFunc.config.marginLeft = e.target.value;
+      selected.config = newFunc.config;
+      setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 
   function handleChangeRight(e: React.ChangeEvent<HTMLInputElement>) {
     if (selected.config !== undefined) {
-        selected.config.marginRight = e.target.value;
+      const oldFunc = JSON.stringify(selected);
+      const newFunc = JSON.parse(oldFunc);
+      newFunc.config.marginRight = e.target.value;
+      selected.config = newFunc.config;
+      setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 
   function handleChangeTop(e: React.ChangeEvent<HTMLInputElement>) {
     if (selected.config !== undefined) {
-        selected.config.marginTop = e.target.value; 
+      const oldFunc = JSON.stringify(selected);
+      const newFunc = JSON.parse(oldFunc);
+      newFunc.config.marginTop = e.target.value;
+      selected.config = newFunc.config;
+      setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 
   function handleChangeBottom(e: React.ChangeEvent<HTMLInputElement>) {
     if (selected.config !== undefined) {
-        selected.config.marginBottom = e.target.value;
+      const oldFunc = JSON.stringify(selected);
+      const newFunc = JSON.parse(oldFunc);
+      newFunc.config.marginBottom = e.target.value;
+      selected.config = newFunc.config;
+      setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 
