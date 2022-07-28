@@ -27,6 +27,11 @@ export default function InputView({
       fontSize={config?.fontSize}
       fontWeight={config?.fontWeight}
       fontFamily={config?.fontFamily}
+      marginLeft={config?.marginLeft}
+      marginRight={config?.marginRight}
+      marginTop={config?.marginTop}
+      marginBottom={config?.marginBottom}
+      placeholder={config?.textContent}
       {...rest}
     />
   );

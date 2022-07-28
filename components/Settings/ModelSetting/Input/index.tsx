@@ -11,6 +11,7 @@ import Dimension from '../Default/Dimension';
 import FontFamily from '../Default/FontFamily';
 import FontWeight from '../Default/FontWeight';
 import BorderRadius from '../Default/BorderRadius';
+import TextArea from '../Default/TextArea';
 interface Props{
    title:string;
 }
@@ -26,6 +27,7 @@ export default function Input ({ title }:Props) {
      <FontFamily />
      <BorderRadius />
      <FontWeight />
+     <TextArea />
      <Margin />
      <Position />
    </>

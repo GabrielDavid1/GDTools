@@ -419,6 +419,7 @@ body {
         font-size: 0.8rem;
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 5px;
         margin-left: 2%;
         border-bottom: 1px solid #373636;
@@ -476,6 +477,7 @@ body {
           border: none;
           color: gray;
         }
+        text-align: center;
       }
     }
 

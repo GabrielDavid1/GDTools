@@ -30,6 +30,10 @@ export default function ImageView({ config }: Props) {
           src={image}
           width={`${config?.width}`}
           height={`${config?.height}`}
+          marginLeft={`${config?.marginLeft}`}
+          marginRight={`${config?.marginRight}`}
+          marginTop={`${config?.marginTop}`}
+          marginBottom={`${config?.marginBottom}`}
         />
       )}
       {image === "" && <label htmlFor="upload"> upload </label>}
