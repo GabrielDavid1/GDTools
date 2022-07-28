@@ -24,7 +24,10 @@ export default function BorderRadius () {
  return (
    <div className="boxShadow-area">
       <h2> Border Radius </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.borderRadius}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="0px">0px</option>
         <option value="1px">1px</option>
         <option value="2px">2px</option>

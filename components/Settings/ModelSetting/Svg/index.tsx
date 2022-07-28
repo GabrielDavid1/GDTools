@@ -14,7 +14,7 @@ export default function Svg ({ title }: Props) {
     <>
      <h2> {title} </h2>
      <ColorArea />
-     <Dimension height={false}/>
+     <Dimension width={false} height={true}/>
      <ChangeIcon />
     </>
  )

@@ -21,7 +21,10 @@ export default function Position () {
  return (
    <div className="position-area">
       <h2> Position </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.position}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="absolute">absolute</option>
         <option value="fixed">fixed</option>
         <option value="inherit">inherit</option>

@@ -21,7 +21,10 @@ export default function FontFamily () {
  return (
    <div className="fontFamily-area">
       <h2> Font Family </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.fontFamily}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="arial">Arial</option>
         <option value="monospace">Monospace</option>
         <option value="cursive">Cursive</option>

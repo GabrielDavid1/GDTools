@@ -50,7 +50,10 @@ export default function Border() {
     <div className="border-area">
       <h2> Border </h2>
       <div className="actions">
-        <select onChange={(e) => handleChangePxBorder(e)}>
+        <select 
+          defaultValue={selected?.config?.pxBorder}
+          onChange={(e) => handleChangePxBorder(e)}
+        >
           <option value="0px">0px</option>
           <option value="1px">1px</option>
           <option value="2px">2px</option>
@@ -59,7 +62,10 @@ export default function Border() {
           <option value="5px">5px</option>
         </select>
 
-        <select onChange={(e) => handleChangeStyleBorder(e)}>
+        <select 
+          defaultValue={selected?.config?.typeBorder}
+          onChange={(e) => handleChangeStyleBorder(e)}
+        >
           <option value="none">none</option>
           <option value="solid">solid</option>
           <option value="dashed">dashed</option>

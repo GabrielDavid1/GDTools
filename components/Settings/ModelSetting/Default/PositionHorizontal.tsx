@@ -21,7 +21,10 @@ export default function PositionHorizontal () {
  return (
    <div className="position-area">
       <h2> Position Horizontal </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.justifyContent}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="center">center</option>
         <option value="flex-start">left</option>
         <option value="flex-end">right</option>

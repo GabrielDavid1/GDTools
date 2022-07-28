@@ -24,7 +24,10 @@ export default function BoxShadow () {
  return (
    <div className="boxShadow-area">
       <h2> Box Shadow </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.boxShadow}
+        onChange={(e) => handleChange(e)}
+      >
         <option value={0}>0%</option>
         <option value={1}>10%</option>
         <option value={5}>50%</option>

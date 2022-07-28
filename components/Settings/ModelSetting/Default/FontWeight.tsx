@@ -21,7 +21,10 @@ export default function FontWeight () {
  return (
    <div className="fontWeight-area">
       <h2> Font Weight </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.fontWeight}
+        onChange={(e) => handleChange(e)}
+      >
         <option value={0}>none</option>
         <option value={100}>100</option>
         <option value={200}>200</option>

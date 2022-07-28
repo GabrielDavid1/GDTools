@@ -25,12 +25,28 @@ export default [
     {
       name: 'Text',
       type: 'text',
-      config: {},
-  },
-  {
-    name: 'Svg',
-    type: 'svg',
-      config: {},
+      config: {
+        bgColor: 'black',
+        fontSize: '16px',
+        fontFamily: 'Arial',
+        fontWeight: '100',
+        marginLeft:'0px',
+        marginRight:'0px',
+        marginTop:'0px',
+        marginBottom:'0px',
+        textContent:'Text',
+      },
+    },
+    {
+      name: 'Svg',
+      type: 'svg',
+      config: {
+        width: "10%",
+        height: "10%",
+        bgColor: "black",
+        svgName: "books",
+        border: "none",
+      },
     },
     {
       name: 'Image',

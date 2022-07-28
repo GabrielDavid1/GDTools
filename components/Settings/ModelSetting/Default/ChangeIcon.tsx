@@ -21,7 +21,10 @@ export default function ChangeIcon () {
  return (
    <div className="boxShadow-area">
       <h2> Change Icon </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.svgName}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="books">Books</option>
         <option value="car">Car</option>
         <option value="circle">Circle</option>

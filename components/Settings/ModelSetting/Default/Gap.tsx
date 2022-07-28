@@ -23,7 +23,10 @@ export default function Gap () {
   return (
    <div className="position-area">
       <h2> Gap Area </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.gap}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="0px">0px</option>
         <option value="1px">1px</option>
         <option value="2px">2px</option>

@@ -21,7 +21,10 @@ export default function FontSize () {
  return (
    <div className="fontSize-area">
       <h2> Font Size </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.fontSize}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="10px">10px</option>
         <option value="12px">12px</option>
         <option value="16px">16px</option>

@@ -34,6 +34,12 @@ export default function Reference({ node, children }: Props) {
         <AppHeader 
           height={`${node?.config?.height}`}
           bgColor={`${node?.config?.bgColor}`}
+          flexDirection={`${node?.config?.flexDirection}`}
+          justifyContent={`${node?.config?.justifyContent}`}
+          alignItems={`${node?.config?.alignItems}`}
+          gap={`${node?.config?.gap}`}
+          isScrollX={node?.config?.isScrollX}
+          isScrollY={node?.config?.isScrollY}
         >
           {children}
         </AppHeader>
@@ -42,7 +48,13 @@ export default function Reference({ node, children }: Props) {
       return (
         <AppBody
           height={`${node?.config?.height}`}
-          bgColor={`${node?.config?.bgColor}`}  
+          bgColor={`${node?.config?.bgColor}`}
+          flexDirection={`${node?.config?.flexDirection}`}
+          justifyContent={`${node?.config?.justifyContent}`}
+          alignItems={`${node?.config?.alignItems}`}
+          gap={`${node?.config?.gap}`}
+          isScrollX={node?.config?.isScrollX}
+          isScrollY={node?.config?.isScrollY}
         >
           {children}
         </AppBody>
@@ -52,6 +64,12 @@ export default function Reference({ node, children }: Props) {
         <AppTab 
           height={`${node?.config?.height}`}
           bgColor={`${node?.config?.bgColor}`}
+          flexDirection={`${node?.config?.flexDirection}`}
+          justifyContent={`${node?.config?.justifyContent}`}
+          alignItems={`${node?.config?.alignItems}`}
+          gap={`${node?.config?.gap}`}
+          isScrollX={node?.config?.isScrollX}
+          isScrollY={node?.config?.isScrollY}
         >
           {children}
         </AppTab>

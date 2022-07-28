@@ -21,7 +21,10 @@ export default function PositionVertical () {
  return (
    <div className="position-area">
       <h2> Position Vertical </h2> 
-      <select onChange={(e) => handleChange(e)}>
+      <select 
+        defaultValue={selected?.config?.alignItems}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="center">center</option>
         <option value="flex-start">top</option>
         <option value="flex-end">bottom</option>

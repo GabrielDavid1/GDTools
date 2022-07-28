@@ -20,8 +20,10 @@ export default function Direction () {
  return (
    <div className="fontFamily-area">
       <h2> Direction </h2> 
-      <select onChange={(e) => handleChange(e)}>
-        <option value="none">none</option>
+      <select 
+        defaultValue={selected?.config?.flexDirection}
+        onChange={(e) => handleChange(e)}
+      >
         <option value="row">Horizontal</option>
         <option value="column">Vertical</option>
       </select>
