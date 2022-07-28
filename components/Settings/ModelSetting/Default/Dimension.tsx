@@ -1,5 +1,5 @@
 //React
-import React, { useState } from "react";
+import React from "react";
 
 //Contexts
 import { useFuncs } from "../../../../contexts/Functionalities";
@@ -16,22 +16,30 @@ export default function Dimension({ width, height }:Props) {
     type: string
   ) {
     if (selected.config !== undefined) {
-      selected.config.width =
-        type === "width" ? e.target.value : selected.config.width;
-      selected.config.height =
-        type === "height" ? e.target.value : selected.config.height;
+        const oldFunc = JSON.stringify(selected);
+        const newFunc = JSON.parse(oldFunc);
+
+        newFunc.config.width = type === "width" ? e.target.value : newFunc.config.width;
+        newFunc.config.height = type === "height" ? e.target.value : newFunc.config.height;
+
+        selected.config = newFunc.config;
+        setFuncs([...funcs]);
     }
-    setFuncs([...funcs]);
     e.preventDefault();
   }
 
   function handleChangeRange (e = {} as React.ChangeEvent<HTMLInputElement>) {
     if (selected.config !== undefined) { 
-        selected.config.width = e.target.value+'%';
-        selected.config.height = e.target.value+'%';
+        const oldFunc = JSON.stringify(selected);
+        const newFunc = JSON.parse(oldFunc);
+
+        newFunc.config.width = e.target.value+'%';
+        newFunc.config.height = e.target.value+'%';
+
+        selected.config = newFunc.config;
         setFuncs([...funcs]);
-        e.preventDefault();
-    }
+      }
+      e.preventDefault();
   }
 
   return (
