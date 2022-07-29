@@ -1,15 +1,17 @@
 export default function defaultModel() {
-  const index = `
+  const Imports = `
     import React from 'react';
 
     import { 
       Container, 
     } from './styles';
-    
+  `;
+
+  const render = `
     export default function GdTools (){
       return (
         <Container>
-        
+          
         </Container>
       )
     }
@@ -22,6 +24,5 @@ export default function defaultModel() {
       flex: 1;
     `;
   `;
-  
-  return index;
+  return Imports;
 }

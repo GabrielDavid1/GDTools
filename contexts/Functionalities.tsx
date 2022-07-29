@@ -11,15 +11,15 @@ import getFuncTypes from "../Code/getFuncTypes";
 //Types
 import { Config, Funcs } from "../types/Funcs";
 
+//Contexts
+import { useCodes } from "./Codes";
+
 type FunctionalitiesContextData = {
   funcs: Funcs[];
   setFuncs: (param: Funcs[]) => void;
 
   selected: Funcs;
   setSelected: (param: Funcs) => void;
-
-  codeMain: string;
-  setCodeMain: (param: string) => void;
 
   lengthFuncs: number;
   setLengthFuncs: React.Dispatch<React.SetStateAction<number>>;
@@ -29,8 +29,6 @@ type FunctionalitiesContextData = {
 
   touched: boolean;
   setTouched: React.Dispatch<React.SetStateAction<boolean>>;
-
-  addInCode: (element:Funcs) => void;
 
   addNode: (name: string, type: string, config:Config) => void;
   editNode: (obj: Funcs, name: string) => void;
@@ -56,7 +54,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   const [touched, setTouched] = useState<boolean>(false);
 
-  const [codeMain, setCodeMain] = useState<string>('');
+  const { codeMain, setCodeMain, addInCode } = useCodes();
 
   useEffect(() => {
     setFuncs([
@@ -131,29 +129,10 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
             config:config,
             children: [],
           };
-          addInCode(element);
+          addInCode(element, selected);
           selected.children.push(element);
           setLengthFuncs(lengthFuncs + 1);
         }
-  }
-
-  function addInCode (element:Funcs) {
-    if (selected.children !== undefined) {
-        const target = (selected.children.length > 0) ? getFuncTypes(selected.children[selected.children.length-1], 'last') : '';
-        
-        const source = getFuncTypes(selected, 'first');
-        const newValue = source.replace('[children]', getFuncTypes(element, 'first'));
-
-        if (selected.children.length === 0) {
-          if(codeMain === '') {
-            setCodeMain(source.replace(source, newValue));
-          } else {
-            setCodeMain(codeMain.replace(source, newValue));
-          }
-        } else {
-          setCodeMain(codeMain.replace(target, target+getFuncTypes(element, 'first')));
-        }
-    }
   }
 
   function editNode(obj: Funcs, name: string) {
@@ -276,15 +255,12 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         setOnToggle,
         lengthFuncs,
         setLengthFuncs,
-        addInCode,
         addNode,
         deleteAll,
         editNode,
         deleteNode,
         touched,
         setTouched,
-        codeMain,
-        setCodeMain,
       }}
     >
       {children}

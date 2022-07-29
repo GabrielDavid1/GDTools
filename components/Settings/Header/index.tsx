@@ -6,9 +6,11 @@ import { Details, Home } from "./styles";
 
 //Contexts
 import { useFuncs } from "../../../contexts/Functionalities";
+import { useCodes } from "../../../contexts/Codes";
 
 export default function Header() {
-  const { onToggle, setOnToggle, codeMain } = useFuncs();
+  const { codeMain } = useCodes();
+  const { onToggle, setOnToggle } = useFuncs();
 
   return (
     <header className="header-settings">

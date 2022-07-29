@@ -5,14 +5,16 @@ import React from 'react';
 import { TwitterPicker } from 'react-color';
 
 //Contexts
-import getFuncTypes from '../../../../Code/getFuncTypes';
+import { useCodes } from '../../../../contexts/Codes';
 import { useFuncs } from '../../../../contexts/Functionalities';
 
 //Types
 import { Funcs } from '../../../../types/Funcs';
+import getFuncTypes from '../../../../Code/getFuncTypes';
 
 export default function ColorArea () {
-  const { funcs, setFuncs, selected, codeMain, setCodeMain } = useFuncs();
+  const { codeMain, setCodeMain } = useCodes();
+  const { funcs, setFuncs, selected } = useFuncs();
 
   function handleCode (oldFunc:string, newFunc:Funcs) {
     const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');

@@ -5,13 +5,15 @@ import React from 'react';
 import getFuncTypes from '../../../../Code/getFuncTypes';
 
 //Contexts
+import { useCodes } from '../../../../contexts/Codes';
 import { useFuncs } from '../../../../contexts/Functionalities';
 
 //Types
 import { Funcs } from '../../../../types/Funcs';
 
 export default function TextArea (){
-  const { funcs, setFuncs, selected, codeMain, setCodeMain } = useFuncs();
+  const { codeMain, setCodeMain } = useCodes();
+  const { funcs, setFuncs, selected } = useFuncs();
 
   function handleCode (oldFunc:string, newFunc:Funcs) {
     const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');

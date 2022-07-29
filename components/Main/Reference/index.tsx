@@ -17,7 +17,10 @@ interface Props {
 }
 
 export default function Reference({ node, children }: Props) {
-  //const teste = '<Main>space<Div3>[children]</Div3>space<Div4>[children]</Div4>space<Div5>[children]</Div5>space</Main>'.replace( /\<\/Div3>/gi, "\n" )
+  //const space = `${'  '}`;
+  //let teste = `<Main>space${space}<Div3>[children]</Div3>space${space}<Div4>[children]</Div4>space${space}<Div5>[children]</Div5>space${space}</Main>`.replace(/space/gi, '\n');
+  //teste = teste.replace("  </Main>", '</Main>');
+
   switch (node.type) {
     case "text":
       return GetElement(node.type, node.config as Config);
@@ -72,7 +75,7 @@ export default function Reference({ node, children }: Props) {
           isScrollX={node?.config?.isScrollX}
           isScrollY={node?.config?.isScrollY}
         >
-          {children} 
+          {children}
         </AppTab>
       );
 

@@ -2,6 +2,7 @@
 import React from 'react';
 
 //Contexts
+import { useCodes } from '../../../../contexts/Codes';
 import { useFuncs } from '../../../../contexts/Functionalities';
 
 //Code
@@ -11,7 +12,8 @@ import getFuncTypes from '../../../../Code/getFuncTypes';
 import { Funcs } from '../../../../types/Funcs';
 
 export default function ChangeIcon () {
- const { funcs, setFuncs, selected, codeMain, setCodeMain } = useFuncs();
+ const { codeMain, setCodeMain } = useCodes();
+ const { funcs, setFuncs, selected } = useFuncs();
 
  function handleCode (oldFunc:string, newFunc:Funcs) {
   const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');
@@ -25,7 +27,7 @@ export default function ChangeIcon () {
 
         newFunc.config.svgName = e.target.value;
         handleCode(oldFunc, newFunc);
-        
+
         selected.config = newFunc.config;
         setFuncs([...funcs]); 
     }
