@@ -1,5 +1,5 @@
 //React
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 
 //Types
 import { Funcs } from "../../types/Funcs";

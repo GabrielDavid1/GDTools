@@ -13,7 +13,6 @@ import ModelSetting from "../components/Settings/ModelSetting";
 
 const Home: NextPage = () => {
   const { onToggle } = useFuncs();
-  
   return (
     <div className="Container">
       <HeaderPage />

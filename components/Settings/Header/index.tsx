@@ -8,11 +8,14 @@ import { Details, Home } from "./styles";
 import { useFuncs } from "../../../contexts/Functionalities";
 
 export default function Header() {
-  const { onToggle, setOnToggle } = useFuncs();
+  const { onToggle, setOnToggle, codeMain } = useFuncs();
+
   return (
     <header className="header-settings">
       <Home isActive={onToggle} onClick={() => {
-        setOnToggle(true)}}>
+            setOnToggle(true);
+            console.log(codeMain);
+        }}>
         <svg
           focusable="false"
           aria-hidden="true"

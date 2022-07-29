@@ -6,6 +6,7 @@ import React, {
   ReactNode,
   useEffect,
 } from "react";
+import getFuncTypes from "../Code/getFuncTypes";
 
 //Types
 import { Config, Funcs } from "../types/Funcs";
@@ -17,6 +18,9 @@ type FunctionalitiesContextData = {
   selected: Funcs;
   setSelected: (param: Funcs) => void;
 
+  codeMain: string;
+  setCodeMain: (param: string) => void;
+
   lengthFuncs: number;
   setLengthFuncs: React.Dispatch<React.SetStateAction<number>>;
 
@@ -25,6 +29,8 @@ type FunctionalitiesContextData = {
 
   touched: boolean;
   setTouched: React.Dispatch<React.SetStateAction<boolean>>;
+
+  addInCode: (element:Funcs) => void;
 
   addNode: (name: string, type: string, config:Config) => void;
   editNode: (obj: Funcs, name: string) => void;
@@ -49,6 +55,8 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
   const [onToggle, setOnToggle] = useState<boolean>(true);
 
   const [touched, setTouched] = useState<boolean>(false);
+
+  const [codeMain, setCodeMain] = useState<string>('');
 
   useEffect(() => {
     setFuncs([
@@ -112,36 +120,63 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     ]);
   }, []);
 
-  
-
   function addNode(name: string, type: string, config:Config) {
       if (selected.children !== undefined) {
-          selected.children.push({
+          const element = {
             id: (lengthFuncs + 1).toString(),
-            name: name,
+            name: name+String((lengthFuncs + 1)),
             type: type,
             isRoot: false,
             color: selected.color,
             config:config,
             children: [],
-          });
+          };
+          addInCode(element);
+          selected.children.push(element);
           setLengthFuncs(lengthFuncs + 1);
-      }
+        }
+  }
+
+  function addInCode (element:Funcs) {
+    if (selected.children !== undefined) {
+        const target = (selected.children.length > 0) ? getFuncTypes(selected.children[selected.children.length-1], 'last') : '';
+        
+        const source = getFuncTypes(selected, 'first');
+        const newValue = source.replace('[children]', getFuncTypes(element, 'first'));
+
+        if (selected.children.length === 0) {
+          if(codeMain === '') {
+            setCodeMain(source.replace(source, newValue));
+          } else {
+            setCodeMain(codeMain.replace(source, newValue));
+          }
+        } else {
+          setCodeMain(codeMain.replace(target, target+getFuncTypes(element, 'first')));
+        }
+    }
   }
 
   function editNode(obj: Funcs, name: string) {
-    let newObj = { ...obj };
+    const actualNode = JSON.stringify(obj);
+    const oldElement = getFuncTypes(JSON.parse(actualNode), 'first');
+  
+    let newObj = { ...obj};
     newObj.name = name;
+    
+    setCodeMain(codeMain.replace(oldElement,  getFuncTypes(newObj, 'first')));
 
     const target = JSON.stringify(obj);
     const base = JSON.stringify(funcs);
 
     const result = JSON.parse(base.replace(target, JSON.stringify(newObj)));
+
     setFuncs(result);
   }
 
   function deleteNode(obj: Funcs) {
     const base = JSON.stringify(funcs);
+
+    setCodeMain(codeMain.replace(getFuncTypes(obj, 'first'), ""));
 
     const targets = {
       one: "," + JSON.stringify(obj),
@@ -240,12 +275,15 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         setOnToggle,
         lengthFuncs,
         setLengthFuncs,
+        addInCode,
         addNode,
         deleteAll,
         editNode,
         deleteNode,
         touched,
         setTouched,
+        codeMain,
+        setCodeMain,
       }}
     >
       {children}

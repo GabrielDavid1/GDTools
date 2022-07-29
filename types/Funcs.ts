@@ -32,6 +32,7 @@ export interface Config {
     marginTop?:string;
     marginBottom?:string;
     svgName?:string;
+    sourceImage?:string;
 }
 
 export let config = {

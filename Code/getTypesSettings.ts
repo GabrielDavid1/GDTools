@@ -1,0 +1,21 @@
+export default function getTypesSettings (element:string) {
+    switch (element) {
+        case 'border': return 'border';
+        case 'borderRadius': return 'border-radius';
+        case 'boxShadow': return 'box-shadow';
+        case 'color': return 'color';
+        case 'width': return 'width';
+        case 'height': return 'height';
+        case 'flexDirection': return 'flex-direction';
+        case 'alignItems': return 'align-items';
+        case 'justifyContent': return 'justify-content';
+        case 'fontFamily': return 'font-family';
+        case 'fontWeight': return 'font-weight';
+        case 'gap': return 'gap';
+        case 'marginLeft': return 'margin-left';
+        case 'marginRight': return 'margin-right';
+        case 'marginBottom': return 'margin-bottom';
+        case 'marginTop': return 'margin-top';
+        case 'position': return 'position';
+    }
+}

@@ -28,7 +28,7 @@ export default function ElementList({ nodes, inputName, children }: Props) {
         className="content"
         onClick={(e) => {
           if(e.detail === 2) {
-            setInputStatus(false);
+            setInputStatus(true);
           } else {
             setSelected(nodes!!);
           }
@@ -64,7 +64,7 @@ export default function ElementList({ nodes, inputName, children }: Props) {
         <input
           type="text"
           value={inputName}
-          disabled={nodes.isRoot || inputStatus}
+          disabled={nodes.isRoot}
           onKeyDown={(e) => e.key === "Enter" && setInputStatus(true)}
           onChange={(e) => editNode(nodes, e.target.value)}
         />
