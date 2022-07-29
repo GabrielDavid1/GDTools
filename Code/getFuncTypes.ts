@@ -26,6 +26,8 @@ export default function getFuncTypes(element: Funcs, param: string) {
         return `<${ElementName} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />space`;
       case "div":
         return `</${ElementName}>`;
+      case "text":
+        return `</${ElementName}>`;
       default:
         return `space</${ElementName}>`;
       }
@@ -35,13 +37,13 @@ export default function getFuncTypes(element: Funcs, param: string) {
     case "input":
       return `<${ElementName} placeholder="${element?.config?.textContent}" autoCorrect={false} autoCapitalize="none" onChangeText={text => set${ElementName}(text)}/>space`;
     case "text":
-      return `<${ElementName}>${element?.config?.textContent}</${ElementName}>space`;
+      return `space<${ElementName}>${element?.config?.textContent}</${ElementName}>`;
     case "image":
-      return `<${ElementName} source={./assets/${element?.config?.sourceImage}} />space`;
+      return `space<${ElementName} source={./assets/${element?.config?.sourceImage}} />`;
     case "svg":
-      return `<${ElementName} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />space`;
+      return `space<${ElementName} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />`;
     case "button":
-      return `<${ElementName} onPress={() => console.log("${element?.config?.textContent}")}>${element?.config?.textContent}</${ElementName}>space`;
+      return `space<${ElementName} onPress={() => console.log("${element?.config?.textContent}")}>${element?.config?.textContent}</${ElementName}>`;
     case "div": 
       return `space<${ElementName}>[children]</${element.name}>`;
     default:

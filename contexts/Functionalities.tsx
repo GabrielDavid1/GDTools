@@ -176,8 +176,6 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
   function deleteNode(obj: Funcs) {
     const base = JSON.stringify(funcs);
 
-    setCodeMain(codeMain.replace(getFuncTypes(obj, 'first'), ""));
-
     const targets = {
       one: "," + JSON.stringify(obj),
       two: JSON.stringify(obj) + ",",
@@ -188,13 +186,16 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
       const converted = base.replace(targets.one, "");
       if (converted !== base) {
         setFuncs(JSON.parse(converted));
+        setCodeMain(codeMain.replace(getFuncTypes(obj, 'first'), ""));
       } else {
         const converted2 = base.replace(targets.two, "");
         if (converted2 !== base) {
           setFuncs(JSON.parse(converted2));
+          setCodeMain(codeMain.replace(getFuncTypes(obj, 'first'), ""));
         } else {
           const converted3 = base.replace(targets.three, "");
           setFuncs(JSON.parse(converted3));
+          setCodeMain(codeMain.replace(getFuncTypes(obj, 'first'), "[children]"));
         }
       }
     } catch (error) {}
