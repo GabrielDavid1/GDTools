@@ -13,11 +13,8 @@ export default function mountStyle(element: Funcs) {
 
   let acc = "";
   for (const column in element.config) {
-    if (column !== "isScrollX" && column !== "isScrollY")
-        acc += `${"\n"}${getTypesSettings(column)}:${getElementSettings(
-          column,
-          element.config
-        )};`;
+    if (column !== "isScrollX" && column !== "isScrollY" && column !== "pxBorder" && column !== "typeBorder" && column !== "colorBorder")
+        acc += `${"\n"}${getTypesSettings(column,(element.type) ? element.type : "div")}:${getElementSettings(column,element.config)};`;
   }
   const end = "`;"+'\n';
   return start + acc + end;

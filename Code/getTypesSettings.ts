@@ -1,4 +1,4 @@
-export default function getTypesSettings (element:string) {
+export default function getTypesSettings (element:string, type:string) {
     switch (element) {
         case 'border': return 'border';
         case 'borderRadius': return 'border-radius';
@@ -11,11 +11,14 @@ export default function getTypesSettings (element:string) {
         case 'justifyContent': return 'justify-content';
         case 'fontFamily': return 'font-family';
         case 'fontWeight': return 'font-weight';
+        case 'fontSize': return 'font-size';
         case 'gap': return 'gap';
         case 'marginLeft': return 'margin-left';
         case 'marginRight': return 'margin-right';
         case 'marginBottom': return 'margin-bottom';
         case 'marginTop': return 'margin-top';
         case 'position': return 'position';
+        case 'bgColor': return (type === 'div') ? 'background-color' : 'color';
+        default: return 'padding';
     }
 }

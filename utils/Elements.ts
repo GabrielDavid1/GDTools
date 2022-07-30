@@ -45,7 +45,6 @@ export default [
         height: "10%",
         bgColor: "black",
         svgName: "books",
-        border: "none",
       },
     },
     {
@@ -88,7 +87,6 @@ export default [
         typeBorder: 'solid',
         colorBorder:'#606263',
         fontSize:'14px',
-        color: 'white',
         fontFamily: 'Arial',
         fontWeight: '100',
         borderRadius: '0px',

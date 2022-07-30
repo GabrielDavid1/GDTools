@@ -54,9 +54,14 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   const [touched, setTouched] = useState<boolean>(false);
 
-  const { clearCode, setCode, addInCode, getCode, codeStylesGenerator } = useCodes();
-
-  const [isInitialized, setIsInitialized] = useState<boolean>(false);
+  const { 
+    clearCode, 
+    setCode, 
+    addInCode, 
+    getCode, 
+    codeStylesGenerator,
+    deleteCodeStyleElement,
+  } = useCodes();
 
   useEffect(() => {
     const header = {
@@ -198,6 +203,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
           );
         }
       }
+      deleteCodeStyleElement(obj);
     } catch (error) {}
   }
 
