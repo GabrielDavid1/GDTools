@@ -14,22 +14,18 @@ interface Props {
 }
 
 export default function ElementList({ nodes, inputName, children }: Props) {
-  const [inputStatus, setInputStatus] = useState(true);
-
   const { 
     editNode, 
     deleteNode, 
     setSelected, 
   } = useFuncs();
-
+  const lengthNode = nodes?.children?.length;
   return (
     <div className="element-list">
       <div
         className="content"
         onClick={(e) => {
-          if(e.detail === 2) {
-            setInputStatus(true);
-          } else {
+          if(e.detail === 1) {
             setSelected(nodes!!);
           }
         }}
@@ -65,12 +61,12 @@ export default function ElementList({ nodes, inputName, children }: Props) {
           type="text"
           value={inputName}
           disabled={nodes.isRoot}
-          onKeyDown={(e) => e.key === "Enter" && setInputStatus(true)}
+          onKeyDown={(e) => e.key === "Enter"}
           onChange={(e) => editNode(nodes, e.target.value)}
         />
 
         <div className="actions">
-          {!nodes.isRoot && (
+          {(!nodes.isRoot && lengthNode === 0) && (
             <a onClick={() => deleteNode(nodes)}>
               <svg
                 width="18px"

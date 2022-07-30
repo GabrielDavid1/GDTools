@@ -35,36 +35,6 @@ export interface Config {
     sourceImage?:string;
 }
 
-export let config = {
-    type:'Div',
-    section: '',
-    width: "100px",
-    height: "100px",
-    bgColor: "orange",
-    pxBorder: "1px",
-    typeBorder: "3",
-    colorBorder: "#rrggbb",
-    boxShadow: 10, 
-    borderRadius: "0px",
-    opacity: "1",
-    zIndex: "1",
-    flexWrap: "none",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    isScrollX: false,
-    isScrollY: true,
-};
-
-export const configText = {
-    type:'Text',
-    fontSize: "1rem",
-    fontWeight: "100",
-    color: "black",
-    fontFamily: "Arial",
-    textAlign: "left",
-    textContent: "Text",
-};
 export interface Funcs {
     id?: string;
     name?: string;
@@ -72,6 +42,7 @@ export interface Funcs {
     config?: Config;
     children?: Funcs[];
     section?:string;
+    mac?:string;
     isRoot?:boolean;
     color?:string;
 }

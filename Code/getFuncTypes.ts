@@ -4,7 +4,7 @@ import { Funcs } from "../types/Funcs";
 export default function getFuncTypes(element: Funcs, param: string) {
   const name = element.name+'';
   const ElementName = name.at(0)?.toUpperCase()+name.substring(1).replace(/ /g, "");
-  
+
   let sizeToSvg = element?.config?.width;
   
   //Img/Svg types dimension

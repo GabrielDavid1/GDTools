@@ -9,14 +9,14 @@ import { useFuncs } from "../../../contexts/Functionalities";
 import { useCodes } from "../../../contexts/Codes";
 
 export default function Header() {
-  const { codeMain } = useCodes();
-  const { onToggle, setOnToggle } = useFuncs();
+  const { getCode } = useCodes();
+  const { onToggle, setOnToggle, selected } = useFuncs();
 
   return (
     <header className="header-settings">
       <Home isActive={onToggle} onClick={() => {
             setOnToggle(true);
-            console.log(codeMain);
+            console.log(getCode('main'));
         }}>
         <svg
           focusable="false"

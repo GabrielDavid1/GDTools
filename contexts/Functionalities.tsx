@@ -30,7 +30,7 @@ type FunctionalitiesContextData = {
   touched: boolean;
   setTouched: React.Dispatch<React.SetStateAction<boolean>>;
 
-  addNode: (name: string, type: string, config:Config) => void;
+  addNode: (name: string, type: string, config: Config) => void;
   editNode: (obj: Funcs, name: string) => void;
   deleteNode: (obj: Funcs) => void;
   deleteAll: () => void;
@@ -54,7 +54,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   const [touched, setTouched] = useState<boolean>(false);
 
-  const { codeMain, setCodeMain, addInCode } = useCodes();
+  const { clearCode, setCode, addInCode, getCode } = useCodes();
 
   useEffect(() => {
     setFuncs([
@@ -64,16 +64,17 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         type: "header",
         color: "#fab68a",
         isRoot: true,
+        mac: "header",
         config: {
           width: "100%",
           height: "25%",
           bgColor: "#f8f8f8",
-          flexDirection:'row',
+          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           isScrollX: false,
           isScrollY: false,
-          gap: '0px',
+          gap: "0px",
         },
         children: [],
       },
@@ -81,6 +82,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         id: "1",
         name: "Main",
         type: "main",
+        mac: "main",
         children: [],
         color: "#ff15f1",
         isRoot: true,
@@ -88,18 +90,19 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
           bgColor: "#dfdfdf",
           width: "100%",
           height: "100%",
-          flexDirection:'row',
+          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           isScrollX: false,
           isScrollY: false,
-          gap: '0px',
+          gap: "0px",
         },
       },
       {
         id: "2",
         name: "Tab Nav",
         type: "tab",
+        mac: "tab",
         children: [],
         color: "#b59de9",
         isRoot: true,
@@ -107,42 +110,47 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
           bgColor: "#c4c4c4",
           width: "100%",
           height: "15%",
-          flexDirection:'row',
+          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           isScrollX: false,
           isScrollY: false,
-          gap: '0px',
+          gap: "0px",
         },
       },
     ]);
   }, []);
 
-  function addNode(name: string, type: string, config:Config) {
-      if (selected.children !== undefined) {
-          const element = {
-            id: (lengthFuncs + 1).toString(),
-            name: name+String((lengthFuncs + 1)),
-            type: type,
-            isRoot: false,
-            color: selected.color,
-            config:config,
-            children: [],
-          };
-          addInCode(element, selected);
-          selected.children.push(element);
-          setLengthFuncs(lengthFuncs + 1);
-        }
+  function addNode(name: string, type: string, config: Config) {
+    if (selected.children !== undefined) {
+      const element = {
+        id: (lengthFuncs + 1).toString(),
+        name: name + String(lengthFuncs + 1),
+        type: type,
+        isRoot: false,
+        color: selected.color,
+        mac: selected.mac,
+        config: config,
+        children: [],
+      };
+      addInCode(element, selected, selected.mac);
+      selected.children.push(element);
+      setLengthFuncs(lengthFuncs + 1);
+    }
   }
 
   function editNode(obj: Funcs, name: string) {
     const actualNode = JSON.stringify(obj);
-    const oldElement = getFuncTypes(JSON.parse(actualNode), 'first');
-  
-    let newObj = { ...obj};
+    const mac = obj.mac ? obj.mac : "";
+    const oldElement = getFuncTypes(JSON.parse(actualNode), "first");
+
+    let newObj = { ...obj };
     newObj.name = name;
-    
-    setCodeMain(codeMain.replace(oldElement,  getFuncTypes(newObj, 'first')));
+
+    setCode(
+      getCode(mac).replace(oldElement, getFuncTypes(newObj, "first")),
+      mac
+    );
 
     const target = JSON.stringify(obj);
     const base = JSON.stringify(funcs);
@@ -154,32 +162,34 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   function deleteNode(obj: Funcs) {
     const base = JSON.stringify(funcs);
+    const mac = obj.mac ? obj.mac : "";
 
     const targets = {
-      one: "," + JSON.stringify(obj),
-      two: JSON.stringify(obj) + ",",
-      three: JSON.stringify(obj),
+      top: JSON.stringify(obj) + ",",
+      mid: "," + JSON.stringify(obj),
+      bottom: JSON.stringify(obj),
     };
 
     try {
-      const converted = base.replace(targets.one, "");
+      const converted = base.replace(targets.mid, "");
       if (converted !== base) {
-        setFuncs(JSON.parse(converted));
-        setCodeMain(codeMain.replace(getFuncTypes(obj, 'first'), ""));
+          setFuncs(JSON.parse(converted));
+          setCode(getCode(mac).replace(getFuncTypes(obj, "first"), ""), mac);
       } else {
-        const converted2 = base.replace(targets.two, "");
+        const converted2 = base.replace(targets.top, "");
         if (converted2 !== base) {
-          setFuncs(JSON.parse(converted2));
-          setCodeMain(codeMain.replace(getFuncTypes(obj, 'first'), ""));
+            setFuncs(JSON.parse(converted2));
+            setCode(getCode(mac).replace(getFuncTypes(obj, "first"), ""), mac);
         } else {
-          const converted3 = base.replace(targets.three, "");
+          const converted3 = base.replace(targets.bottom, "");
           setFuncs(JSON.parse(converted3));
-          setCodeMain(codeMain.replace(getFuncTypes(obj, 'first'), "[children]"));
+          setCode(
+            getCode(mac).replace(getFuncTypes(obj, "first"), "[children]"),
+            mac
+          );
         }
       }
     } catch (error) {}
-
-    setLengthFuncs(lengthFuncs - 1);
   }
 
   function deleteAll() {
@@ -188,18 +198,19 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         id: "0",
         name: "Header",
         type: "header",
+        mac: "header",
         color: "#fab68a",
         isRoot: true,
         config: {
           width: "100%",
           height: "25%",
           bgColor: "#f8f8f8",
-          flexDirection:'row',
+          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           isScrollX: false,
           isScrollY: false,
-          gap: '0px',
+          gap: "0px",
         },
         children: [],
       },
@@ -207,6 +218,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         id: "1",
         name: "Main",
         type: "main",
+        mac: "main",
         children: [],
         color: "#ff15f1",
         isRoot: true,
@@ -214,18 +226,19 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
           bgColor: "#dfdfdf",
           width: "100%",
           height: "100%",
-          flexDirection:'row',
+          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           isScrollX: false,
           isScrollY: false,
-          gap: '0px',
+          gap: "0px",
         },
       },
       {
         id: "2",
         name: "Tab Nav",
         type: "tab",
+        mac: "tab",
         children: [],
         color: "#b59de9",
         isRoot: true,
@@ -233,15 +246,16 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
           bgColor: "#c4c4c4",
           width: "100%",
           height: "15%",
-          flexDirection:'row',
+          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           isScrollX: false,
           isScrollY: false,
-          gap: '0px',
+          gap: "0px",
         },
       },
     ]);
+    clearCode();
   }
 
   return (
