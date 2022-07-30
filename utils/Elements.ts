@@ -47,7 +47,7 @@ export default [
         width: "10%",
         height: "10%",
         bgColor: "black",
-        svgName: "books",
+        svgName: "library-books",
       },
     },
     {
@@ -106,12 +106,10 @@ export default [
     },
     {
       name: 'Scroll list',
-      type: 'div',
+      type: 'scrollList',
       config: {
-        bgColor: 'orange',
         width: '50%',
         height: '50%',
-        border: '0px solid black',
         borderRadius: '0px',
         boxShadow:0,
         justifyContent: 'center',

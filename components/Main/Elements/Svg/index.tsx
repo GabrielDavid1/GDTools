@@ -24,7 +24,7 @@ import Profile from "/assets/svg/profile.svg";
 export default function SvgView({ config }: Props) {
   const GetSvgIcon = (type: string | undefined) => {
       switch (type) {
-        case "books":
+        case "library-books":
           return (
             <Books
               width={config?.width}
@@ -32,7 +32,7 @@ export default function SvgView({ config }: Props) {
               fill={config?.bgColor}
             />
           );
-        case "car":
+        case "car-side":
           return (
             <Car
               width={config?.width}
@@ -88,7 +88,7 @@ export default function SvgView({ config }: Props) {
               fill={config?.bgColor}
             />
           );
-        case "newDown":
+        case "down":
           return (
             <NewDown
               width={config?.width}
@@ -96,7 +96,7 @@ export default function SvgView({ config }: Props) {
               fill={config?.bgColor}
             />
           );
-        case "newpage":
+        case "page":
           return (
             <NewPage
               width={config?.width}
@@ -104,7 +104,7 @@ export default function SvgView({ config }: Props) {
               fill={config?.bgColor}
             />
           );
-        case "papers":
+        case "md-newspaper-outline":
           return (
             <Papers
               width={config?.width}
@@ -112,7 +112,7 @@ export default function SvgView({ config }: Props) {
               fill={config?.bgColor}
             />
           );
-        case "profile":
+        case "user-circle-o":
           return (
             <Profile
               width={config?.width}

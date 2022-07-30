@@ -41,18 +41,18 @@ export default function ChangeIcon () {
         defaultValue={selected?.config?.svgName}
         onChange={(e) => handleChange(e)}
       >
-        <option value="books">Books</option>
-        <option value="car">Car</option>
+        <option value="library-books">Books</option>
+        <option value="car-side">Car</option>
         <option value="circle">Circle</option>
         <option value="delete">Delete</option>
         <option value="gear">Gear</option>
         <option value="graph">Graph</option>
         <option value="home">Home</option>
         <option value="map">Map</option>
-        <option value="newDown">NewDown</option>
-        <option value="newpage">NewPage</option>
-        <option value="papers">Papers</option>
-        <option value="profile">Profile</option>
+        <option value="down">Down</option>
+        <option value="page">Page</option>
+        <option value="md-newspaper-outline">Paper</option>
+        <option value="user-circle-o">Profile</option>
       </select>
    </div>
  )

@@ -9,6 +9,7 @@ import Button from "../components/Settings/ModelSetting/Button";
 import Text from "../components/Settings/ModelSetting/Text";
 import Image from "../components/Settings/ModelSetting/Image";
 import Svg from "../components/Settings/ModelSetting/Svg";
+import ScrollList from "../components/Settings/ModelSetting/ScrollList";
 
 export default function GetSection(type: string | undefined) {
   switch (type) {
@@ -21,7 +22,7 @@ export default function GetSection(type: string | undefined) {
     case "text":
       return <Text title="Text" />;
     case "scrollList":
-      return <Div title="ScrollList" />;
+      return <ScrollList title="ScrollList" />;
     case "image":
       return <Image title="Image" />;
     case "svg":
