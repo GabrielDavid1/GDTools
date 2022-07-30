@@ -54,70 +54,78 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   const [touched, setTouched] = useState<boolean>(false);
 
-  const { clearCode, setCode, addInCode, getCode } = useCodes();
+  const { clearCode, setCode, addInCode, getCode, codeStylesGenerator } = useCodes();
+
+  const [isInitialized, setIsInitialized] = useState<boolean>(false);
 
   useEffect(() => {
+    const header = {
+      id: "0",
+      name: "Header",
+      type: "header",
+      color: "#fab68a",
+      isRoot: true,
+      mac: "header",
+      config: {
+        width: "100%",
+        height: "25%",
+        bgColor: "#f8f8f8",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        isScrollX: false,
+        isScrollY: false,
+        gap: "0px",
+      },
+      children: [],
+    };
+
+    const main = {
+      id: "1",
+      name: "Main",
+      type: "main",
+      mac: "main",
+      children: [],
+      color: "#ff15f1",
+      isRoot: true,
+      config: {
+        bgColor: "#dfdfdf",
+        width: "100%",
+        height: "100%",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        isScrollX: false,
+        isScrollY: false,
+        gap: "0px",
+      },
+    };
+
+    const tab = {
+      id: "2",
+      name: "Tab Nav",
+      type: "tab",
+      mac: "tab",
+      children: [],
+      color: "#b59de9",
+      isRoot: true,
+      config: {
+        bgColor: "#c4c4c4",
+        width: "100%",
+        height: "15%",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        isScrollX: false,
+        isScrollY: false,
+        gap: "0px",
+      },
+    };
+
     setFuncs([
-      {
-        id: "0",
-        name: "Header",
-        type: "header",
-        color: "#fab68a",
-        isRoot: true,
-        mac: "header",
-        config: {
-          width: "100%",
-          height: "25%",
-          bgColor: "#f8f8f8",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          isScrollX: false,
-          isScrollY: false,
-          gap: "0px",
-        },
-        children: [],
-      },
-      {
-        id: "1",
-        name: "Main",
-        type: "main",
-        mac: "main",
-        children: [],
-        color: "#ff15f1",
-        isRoot: true,
-        config: {
-          bgColor: "#dfdfdf",
-          width: "100%",
-          height: "100%",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          isScrollX: false,
-          isScrollY: false,
-          gap: "0px",
-        },
-      },
-      {
-        id: "2",
-        name: "Tab Nav",
-        type: "tab",
-        mac: "tab",
-        children: [],
-        color: "#b59de9",
-        isRoot: true,
-        config: {
-          bgColor: "#c4c4c4",
-          width: "100%",
-          height: "15%",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          isScrollX: false,
-          isScrollY: false,
-          gap: "0px",
-        },
-      },
+      header,
+      main,
+      tab,
     ]);
   }, []);
 
@@ -133,6 +141,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         config: config,
         children: [],
       };
+      codeStylesGenerator(element);
       addInCode(element, selected, selected.mac);
       selected.children.push(element);
       setLengthFuncs(lengthFuncs + 1);

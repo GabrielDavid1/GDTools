@@ -1,5 +1,5 @@
 //React
-import React, { useState } from "react";
+import React from "react";
 
 //Contexts
 import { useFuncs } from "../../../../contexts/Functionalities";
@@ -17,9 +17,11 @@ export default function ElementList({ nodes, inputName, children }: Props) {
   const { 
     editNode, 
     deleteNode, 
-    setSelected, 
+    setSelected,
   } = useFuncs();
+
   const lengthNode = nodes?.children?.length;
+  
   return (
     <div className="element-list">
       <div

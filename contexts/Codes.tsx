@@ -1,6 +1,10 @@
 //React
 import React, { createContext, useState, useContext, ReactNode } from "react";
+
+//Code Utils
+import defaultModel from "../Code/defaultModel";
 import getFuncTypes from "../Code/getFuncTypes";
+import mountStyle from "../Code/mountStyle";
 
 //Types
 import { Funcs } from "../types/Funcs";
@@ -22,6 +26,11 @@ type CodesContextData = {
   setCode: (contents: string | undefined, param: string) => void;
 
   clearCode: () => void;
+
+  codeStyles:string;
+  setCodeStyles: (param: string) => void;
+
+  codeStylesGenerator: (nodes:Funcs) => void;
 };
 
 type CodesProviderProps = {
@@ -34,6 +43,8 @@ function CodesProvider({ children }: CodesProviderProps) {
   const [codeHeader, setCodeHeader] = useState<string>("space");
   const [codeMain, setCodeMain] = useState<string>("space");
   const [codeTab, setCodeTab] = useState<string>("space");
+
+  const [codeStyles, setCodeStyles] = useState<string>(defaultModel('styles'));
  
   function addInCode(element: Funcs, selected: Funcs, mac: string | undefined) {
     if (selected.children && mac) {
@@ -97,6 +108,12 @@ function CodesProvider({ children }: CodesProviderProps) {
     setCode("", "tab");
   }
 
+  let acc = codeStyles;
+  function codeStylesGenerator (nodes:Funcs) {
+    acc += '\n'+mountStyle(nodes);
+    setCodeStyles(acc);
+  }
+
   return (
     <CodesContext.Provider
       value={{
@@ -110,6 +127,8 @@ function CodesProvider({ children }: CodesProviderProps) {
         setCodeHeader,
         codeTab,
         setCodeTab,
+        codeStylesGenerator,
+        codeStyles, setCodeStyles,
       }}
     >
       {children}

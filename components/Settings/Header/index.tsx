@@ -5,18 +5,18 @@ import React from "react";
 import { Details, Home } from "./styles";
 
 //Contexts
-import { useFuncs } from "../../../contexts/Functionalities";
 import { useCodes } from "../../../contexts/Codes";
+import { useFuncs } from "../../../contexts/Functionalities";
 
 export default function Header() {
-  const { getCode } = useCodes();
-  const { onToggle, setOnToggle, selected } = useFuncs();
+  const { codeStylesGenerator, codeStyles } = useCodes();
+  const { funcs, onToggle, setOnToggle } = useFuncs();
 
   return (
     <header className="header-settings">
       <Home isActive={onToggle} onClick={() => {
-            setOnToggle(true);
-            console.log(getCode('main'));
+        console.log(codeStyles)
+        setOnToggle(true)
         }}>
         <svg
           focusable="false"
