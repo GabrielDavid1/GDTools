@@ -1,11 +1,23 @@
 //React
 import React from "react";
 
+//Code
+import mountStyle from "../../../../Code/mountStyle";
+
 //Contexts
+import { useCodes } from "../../../../contexts/Codes";
 import { useFuncs } from "../../../../contexts/Functionalities";
 
+//Typs
+import { Funcs } from "../../../../types/Funcs";
+
 export default function Border() {
-  const { funcs, setFuncs, selected } = useFuncs()
+  const { funcs, setFuncs, selected } = useFuncs();
+  const { codeStyles, setCodeStyles } = useCodes();
+
+  function handleChangeStyle (oldStyle:Funcs, newStyle:Funcs) { 
+    setCodeStyles(codeStyles.replace(mountStyle(oldStyle), mountStyle(newStyle)));
+  }
 
   function handleChangePxBorder(
     e = {} as React.ChangeEvent<HTMLSelectElement>
@@ -13,7 +25,10 @@ export default function Border() {
     if (selected.config !== undefined) {
       const oldFunc = JSON.stringify(selected);
       const newFunc = JSON.parse(oldFunc);
+      
       newFunc.config.pxBorder = e.target.value;
+      handleChangeStyle(selected, newFunc);
+
       selected.config = newFunc.config;
       setFuncs([...funcs]);
     }
@@ -26,7 +41,10 @@ export default function Border() {
     if (selected.config !== undefined) {
       const oldFunc = JSON.stringify(selected);
       const newFunc = JSON.parse(oldFunc);
+
       newFunc.config.typeBorder = e.target.value;
+      handleChangeStyle(selected, newFunc);
+      
       selected.config = newFunc.config;
       setFuncs([...funcs]);
     }
@@ -39,7 +57,10 @@ export default function Border() {
     if (selected.config !== undefined) {
       const oldFunc = JSON.stringify(selected);
       const newFunc = JSON.parse(oldFunc);
+
       newFunc.config.colorBorder = e.target.value;
+      handleChangeStyle(selected, newFunc);
+      
       selected.config = newFunc.config;
       setFuncs([...funcs]);
     }

@@ -18,7 +18,7 @@ export default function getTypesSettings (element:string, type:string) {
         case 'marginBottom': return 'margin-bottom';
         case 'marginTop': return 'margin-top';
         case 'position': return 'position';
-        case 'bgColor': return (type === 'div') ? 'background-color' : 'color';
+        case 'bgColor': return (type === 'div' || type === 'button') ? 'background-color' : 'color';
         default: return 'padding';
     }
 }

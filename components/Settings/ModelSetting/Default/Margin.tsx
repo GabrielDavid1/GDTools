@@ -2,18 +2,33 @@
 import React from "react";
 
 //Contexts
+import { useCodes } from "../../../../contexts/Codes";
 import { useFuncs } from "../../../../contexts/Functionalities";
+
+//Types
+import { Funcs } from "../../../../types/Funcs";
+
+//Code
+import mountStyle from "../../../../Code/mountStyle";
 
 export default function Margin() {
   const { funcs, setFuncs, selected } = useFuncs();
+  const { codeStyles, setCodeStyles } = useCodes();
+
+  function handleChangeStyle (oldStyle:Funcs, newStyle:Funcs) { 
+    setCodeStyles(codeStyles.replace(mountStyle(oldStyle), mountStyle(newStyle)));
+  }
 
   function handleChangeLeft(e: React.ChangeEvent<HTMLInputElement>) {
     if (selected.config !== undefined) {
-      const oldFunc = JSON.stringify(selected);
-      const newFunc = JSON.parse(oldFunc);
-      newFunc.config.marginLeft = e.target.value;
-      selected.config = newFunc.config;
-      setFuncs([...funcs]);
+        const oldFunc = JSON.stringify(selected);
+        const newFunc = JSON.parse(oldFunc);
+
+        newFunc.config.marginLeft = e.target.value;
+        handleChangeStyle(selected, newFunc);
+
+        selected.config = newFunc.config;
+        setFuncs([...funcs]);
     }
     e.preventDefault();
   }
@@ -22,7 +37,10 @@ export default function Margin() {
     if (selected.config !== undefined) {
       const oldFunc = JSON.stringify(selected);
       const newFunc = JSON.parse(oldFunc);
+
       newFunc.config.marginRight = e.target.value;
+      handleChangeStyle(selected, newFunc);
+
       selected.config = newFunc.config;
       setFuncs([...funcs]);
     }
@@ -33,7 +51,10 @@ export default function Margin() {
     if (selected.config !== undefined) {
       const oldFunc = JSON.stringify(selected);
       const newFunc = JSON.parse(oldFunc);
+
       newFunc.config.marginTop = e.target.value;
+      handleChangeStyle(selected, newFunc);
+
       selected.config = newFunc.config;
       setFuncs([...funcs]);
     }
@@ -44,7 +65,10 @@ export default function Margin() {
     if (selected.config !== undefined) {
       const oldFunc = JSON.stringify(selected);
       const newFunc = JSON.parse(oldFunc);
+
       newFunc.config.marginBottom = e.target.value;
+      handleChangeStyle(selected, newFunc);
+
       selected.config = newFunc.config;
       setFuncs([...funcs]);
     }

@@ -1,8 +1,15 @@
 //React
 import React from "react";
 
+//Code
+import mountStyle from "../../../../Code/mountStyle";
+
 //Contexts
+import { useCodes } from "../../../../contexts/Codes";
 import { useFuncs } from "../../../../contexts/Functionalities";
+
+//Types
+import { Funcs } from "../../../../types/Funcs";
 interface Props {
   width?:boolean;
   height?:boolean;
@@ -10,6 +17,11 @@ interface Props {
 
 export default function Dimension({ width, height }:Props) {
   const { funcs, setFuncs, selected } = useFuncs();
+  const { codeStyles, setCodeStyles } = useCodes();
+
+  function handleChangeStyle (oldStyle:Funcs, newStyle:Funcs) { 
+    setCodeStyles(codeStyles.replace(mountStyle(oldStyle), mountStyle(newStyle)));
+  }
 
   function handleChange(
     e = {} as React.ChangeEvent<HTMLInputElement>,
@@ -21,6 +33,8 @@ export default function Dimension({ width, height }:Props) {
 
         newFunc.config.width = type === "width" ? e.target.value : newFunc.config.width;
         newFunc.config.height = type === "height" ? e.target.value : newFunc.config.height;
+
+        handleChangeStyle(selected, newFunc);
 
         selected.config = newFunc.config;
         setFuncs([...funcs]);
@@ -35,6 +49,8 @@ export default function Dimension({ width, height }:Props) {
 
         newFunc.config.width = e.target.value+'%';
         newFunc.config.height = e.target.value+'%';
+
+        handleChangeStyle(selected, newFunc);
 
         selected.config = newFunc.config;
         setFuncs([...funcs]);

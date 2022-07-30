@@ -4,14 +4,29 @@ import React from 'react';
 //Components
 import { useFuncs } from '../../../../contexts/Functionalities';
 
+//Contexts
+import { Funcs } from '../../../../types/Funcs';
+import { useCodes } from '../../../../contexts/Codes';
+
+//Code
+import mountStyle from '../../../../Code/mountStyle';
+
 export default function Position () {
  const { funcs, setFuncs, selected } = useFuncs();
+ const { codeStyles, setCodeStyles } = useCodes();
+
+ function handleChangeStyle (oldStyle:Funcs, newStyle:Funcs) { 
+   setCodeStyles(codeStyles.replace(mountStyle(oldStyle), mountStyle(newStyle)));
+ }
 
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {
    if (selected.config !== undefined) {
        const oldFunc = JSON.stringify(selected);
        const newFunc = JSON.parse(oldFunc);
+
        newFunc.config.position = e.target.value;
+       handleChangeStyle(selected, newFunc);
+
        selected.config = newFunc.config;
        setFuncs([...funcs]);
    }

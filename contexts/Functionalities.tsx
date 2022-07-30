@@ -7,6 +7,7 @@ import React, {
   useEffect,
 } from "react";
 import getFuncTypes from "../Code/getFuncTypes";
+import mountStyle from "../Code/mountStyle";
 
 //Types
 import { Config, Funcs } from "../types/Funcs";
@@ -61,6 +62,8 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     getCode, 
     codeStylesGenerator,
     deleteCodeStyleElement,
+    deleteAllCodeStyles,
+    codeStyles, setCodeStyles,
   } = useCodes();
 
   useEffect(() => {
@@ -154,8 +157,8 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
   }
 
   function editNode(obj: Funcs, name: string) {
-    const actualNode = JSON.stringify(obj);
     const mac = obj.mac ? obj.mac : "";
+    const actualNode = JSON.stringify(obj);
     const oldElement = getFuncTypes(JSON.parse(actualNode), "first");
 
     let newObj = { ...obj };
@@ -271,6 +274,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
       },
     ]);
     clearCode();
+    deleteAllCodeStyles();
   }
 
   return (

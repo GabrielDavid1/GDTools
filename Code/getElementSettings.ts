@@ -3,7 +3,7 @@ import { Config } from "../types/Funcs";
 
 export default function getElementSettings (type:string, element:Config) {
     switch (type) {
-        case 'border': return `'${element.border}'`;
+        case 'border': return `'${element.pxBorder} ${element.typeBorder} ${element.colorBorder}'`;
         case 'borderRadius': return `${element.borderRadius}`;
         case 'boxShadow': return `${element.boxShadow}`;
         case 'color': return `'${element.color}'`;

@@ -9,8 +9,8 @@ import { useCodes } from "../../../contexts/Codes";
 import { useFuncs } from "../../../contexts/Functionalities";
 
 export default function Header() {
-  const { codeStylesGenerator, codeStyles } = useCodes();
-  const { funcs, onToggle, setOnToggle } = useFuncs();
+  const { codeStyles } = useCodes();
+  const { onToggle, setOnToggle } = useFuncs();
 
   return (
     <header className="header-settings">

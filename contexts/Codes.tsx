@@ -32,6 +32,7 @@ type CodesContextData = {
 
   codeStylesGenerator: (nodes:Funcs) => void;
   deleteCodeStyleElement: (element:Funcs) => void;
+  deleteAllCodeStyles: () => void;
 };
 
 type CodesProviderProps = {
@@ -109,9 +110,6 @@ function CodesProvider({ children }: CodesProviderProps) {
     setCode("", "tab");
   }
 
-
-
-
   let acc = codeStyles;
   function codeStylesGenerator (nodes:Funcs) {
     acc += '\n'+mountStyle(nodes);
@@ -125,7 +123,6 @@ function CodesProvider({ children }: CodesProviderProps) {
   function deleteAllCodeStyles () {
     setCodeStyles(defaultModel('styles'));
   }
-
 
   return (
     <CodesContext.Provider
@@ -143,6 +140,7 @@ function CodesProvider({ children }: CodesProviderProps) {
         codeStylesGenerator,
         codeStyles, setCodeStyles,
         deleteCodeStyleElement,
+        deleteAllCodeStyles,
       }}
     >
       {children}
