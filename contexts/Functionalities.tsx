@@ -57,19 +57,19 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   const [touched, setTouched] = useState<boolean>(false);
 
-  const { 
-    clearCode, 
-    setCode, 
-    addInCode, 
-    getCode, 
+  const {
+    clearCode,
+    setCode,
+    addInCode,
+    getCode,
     codeStylesGenerator,
     deleteCodeStyleElement,
     deleteAllCodeStyles,
     codeVariableGenerator,
     deleteCodeVariableElement,
     deleteAllCodeVariables,
-    codeVariable, setCodeVariable,
-    deleteCodeImportElement,
+    codeVariable,
+    setCodeVariable,
   } = useCodes();
 
   useEffect(() => {
@@ -136,32 +136,29 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
       },
     };
 
-    setFuncs([
-      header,
-      main,
-      tab,
-    ]);
+    setFuncs([header, main, tab]);
   }, []);
 
   function addNode(name: string, type: string, config: Config) {
     if (selected.children !== undefined) {
-        const element = {
-          id: (lengthFuncs + 1).toString(),
-          name: name + String(lengthFuncs + 1),
-          type: type,
-          isRoot: false,
-          color: selected.color,
-          mac: selected.mac,
-          config: config,
-          children: [],
-        };
-        
-        if (type === 'scrollList' || type === 'input') codeVariableGenerator(element);
-        
-        codeStylesGenerator(element);
-        addInCode(element, selected, selected.mac);
-        selected.children.push(element);
-        setLengthFuncs(lengthFuncs + 1);
+      const element = {
+        id: (lengthFuncs + 1).toString(),
+        name: name + String(lengthFuncs + 1),
+        type: type,
+        isRoot: false,
+        color: selected.color,
+        mac: selected.mac,
+        config: config,
+        children: [],
+      };
+
+      if (type === "scrollList" || type === "input")
+        codeVariableGenerator(element);
+
+      codeStylesGenerator(element);
+      addInCode(element, selected, selected.mac);
+      selected.children.push(element);
+      setLengthFuncs(lengthFuncs + 1);
     }
   }
 
@@ -172,14 +169,18 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
     const oldElement = getFuncTypes(JSON.parse(actualNode), "first");
     const oldVariable = mountVariable(obj);
-        
+
     let newObj = { ...obj };
     newObj.name = name;
 
-    if (obj.type === 'scrollList' || obj.type === 'input') setCodeVariable(codeVariable.replace(oldVariable, mountVariable(newObj)));
+    if (obj.type === "scrollList" || obj.type === "input")
+      setCodeVariable(codeVariable.replace(oldVariable, mountVariable(newObj)));
 
-    setCode(getCode(mac).replace(oldElement, getFuncTypes(newObj, "first")),mac);
-    
+    setCode(
+      getCode(mac).replace(oldElement, getFuncTypes(newObj, "first")),
+      mac
+    );
+
     const target = JSON.stringify(obj);
     const base = JSON.stringify(funcs);
 
@@ -201,13 +202,13 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     try {
       const converted = base.replace(targets.mid, "");
       if (converted !== base) {
-          setFuncs(JSON.parse(converted));
-          setCode(getCode(mac).replace(getFuncTypes(obj, "first"), ""), mac);
+        setFuncs(JSON.parse(converted));
+        setCode(getCode(mac).replace(getFuncTypes(obj, "first"), ""), mac);
       } else {
         const converted2 = base.replace(targets.top, "");
         if (converted2 !== base) {
-            setFuncs(JSON.parse(converted2));
-            setCode(getCode(mac).replace(getFuncTypes(obj, "first"), ""), mac);
+          setFuncs(JSON.parse(converted2));
+          setCode(getCode(mac).replace(getFuncTypes(obj, "first"), ""), mac);
         } else {
           const converted3 = base.replace(targets.bottom, "");
           setFuncs(JSON.parse(converted3));
@@ -219,7 +220,6 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
       }
       deleteCodeStyleElement(obj);
       deleteCodeVariableElement(obj);
-      deleteCodeImportElement((obj.name) ? obj.name : '');
     } catch (error) {}
   }
 

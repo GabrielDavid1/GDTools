@@ -37,6 +37,9 @@ type CodesContextData = {
   codeVariable:string;
   setCodeVariable: (param: string) => void;
 
+  onToggleCode: boolean;
+  setOnToggleCode: (param: boolean) => void;
+
   codeStylesGenerator: (nodes:Funcs) => void;
   deleteCodeStyleElement: (element:Funcs) => void;
   deleteAllCodeStyles: () => void;
@@ -46,8 +49,6 @@ type CodesContextData = {
   deleteAllCodeVariables: () => void;
 
   codeImportGenerator: (nodes:Funcs) => void;
-  editCodeImportElement: (oldName:string, name:string) => void;
-  deleteCodeImportElement: (name:string) => void;
   deleteAllCodeImports: () => void;
 };
 
@@ -61,6 +62,8 @@ function CodesProvider({ children }: CodesProviderProps) {
   const [codeHeader, setCodeHeader] = useState<string>("space");
   const [codeMain, setCodeMain] = useState<string>("space");
   const [codeTab, setCodeTab] = useState<string>("space");
+
+  const [onToggleCode, setOnToggleCode] = useState<boolean>(false);
 
   const [codeImports, setCodeImports] = useState<string>('');
   const [codeStyles, setCodeStyles] = useState<string>(defaultModel('styles'));
@@ -172,18 +175,8 @@ function CodesProvider({ children }: CodesProviderProps) {
     }
   }
 
-  function editCodeImportElement (oldName:string, name:string) {
-    const ElementName = name.at(0)?.toUpperCase()+name.substring(1).replace(/ /g, "");
-    setCodeImports(codeImports.replace(oldName, ElementName));
-  }
-
-  function deleteCodeImportElement (name:string) {
-    const ElementName = name.at(0)?.toUpperCase()+name.substring(1).replace(/ /g, "");
-    setCodeImports(codeImports.replace(ElementName+',[space]', ''));
-  }
-
   function deleteAllCodeImports () {
-    setCodeImports(defaultModel('Imports'));
+    setCodeImports('');
   }
 
   return (
@@ -206,12 +199,11 @@ function CodesProvider({ children }: CodesProviderProps) {
         codeVariableGenerator,
         deleteCodeVariableElement,
         deleteAllCodeVariables,
-        codeVariable, setCodeVariable,
+        codeVariable,setCodeVariable,
         codeImportGenerator,
-        deleteCodeImportElement,
         deleteAllCodeImports,
-        codeImports, setCodeImports,
-        editCodeImportElement,
+        codeImports,setCodeImports,
+        onToggleCode,setOnToggleCode,
       }}
     >
       {children}
