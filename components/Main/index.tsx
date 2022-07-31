@@ -1,5 +1,5 @@
 //React
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 
 //Types
 import { Funcs } from "../../types/Funcs";
@@ -14,7 +14,12 @@ import Reference from "./Reference";
 
 export default function Main() {
   const { funcs } = useFuncs();
-  const { onToggleCode, setOnToggleCode } = useCodes();
+  const { onToggleCode, setOnToggleCode, setCodeImports, codeImportGenerator } = useCodes();
+
+  useEffect(() => {
+    setCodeImports('');
+    setOnToggleCode(!onToggleCode);
+  }, [funcs]);
 
   const renderer = useCallback(
     (nodes: Funcs) =>
@@ -28,10 +33,17 @@ export default function Main() {
     [funcs]
   );
 
+  function handleToggle () {
+    codeImportGenerator(funcs[0]);
+    codeImportGenerator(funcs[1]);
+    codeImportGenerator(funcs[2]);
+    setOnToggleCode(!onToggleCode);
+  }
+
   return (
     <main className="content">
       <span className="code-view">
-        <a onClick={() => setOnToggleCode(!onToggleCode)}>
+        <a onClick={handleToggle}>
           <p> View code </p>
         </a>
       </span>

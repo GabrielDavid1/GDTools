@@ -1,5 +1,5 @@
 export default function defaultModel(type:string) {
-  const ImportsBase = "import React, { useState } from 'react';import { } from './styles';";
+  const ImportsBase = "import React, { useState } from 'react';\nimport { \n[imports]\n} from './styles';";
 
   const styles = "import styled from 'styled-components/native';"+'\n\n'
                  +"import { TouchableOpacity } from 'react-native';"+'\n\n'
@@ -8,21 +8,23 @@ export default function defaultModel(type:string) {
 
   const variables = "";
 
-  const render = `
-    export default function GdTools () {
+  const render = `\nexport default function GdTools () {
+   [variables]
+   return (
+     <Container>
+       [children]
+     </Container>
+   )
+}`;
 
-      return (
-        <Container>
-          [children]
-        </Container>
-      )
-    }
-  `;
+  const FullCode = `${ImportsBase}\n${render}`;
 
   switch (type) {
     case "Imports": return ImportsBase;
     case "render": return render;
     case "variables": return variables;
+    case "full": return FullCode;
     default: return styles;
   }
 }
+

@@ -70,6 +70,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     deleteAllCodeVariables,
     codeVariable,
     setCodeVariable,
+    codeImportGenerator,
   } = useCodes();
 
   useEffect(() => {
@@ -156,7 +157,9 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         codeVariableGenerator(element);
 
       codeStylesGenerator(element);
+
       addInCode(element, selected, selected.mac);
+
       selected.children.push(element);
       setLengthFuncs(lengthFuncs + 1);
     }

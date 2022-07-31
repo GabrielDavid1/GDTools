@@ -1,7 +1,7 @@
 export default function getTypesSettings (element:string, type:string) {
     switch (element) {
         case 'border': return 'border';
-        case 'borderRadius': return 'border-radius';
+        case 'borderRadius': return 'elevation';
         case 'boxShadow': return 'box-shadow';
         case 'color': return 'color';
         case 'width': return 'width';

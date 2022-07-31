@@ -165,8 +165,8 @@ function CodesProvider({ children }: CodesProviderProps) {
     const ElementName = nodes.name.at(0)?.toUpperCase()+nodes.name.substring(1).replace(/ /g, "");
 
     if (codeImports.indexOf(ElementName+',') === -1) {
-      accImports += ElementName+',';
-      setCodeImports(accImports);
+        accImports += ElementName+',';
+        setCodeImports(accImports);
     }
 
     {Array.isArray(nodes.children)

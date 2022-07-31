@@ -23,7 +23,8 @@
     "react-dom": "18.2.0",
     "sass": "^1.53.0",
     "styled-components": "^5.3.5",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "use-copy": "^0.0.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182",

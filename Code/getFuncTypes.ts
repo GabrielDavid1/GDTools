@@ -49,10 +49,10 @@ export default function getFuncTypes(element: Funcs, param: string) {
     case "button":
       return `space<${ElementNameUpper} onPress={() => console.log("${element?.config?.textContent}")}>${element?.config?.textContent}</${ElementNameUpper}>`;
     case "div": 
-      return `space<${ElementNameUpper}>[children]</${element.name}>`;
+      return `space<${ElementNameUpper}>[children]</${ElementNameUpper}>`;
     case "scrollList":
       return `space<${ElementNameUpper} data={${ElementNameLower}} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} />`;
     default:
-      return `<${ElementNameUpper}>[children]space</${element.name}>`;
+      return `<${ElementNameUpper}>[children]space</${ElementNameUpper}>`;
   }
 }
