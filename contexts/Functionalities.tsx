@@ -7,7 +7,9 @@ import React, {
   useEffect,
 } from "react";
 import getFuncTypes from "../Code/getFuncTypes";
-import mountStyle from "../Code/mountStyle";
+
+//Code
+import mountVariable from "../Code/mountVariables";
 
 //Types
 import { Config, Funcs } from "../types/Funcs";
@@ -63,7 +65,11 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     codeStylesGenerator,
     deleteCodeStyleElement,
     deleteAllCodeStyles,
-    codeStyles, setCodeStyles,
+    codeVariableGenerator,
+    deleteCodeVariableElement,
+    deleteAllCodeVariables,
+    codeVariable, setCodeVariable,
+    deleteCodeImportElement,
   } = useCodes();
 
   useEffect(() => {
@@ -139,36 +145,41 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   function addNode(name: string, type: string, config: Config) {
     if (selected.children !== undefined) {
-      const element = {
-        id: (lengthFuncs + 1).toString(),
-        name: name + String(lengthFuncs + 1),
-        type: type,
-        isRoot: false,
-        color: selected.color,
-        mac: selected.mac,
-        config: config,
-        children: [],
-      };
-      codeStylesGenerator(element);
-      addInCode(element, selected, selected.mac);
-      selected.children.push(element);
-      setLengthFuncs(lengthFuncs + 1);
+        const element = {
+          id: (lengthFuncs + 1).toString(),
+          name: name + String(lengthFuncs + 1),
+          type: type,
+          isRoot: false,
+          color: selected.color,
+          mac: selected.mac,
+          config: config,
+          children: [],
+        };
+        
+        if (type === 'scrollList' || type === 'input') codeVariableGenerator(element);
+        
+        codeStylesGenerator(element);
+        addInCode(element, selected, selected.mac);
+        selected.children.push(element);
+        setLengthFuncs(lengthFuncs + 1);
     }
   }
 
   function editNode(obj: Funcs, name: string) {
     const mac = obj.mac ? obj.mac : "";
-    const actualNode = JSON.stringify(obj);
-    const oldElement = getFuncTypes(JSON.parse(actualNode), "first");
 
+    const actualNode = JSON.stringify(obj);
+
+    const oldElement = getFuncTypes(JSON.parse(actualNode), "first");
+    const oldVariable = mountVariable(obj);
+        
     let newObj = { ...obj };
     newObj.name = name;
 
-    setCode(
-      getCode(mac).replace(oldElement, getFuncTypes(newObj, "first")),
-      mac
-    );
+    if (obj.type === 'scrollList' || obj.type === 'input') setCodeVariable(codeVariable.replace(oldVariable, mountVariable(newObj)));
 
+    setCode(getCode(mac).replace(oldElement, getFuncTypes(newObj, "first")),mac);
+    
     const target = JSON.stringify(obj);
     const base = JSON.stringify(funcs);
 
@@ -207,6 +218,8 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
         }
       }
       deleteCodeStyleElement(obj);
+      deleteCodeVariableElement(obj);
+      deleteCodeImportElement((obj.name) ? obj.name : '');
     } catch (error) {}
   }
 
@@ -275,6 +288,7 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     ]);
     clearCode();
     deleteAllCodeStyles();
+    deleteAllCodeVariables();
   }
 
   return (

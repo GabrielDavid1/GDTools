@@ -19,11 +19,15 @@ export default function Side() {
             onClick={() => {
               if (
                 selected.type === "header" ||
-                selected.type === "main"   ||
-                selected.type === "tab"    ||
+                selected.type === "main" ||
+                selected.type === "tab" ||
                 selected.type === "div"
               ) {
                 addNode(name, type, config);
+              } else if (selected.type === "scrollList" && selected.children) {
+                selected.children.length === 0 &&
+                  type === "div" &&
+                  addNode(name, type, config);
               }
             }}
           >

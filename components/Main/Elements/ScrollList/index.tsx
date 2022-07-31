@@ -31,9 +31,11 @@ export const ScrollListView = ({ config, children }: PropsComponentes) => {
 
   return (
     <ElementDiv ref={ref} config={config}>
-      <SecondaryDiv direction={(config?.isScrollX) ? 'horizontal' : 'vertical'}>
-        {children}
-      </SecondaryDiv>
+      {children}
+      {children}
+      {children}
+      {children}
+      {children}
     </ElementDiv>
   );
 };

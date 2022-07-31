@@ -5,6 +5,7 @@ import React, { createContext, useState, useContext, ReactNode } from "react";
 import defaultModel from "../Code/defaultModel";
 import getFuncTypes from "../Code/getFuncTypes";
 import mountStyle from "../Code/mountStyle";
+import mountVariable from "../Code/mountVariables";
 
 //Types
 import { Funcs } from "../types/Funcs";
@@ -27,12 +28,27 @@ type CodesContextData = {
 
   clearCode: () => void;
 
+  codeImports: string;
+  setCodeImports: (param: string) => void;
+
   codeStyles:string;
   setCodeStyles: (param: string) => void;
+
+  codeVariable:string;
+  setCodeVariable: (param: string) => void;
 
   codeStylesGenerator: (nodes:Funcs) => void;
   deleteCodeStyleElement: (element:Funcs) => void;
   deleteAllCodeStyles: () => void;
+
+  codeVariableGenerator: (element:Funcs) => void;
+  deleteCodeVariableElement: (element:Funcs) => void;
+  deleteAllCodeVariables: () => void;
+
+  codeImportGenerator: (nodes:Funcs) => void;
+  editCodeImportElement: (oldName:string, name:string) => void;
+  deleteCodeImportElement: (name:string) => void;
+  deleteAllCodeImports: () => void;
 };
 
 type CodesProviderProps = {
@@ -46,8 +62,10 @@ function CodesProvider({ children }: CodesProviderProps) {
   const [codeMain, setCodeMain] = useState<string>("space");
   const [codeTab, setCodeTab] = useState<string>("space");
 
+  const [codeImports, setCodeImports] = useState<string>('');
   const [codeStyles, setCodeStyles] = useState<string>(defaultModel('styles'));
- 
+  const [codeVariable, setCodeVariable] = useState<string>(defaultModel('variables'));
+
   function addInCode(element: Funcs, selected: Funcs, mac: string | undefined) {
     if (selected.children && mac) {
       const target =
@@ -93,13 +111,13 @@ function CodesProvider({ children }: CodesProviderProps) {
       switch (param) {
         case "header":
           setCodeHeader(contents);
-          break;
+        break;
         case "main":
           setCodeMain(contents);
-          break;
+        break;
         default:
           setCodeTab(contents);
-          break;
+        break;
       }
     }
   }
@@ -110,10 +128,10 @@ function CodesProvider({ children }: CodesProviderProps) {
     setCode("", "tab");
   }
 
-  let acc = codeStyles;
+  let accStyles = codeStyles;
   function codeStylesGenerator (nodes:Funcs) {
-    acc += '\n'+mountStyle(nodes);
-    setCodeStyles(acc);
+    accStyles += '\n'+mountStyle(nodes);
+    setCodeStyles(accStyles);
   }
 
   function deleteCodeStyleElement (element:Funcs) {
@@ -122,6 +140,50 @@ function CodesProvider({ children }: CodesProviderProps) {
 
   function deleteAllCodeStyles () {
     setCodeStyles(defaultModel('styles'));
+  }
+
+  let accVariables = codeVariable;
+  function codeVariableGenerator (element:Funcs) {
+    accVariables += '\n'+mountVariable(element);
+    setCodeVariable(accVariables);
+  }
+
+  function deleteCodeVariableElement (element:Funcs) {
+    setCodeVariable(codeVariable.replace('\n'+mountVariable(element), ''));
+  }
+
+  function deleteAllCodeVariables () {
+    setCodeVariable('');
+  }
+
+  let accImports = codeImports;
+  function codeImportGenerator (nodes:Funcs) {
+    if (nodes.name !== undefined) {
+    const ElementName = nodes.name.at(0)?.toUpperCase()+nodes.name.substring(1).replace(/ /g, "");
+
+    if (codeImports.indexOf(ElementName+',') === -1) {
+      accImports += ElementName+',';
+      setCodeImports(accImports);
+    }
+
+    {Array.isArray(nodes.children)
+      ? nodes.children.map((node) => nodes.type && codeImportGenerator(node))
+      : null}
+    }
+  }
+
+  function editCodeImportElement (oldName:string, name:string) {
+    const ElementName = name.at(0)?.toUpperCase()+name.substring(1).replace(/ /g, "");
+    setCodeImports(codeImports.replace(oldName, ElementName));
+  }
+
+  function deleteCodeImportElement (name:string) {
+    const ElementName = name.at(0)?.toUpperCase()+name.substring(1).replace(/ /g, "");
+    setCodeImports(codeImports.replace(ElementName+',[space]', ''));
+  }
+
+  function deleteAllCodeImports () {
+    setCodeImports(defaultModel('Imports'));
   }
 
   return (
@@ -141,6 +203,15 @@ function CodesProvider({ children }: CodesProviderProps) {
         codeStyles, setCodeStyles,
         deleteCodeStyleElement,
         deleteAllCodeStyles,
+        codeVariableGenerator,
+        deleteCodeVariableElement,
+        deleteAllCodeVariables,
+        codeVariable, setCodeVariable,
+        codeImportGenerator,
+        deleteCodeImportElement,
+        deleteAllCodeImports,
+        codeImports, setCodeImports,
+        editCodeImportElement,
       }}
     >
       {children}

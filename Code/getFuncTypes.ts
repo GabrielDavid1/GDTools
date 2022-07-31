@@ -3,8 +3,10 @@ import { Funcs } from "../types/Funcs";
 
 export default function getFuncTypes(element: Funcs, param: string) {
   const name = element.name+'';
-  const ElementName = name.at(0)?.toUpperCase()+name.substring(1).replace(/ /g, "");
 
+  const ElementNameUpper = name.at(0)?.toUpperCase()+name.substring(1).replace(/ /g, "");
+  const ElementNameLower = name.at(0)?.toLowerCase() + name.substring(1).replace(/ /g, "");
+  
   let sizeToSvg = element?.config?.width;
   
   //Img/Svg types dimension
@@ -21,34 +23,36 @@ export default function getFuncTypes(element: Funcs, param: string) {
   if (param === "last") {
       switch (element.type) {
       case "input":
-        return `<${ElementName} placeholder="${element?.config?.textContent}" autoCorrect={false} autoCapitalize="none" onChangeText={text => set${ElementName}(text)}/>space`;
+        return `space<${ElementNameUpper} placeholder="${element?.config?.textContent}" autoCorrect={false} autoCapitalize="none" onChangeText={text => set${ElementNameUpper}(text)}/>`;
       case "image":
-        return `<${ElementName} source={./assets/${element?.config?.sourceImage}} />space`;
+        return `space<${ElementNameUpper} source={./assets/${element?.config?.sourceImage}} />`;
       case "svg":
-        return `<${ElementName} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />space`;
+        return `space<${ElementNameUpper} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />`;
       case "div":
-        return `</${ElementName}>`;
+        return `</${ElementNameUpper}>`;
       case "text":
-        return `</${ElementName}>`;
+        return `</${ElementNameUpper}>`;
       default:
-        return `space</${ElementName}>`;
+        return `space</${ElementNameUpper}>`;
       }
   }
 
   switch (element.type) {
     case "input":
-      return `<${ElementName} placeholder="${element?.config?.textContent}" autoCorrect={false} autoCapitalize="none" onChangeText={text => set${ElementName}(text)}/>space`;
+      return `<${ElementNameUpper} placeholder="${element?.config?.textContent}" autoCorrect={false} autoCapitalize="none" onChangeText={text => set${ElementNameUpper}(text)}/>`;
     case "text":
-      return `space<${ElementName}>${element?.config?.textContent}</${ElementName}>`;
+      return `space<${ElementNameUpper}>${element?.config?.textContent}</${ElementNameUpper}>`;
     case "image":
-      return `space<${ElementName} source={./assets/${element?.config?.sourceImage}} />`;
+      return `space<${ElementNameUpper} source={./assets/${element?.config?.sourceImage}} />`;
     case "svg":
-      return `space<${ElementName} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />`;
+      return `space<${ElementNameUpper} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />`;
     case "button":
-      return `space<${ElementName} onPress={() => console.log("${element?.config?.textContent}")}>${element?.config?.textContent}</${ElementName}>`;
+      return `space<${ElementNameUpper} onPress={() => console.log("${element?.config?.textContent}")}>${element?.config?.textContent}</${ElementNameUpper}>`;
     case "div": 
-      return `space<${ElementName}>[children]</${element.name}>`;
+      return `space<${ElementNameUpper}>[children]</${element.name}>`;
+    case "scrollList":
+      return `space<${ElementNameUpper} data={${ElementNameLower}} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} />`;
     default:
-      return `<${ElementName}>[children]space</${element.name}>`;
+      return `<${ElementNameUpper}>[children]space</${element.name}>`;
   }
 }

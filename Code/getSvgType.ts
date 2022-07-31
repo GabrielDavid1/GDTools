@@ -1,6 +1,3 @@
-//React
-import React from 'react';
-
 export default function getSvgType (type:string) {
     switch (type) {
         case 'library-books': return '(MaterialIcons)';

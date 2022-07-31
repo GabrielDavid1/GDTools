@@ -8,9 +8,9 @@ import getTypesSettings from "./getTypesSettings";
 
 export default function mountStyle(element: Funcs) {
   const name = element.name + "";
-  const ElementName = name.at(0)?.toUpperCase() + name.substring(1).replace(/ /g, "");
-
-  const start = "export const " + ElementName + " = styled" + getElementType(element?.type) + "`";
+  const ElementNameUpper = name.at(0)?.toUpperCase() + name.substring(1).replace(/ /g, "");
+  
+  const start = "export const " + ElementNameUpper + " = styled" + getElementType(element?.type) + "`";
 
   let acc = "";
   for (const column in element.config) {

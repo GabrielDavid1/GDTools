@@ -9,13 +9,15 @@ import { useCodes } from "../../../contexts/Codes";
 import { useFuncs } from "../../../contexts/Functionalities";
 
 export default function Header() {
-  const { codeStyles } = useCodes();
-  const { onToggle, setOnToggle } = useFuncs();
+  const { codeImports, setCodeImports, codeImportGenerator } = useCodes();
+  const { funcs, onToggle, setOnToggle,  } = useFuncs();
 
   return (
     <header className="header-settings">
       <Home isActive={onToggle} onClick={() => {
-        console.log(codeStyles)
+        setCodeImports('');
+        codeImportGenerator(funcs[1]);
+        console.log(codeImports)
         setOnToggle(true)
         }}>
         <svg
