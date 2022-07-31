@@ -9,6 +9,7 @@ import { useCodes } from "../../contexts/Codes";
 import { useFuncs } from "../../contexts/Functionalities";
 
 //Components
+import Code from "./Code";
 import Reference from "./Reference";
 
 export default function Main() {
@@ -38,7 +39,7 @@ export default function Main() {
         {!onToggleCode && renderer(funcs[0])} 
         {!onToggleCode && renderer(funcs[1])}
         {!onToggleCode && renderer(funcs[2])}
-        {onToggleCode && <> testando kkkk </>}
+        {onToggleCode && <Code />}
       </div>
     </main>
   );
