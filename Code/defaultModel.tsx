@@ -1,5 +1,5 @@
 export default function defaultModel(type:string) {
-  const ImportsBase = "import React, { useState } from 'react';\nimport { \n[imports]\n} from './styles';";
+  const ImportsBase = "import React, { useState } from 'react';\nimport { FlatList } from 'react-native';\nimport { \n[imports]\n} from './styles';";
 
   const styles = "import styled from 'styled-components/native';"+'\n\n'
                  +"import { TouchableOpacity } from 'react-native';"+'\n\n'
