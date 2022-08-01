@@ -32,10 +32,9 @@ body {
         align-items: center;
         background: #434141;
         flex-direction: column;
-        padding: 0px 10px;
 
         a.block {
-          width: 100%;
+          width: 80%;
           height: 15%;
           border-radius: 5px;
           border: 1px solid #313030;
@@ -60,6 +59,20 @@ body {
 
         a:hover {
           background: #3f3f3e;
+        }
+
+        .information {
+          gap: 10px;
+          background: #393737;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor:pointer;
+          
+          svg {
+            border-radius: 60%;
+          }
         }
       }
 
@@ -701,5 +714,15 @@ body {
       }
     }
   }
+}
+
+.just-pc {
+  display:flex;
+  height: 100vh;
+  background-color:rgb(40, 37, 37);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:white;
 }
 

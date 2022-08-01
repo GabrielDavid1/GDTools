@@ -10,18 +10,24 @@ import { useFuncs } from "../contexts/Functionalities";
 import BottomTab from "../components/Settings/BottomTab";
 import Tree from "../components/Settings/Tree";
 import ModelSetting from "../components/Settings/ModelSetting";
+import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
   const { onToggle } = useFuncs();
+  const [width, setWidth] = useState(0);
+  
+  useEffect(() => {
+    setWidth(window.innerWidth)
+  }, []);
 
-  return (
+  const Dashboard = () => (
     <div className="Container">
       <HeaderPage />
       <div className="functionalities-block">
         <div className="control-block">
           <Side />
           <Main />
-        </div> 
+        </div>
       </div>
       <div className="control-settings">
         <div className="content">
@@ -32,12 +38,20 @@ const Home: NextPage = () => {
               <Tree />
             </>
           ) : (
-              <ModelSetting />
+            <ModelSetting />
           )}
         </div>
       </div>
     </div>
   );
+          
+  const Responsive = () => (
+    <div className="just-pc">
+      <h1> It's just for pc / tablet </h1> 
+    </div> 
+  );
+
+  return (width > 915) ? <Dashboard /> : <Responsive />;
 };
 
 export default Home;

@@ -7,6 +7,11 @@ import Elements from "../../utils/Elements";
 //Contexts
 import { useFuncs } from "../../contexts/Functionalities";
 
+//Svg Icons
+import Github from "/assets/svg/github.svg";
+import Linkedin from "/assets/svg/linkedin.svg";
+import Whatsapp from "/assets/svg/whatsapp.svg";
+
 export default function Side() {
   const { selected, addNode } = useFuncs();
   return (
@@ -34,6 +39,11 @@ export default function Side() {
           </a>
         );
       })}
+      <div className="information"> 
+        <div> <a href="https://github.com/GabrielDavid1/GDTools" target="_blank"><Github width={15} /></a> </div>
+        <div> <a href="https://www.linkedin.com/in/gabrieldavidsilva/" target="_blank"><Linkedin fill="#fff" width={15} /></a> </div>
+        <div> <a href="https://wa.me/554898479145" target="_blank"><Whatsapp width={15} /></a> </div>
+      </div>
     </section>
   );
 }

@@ -124,5 +124,6 @@ export default [
         marginBottom:'0px',
         position:'none',
       },
-    }
+    },
+    
   ];
