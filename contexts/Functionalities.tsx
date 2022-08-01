@@ -70,7 +70,6 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     deleteAllCodeVariables,
     codeVariable,
     setCodeVariable,
-    codeImportGenerator,
   } = useCodes();
 
   useEffect(() => {
@@ -142,26 +141,26 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   function addNode(name: string, type: string, config: Config) {
     if (selected.children !== undefined) {
-      const element = {
-        id: (lengthFuncs + 1).toString(),
-        name: name + String(lengthFuncs + 1),
-        type: type,
-        isRoot: false,
-        color: selected.color,
-        mac: selected.mac,
-        config: config,
-        children: [],
-      };
+        const element = {
+          id: (lengthFuncs + 1).toString(),
+          name: name + String(lengthFuncs + 1),
+          type: type,
+          isRoot: false,
+          color: selected.color,
+          mac: selected.mac,
+          config: config,
+          children: [],
+        };
 
-      if (type === "scrollList" || type === "input")
-        codeVariableGenerator(element);
+        if (type === "scrollList" || type === "input") codeVariableGenerator(element);
+        if (type !== "scrollList") codeStylesGenerator(element);
+        
+        addInCode(element, selected, selected.mac);
 
-      codeStylesGenerator(element);
-
-      addInCode(element, selected, selected.mac);
-
-      selected.children.push(element);
-      setLengthFuncs(lengthFuncs + 1);
+        selected.children.push(element);
+        setFuncs([...funcs]);
+        
+        setLengthFuncs(lengthFuncs + 1);
     }
   }
 

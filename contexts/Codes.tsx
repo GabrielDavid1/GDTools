@@ -40,6 +40,18 @@ type CodesContextData = {
   onToggleCode: boolean;
   setOnToggleCode: (param: boolean) => void;
 
+  tabs: {
+    index: boolean;
+    styles: boolean;
+    tab: boolean;
+  };
+
+  setTabs: React.Dispatch<React.SetStateAction<{
+    index: boolean;
+    styles: boolean;
+    tab: boolean;
+  }>>;
+
   codeStylesGenerator: (nodes:Funcs) => void;
   deleteCodeStyleElement: (element:Funcs) => void;
   deleteAllCodeStyles: () => void;
@@ -68,6 +80,12 @@ function CodesProvider({ children }: CodesProviderProps) {
   const [codeImports, setCodeImports] = useState<string>('');
   const [codeStyles, setCodeStyles] = useState<string>(defaultModel('styles'));
   const [codeVariable, setCodeVariable] = useState<string>(defaultModel('variables'));
+
+  const [tabs, setTabs] = useState({
+    index: true,
+    styles: false,
+    tab: false,
+  });
 
   function addInCode(element: Funcs, selected: Funcs, mac: string | undefined) {
     if (selected.children && mac) {
@@ -192,6 +210,7 @@ function CodesProvider({ children }: CodesProviderProps) {
         setCodeHeader,
         codeTab,
         setCodeTab,
+        tabs,setTabs,
         codeStylesGenerator,
         codeStyles, setCodeStyles,
         deleteCodeStyleElement,

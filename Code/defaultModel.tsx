@@ -9,13 +9,44 @@ export default function defaultModel(type:string) {
   const variables = "";
 
   const render = `\nexport default function GdTools () {
-   [variables]
+   //variables
+   \n
    return (
      <Container>
        [children]
      </Container>
-   )
+   );
 }`;
+
+  const tabNav = `
+  import React from 'react';\n
+  import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';\n
+  import { Platform } from 'react-native';\n
+
+  import GdTools from '../screens/Home';\n
+
+  const { Navigator, Screen } = createBottomTabNavigator();\n
+
+  export function AppTabRoutes() {
+      return (
+          <Navigator 
+            screenOptions={{
+              headerShown: false,
+              tabBarActiveTintColor: '#6C0AB9',
+              tabBarInactiveTintColor: '#9B9B9B',
+              tabBarShowLabel: false,
+              tabBarStyle: {
+                  paddingVertical: Platform.OS === 'ios' ? 20 : 0,
+                  height: [height],
+                  backgroundColor: [bgColor],
+              }
+            }}
+          >
+          [children]
+          </Navigator>
+      )
+  }
+  `;
 
   const FullCode = `${ImportsBase}\n${render}`;
 
@@ -24,6 +55,7 @@ export default function defaultModel(type:string) {
     case "render": return render;
     case "variables": return variables;
     case "full": return FullCode;
+    case "tab": return tabNav;
     default: return styles;
   }
 }

@@ -12,14 +12,15 @@ import { useFuncs } from '../../../../contexts/Functionalities';
 import { Funcs } from '../../../../types/Funcs';
 
 export default function TextArea (){
-  const { codeMain, setCodeMain } = useCodes();
+  const { getCode, setCode } = useCodes();
   const { funcs, setFuncs, selected } = useFuncs();
 
   function handleCode (oldFunc:string, newFunc:Funcs) {
+    const mac = (newFunc.mac) ? newFunc?.mac : '';
     const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');
-    setCodeMain(codeMain.replace(oldElement,  getFuncTypes(newFunc, 'first')));
+    setCode(getCode(mac).replace(oldElement, getFuncTypes(newFunc, 'first')), mac);
   }
-
+  
   function handleChange (e: React.ChangeEvent<HTMLInputElement>) {
       if (selected.config !== undefined) {
           const oldFunc = JSON.stringify(selected);

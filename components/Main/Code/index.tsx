@@ -1,41 +1,34 @@
 //React
-import React, { useEffect, useState } from "react";
-import defaultModel from "../../../Code/defaultModel";
+import React from "react";
 
 //Contexts
 import { useCodes } from "../../../contexts/Codes";
 
 //Styles
 import { Tab } from "./styles";
-import useCopy from "use-copy";
+
+//Components
+import defaultModel from "../../../Code/defaultModel";
+import IndexCode from "./IndexCode";
+import StyleCode from "./StyleCode";
+import TabCode from "./TabCode";
 
 export default function Code() {
-  const [tabs, setTabs] = useState({
-    index: true,
-    styles: false,
-    tab: false,
-  });
-  
-  const [codeView, setCodeView] = useState('');
-
   const {
     codeHeader, 
     codeMain, 
-    codeTab, 
     codeImports, 
+    codeStyles,
+    codeVariable,
+    tabs, setTabs,
   } = useCodes();  
-
-  const [copied, copy, setCopied] = useCopy(defaultModel('full').replace('[children]', codeHeader+'\n'+codeMain+'\n'+codeTab));
-
-  useEffect(() => {
-     const initial = defaultModel('full').replace('[children]', codeHeader+'\n'+codeMain+'\n'+codeTab);
-     const withImports = initial.replace('[imports]', codeImports);
-     const noSpace = withImports.replace(/space/gi, '\n');
-     const noBrackets = noSpace.replace(/[\[\]\\;&*()_+=]/gi, '');
-     const noChildren  = noBrackets.replace(/children/gi, '');
-     const noVariables = noChildren.replace('[variables]', '');
-     setCodeView(noVariables);
-  }, [codeHeader, codeMain, codeTab]);
+      
+  const initial = defaultModel('full').replace('[children]', codeHeader+'\n'+codeMain);
+  const withImports = initial.replace('[imports]', codeImports);
+  const noSpace = withImports.replace(/space/gi, '\n');
+  const noBrackets = noSpace.replace(/[\[\]\\]/gi, '');
+  const noChildren  = noBrackets.replace(/children/gi, '');
+  let fullCode = noChildren.replace('//variables', codeVariable);
 
   function handleToggle(param: string) {
     switch (param) {
@@ -60,43 +53,22 @@ export default function Code() {
     }
   }
 
-  function handleClick () {
-    copy();
-    setTimeout(() => {
-       setCopied(false);
-    }, 3000);
-  }
-
   return (
     <div className="codeContent">
       <div className="codeHeader">
         <Tab isActive={tabs.index} onClick={() => handleToggle("index")}>
-          GdTools.tsx
+          Index
         </Tab>
         <Tab isActive={tabs.styles} onClick={() => handleToggle("styles")}>
-          Styles.ts
+          Styles
         </Tab>
         <Tab isActive={tabs.tab} onClick={() => handleToggle("tab")}>
-          Tab Nav
+          Routes
         </Tab>
       </div>
-      <div className="codeBody">
-        <div className="codeMain">
-         <textarea 
-            value={codeView}
-            disabled={true}
-        > 
-         </textarea>  
-        </div>
-        <div className="copy">
-         <div className="area" onClick={handleClick}>
-            Copy
-         </div>
-         <div className="message">
-           {copied && <p> Copied!! </p>}
-         </div>
-        </div>
-      </div> 
+      {tabs.index  && <IndexCode codeView={fullCode}   />}
+      {tabs.styles && <StyleCode codeView={codeStyles} />}
+      {tabs.tab && <TabCode />}
     </div>
   );
 }

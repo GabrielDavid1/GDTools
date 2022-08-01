@@ -19,8 +19,7 @@ export default function mountStyle(element: Funcs) {
       column !== "isScrollY" &&
       column !== "pxBorder" &&
       column !== "typeBorder" &&
-      column !== "colorBorder" &&
-      column !== "boxShadow"
+      column !== "colorBorder"
     )
       acc += `${"\n"}${getTypesSettings(
         column,

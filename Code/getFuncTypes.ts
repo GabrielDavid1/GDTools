@@ -27,11 +27,15 @@ export default function getFuncTypes(element: Funcs, param: string) {
       case "image":
         return `space<${ElementNameUpper} source={./assets/${element?.config?.sourceImage}} />`;
       case "svg":
-        return `space<${ElementNameUpper} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />`;
+        return (element.mac !== 'tab') 
+                  ? `space<FlatList name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />` 
+                  : `space<Screen name="GdTools" component={GdTools} options={{ tabBarIcon: ({ focused, color }) => ( <${ElementNameUpper} name="${element?.config?.svgName}" width={${sizeToSvg}} height={${sizeToSvg}} fill="${element?.config?.bgColor}" /> ) }} />`;
       case "div":
         return `</${ElementNameUpper}>`;
       case "text":
         return `</${ElementNameUpper}>`;
+        case "scrollList":
+          return `space<FlatList data={${ElementNameLower}} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} />`;
       default:
         return `space</${ElementNameUpper}>`;
       }
@@ -39,19 +43,21 @@ export default function getFuncTypes(element: Funcs, param: string) {
 
   switch (element.type) {
     case "input":
-      return `<${ElementNameUpper} placeholder="${element?.config?.textContent}" autoCorrect={false} autoCapitalize="none" onChangeText={text => set${ElementNameUpper}(text)}/>`;
+      return `space<${ElementNameUpper} placeholder="${element?.config?.textContent}" autoCorrect={false} autoCapitalize="none" onChangeText={text => set${ElementNameUpper}(text)}/>`;
     case "text":
       return `space<${ElementNameUpper}>${element?.config?.textContent}</${ElementNameUpper}>`;
     case "image":
       return `space<${ElementNameUpper} source={./assets/${element?.config?.sourceImage}} />`;
     case "svg":
-      return `space<${ElementNameUpper} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />`;
+      return (element.mac !== 'tab') 
+                ? `space<${ElementNameUpper} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />` 
+                : `space<Screen name="GdTools" component={GdTools} options={{ tabBarIcon: ({ focused, color }) => ( <${ElementNameUpper} name="${element?.config?.svgName}" width={${sizeToSvg}} height={${sizeToSvg}} fill="${element?.config?.bgColor}" /> ) }} />`;
     case "button":
       return `space<${ElementNameUpper} onPress={() => console.log("${element?.config?.textContent}")}>${element?.config?.textContent}</${ElementNameUpper}>`;
     case "div": 
       return `space<${ElementNameUpper}>[children]</${ElementNameUpper}>`;
     case "scrollList":
-      return `space<${ElementNameUpper} data={${ElementNameLower}} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} />`;
+      return `space<FlatList data={${ElementNameLower}} renderItem={renderItem} keyExtractor={item => item.id} horizontal={true} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false} />`;
     default:
       return `<${ElementNameUpper}>[children]space</${ElementNameUpper}>`;
   }

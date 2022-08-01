@@ -12,12 +12,13 @@ import getFuncTypes from '../../../../Code/getFuncTypes';
 import { Funcs } from '../../../../types/Funcs';
 
 export default function ChangeIcon () {
- const { codeMain, setCodeMain } = useCodes();
+ const { getCode, setCode } = useCodes();
  const { funcs, setFuncs, selected } = useFuncs();
 
  function handleCode (oldFunc:string, newFunc:Funcs) {
+  const mac = (newFunc.mac) ? newFunc?.mac : '';
   const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');
-  setCodeMain(codeMain.replace(oldElement,  getFuncTypes(newFunc, 'first')));
+  setCode(getCode(mac).replace(oldElement, getFuncTypes(newFunc, 'first')), mac);
  }
 
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {

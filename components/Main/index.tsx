@@ -14,11 +14,16 @@ import Reference from "./Reference";
 
 export default function Main() {
   const { funcs } = useFuncs();
-  const { onToggleCode, setOnToggleCode, setCodeImports, codeImportGenerator } = useCodes();
+  const { 
+    onToggleCode, 
+    setOnToggleCode, 
+    setCodeImports, 
+    codeImportGenerator,
+  } = useCodes();
 
   useEffect(() => {
     setCodeImports('');
-    setOnToggleCode(!onToggleCode);
+    setOnToggleCode(false);
   }, [funcs]);
 
   const renderer = useCallback(

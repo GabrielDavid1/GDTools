@@ -20,14 +20,13 @@ export default function Side() {
               if (
                 selected.type === "header" ||
                 selected.type === "main" ||
-                selected.type === "tab" ||
                 selected.type === "div"
               ) {
                 addNode(name, type, config);
               } else if (selected.type === "scrollList" && selected.children) {
-                selected.children.length === 0 &&
-                  type === "div" &&
-                  addNode(name, type, config);
+                (selected.children.length === 0 && type === "div") && addNode(name, type, config);
+              } else if (selected.type === "tab" && selected.children) {
+                (type === "svg") && addNode(name, type, config);
               }
             }}
           >

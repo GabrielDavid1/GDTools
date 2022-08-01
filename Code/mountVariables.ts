@@ -8,8 +8,8 @@ export default function mountVariable (element:Funcs) {
     const ElementNameLower = name.at(0)?.toLowerCase() + name.substring(1).replace(/ /g, "");
 
     if(element.type === 'input') {
-       return `[${ElementNameLower}, set${ElementNameUpper}] = useState('');`;
+       return `const [${ElementNameLower}, set${ElementNameUpper}] = useState('');`;
     } else {
-       return `[${ElementNameLower}, set${ElementNameUpper}] = useState([0,1,2,3,4]);`;
+       return `const [${ElementNameLower}, set${ElementNameUpper}] = useState([0,1,2,3,4]);`;
     }
 }

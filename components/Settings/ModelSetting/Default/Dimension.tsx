@@ -3,6 +3,7 @@ import React from "react";
 
 //Code
 import mountStyle from "../../../../Code/mountStyle";
+import getFuncTypes from "../../../../Code/getFuncTypes";
 
 //Contexts
 import { useCodes } from "../../../../contexts/Codes";
@@ -17,7 +18,7 @@ interface Props {
 
 export default function Dimension({ width, height }:Props) {
   const { funcs, setFuncs, selected } = useFuncs();
-  const { codeStyles, setCodeStyles } = useCodes();
+  const { setCode, getCode, codeStyles, setCodeStyles } = useCodes();
 
   function handleChangeStyle (oldStyle:Funcs, newStyle:Funcs) { 
     setCodeStyles(codeStyles.replace(mountStyle(oldStyle), mountStyle(newStyle)));
@@ -36,6 +37,12 @@ export default function Dimension({ width, height }:Props) {
 
         handleChangeStyle(selected, newFunc);
 
+        if (selected.type === 'svg') {
+          const mac = (newFunc.mac) ? newFunc?.mac : '';
+          const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');
+          setCode(getCode(mac).replace(oldElement, getFuncTypes(newFunc, 'first')), mac);
+        }
+
         selected.config = newFunc.config;
         setFuncs([...funcs]);
     }
@@ -51,6 +58,12 @@ export default function Dimension({ width, height }:Props) {
         newFunc.config.height = e.target.value+'%';
 
         handleChangeStyle(selected, newFunc);
+
+        if (selected.type === 'svg') {
+          const mac = (newFunc.mac) ? newFunc?.mac : '';
+          const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');
+          setCode(getCode(mac).replace(oldElement, getFuncTypes(newFunc, 'first')), mac);
+        }
 
         selected.config = newFunc.config;
         setFuncs([...funcs]);

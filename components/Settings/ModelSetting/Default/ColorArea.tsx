@@ -17,11 +17,12 @@ import mountStyle from '../../../../Code/mountStyle';
 
 export default function ColorArea () {
   const { funcs, setFuncs, selected} = useFuncs();
-  const { codeMain, setCodeMain, codeStyles, setCodeStyles  } = useCodes();
+  const { getCode, setCode, codeStyles, setCodeStyles  } = useCodes();
 
   function handleCode (oldFunc:string, newFunc:Funcs) {
+    const mac = (newFunc.mac) ? newFunc?.mac : '';
     const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');
-    setCodeMain(codeMain.replace(oldElement,  getFuncTypes(newFunc, 'first')));
+    setCode(getCode(mac).replace(oldElement, getFuncTypes(newFunc, 'first')), mac);
   }
 
   function handleChangeStyle (oldStyle:Funcs, newStyle:Funcs) { 
