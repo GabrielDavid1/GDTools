@@ -15,43 +15,43 @@ import { useEffect, useState } from "react";
 const Home: NextPage = () => {
   const { onToggle } = useFuncs();
   const [width, setWidth] = useState(0);
-  
+
   useEffect(() => {
-    setWidth(window.innerWidth)
+    setWidth(window.innerWidth);
   }, []);
 
-  const Dashboard = () => (
+  return (
     <div className="Container">
       <HeaderPage />
       <div className="functionalities-block">
         <div className="control-block">
-          <Side />
-          <Main />
-        </div>
-      </div>
-      <div className="control-settings">
-        <div className="content">
-          <Header />
-          {onToggle ? (
-            <>
-              <BottomTab />
-              <Tree />
-            </>
+          {width > 915 && <Side />}
+          {width > 915 ?  (
+            <Main />
           ) : (
-            <ModelSetting />
+            <div className="just-pc">
+              <h1> Sorry, No for smartphone </h1>
+            </div>
           )}
         </div>
       </div>
+      {width > 915 && (
+        <div className="control-settings">
+          <div className="content">
+            <Header />
+            {onToggle ? (
+              <>
+                <BottomTab />
+                <Tree />
+              </>
+            ) : (
+              <ModelSetting />
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
-          
-  const Responsive = () => (
-    <div className="just-pc">
-      <h1> Just for pc / tablet </h1> 
-    </div> 
-  );
-
-  return (width > 915) ? <Dashboard /> : <Responsive />;
 };
 
 export default Home;
