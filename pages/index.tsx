@@ -47,7 +47,7 @@ const Home: NextPage = () => {
           
   const Responsive = () => (
     <div className="just-pc">
-      <h1> It's just for pc / tablet </h1> 
+      <h1> Just for pc / tablet </h1> 
     </div> 
   );
 
