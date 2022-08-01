@@ -10,15 +10,19 @@ import getFuncTypes from '../../../../Code/getFuncTypes';
 
 //Types
 import { Funcs } from '../../../../types/Funcs';
+import mountStyle from '../../../../Code/mountStyle';
 
 export default function ChangeIcon () {
- const { getCode, setCode } = useCodes();
+ const { getCode, setCode, codeStyles, setCodeStyles } = useCodes();
  const { funcs, setFuncs, selected } = useFuncs();
 
  function handleCode (oldFunc:string, newFunc:Funcs) {
   const mac = (newFunc.mac) ? newFunc?.mac : '';
   const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');
   setCode(getCode(mac).replace(oldElement, getFuncTypes(newFunc, 'first')), mac);
+  setCodeStyles(
+    codeStyles.replace(mountStyle(JSON.parse(oldFunc)), mountStyle(newFunc))
+  );
  }
 
  function handleChange (e = {} as React.ChangeEvent<HTMLSelectElement>) {

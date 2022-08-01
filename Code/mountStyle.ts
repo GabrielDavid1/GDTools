@@ -10,7 +10,7 @@ export default function mountStyle(element: Funcs) {
   const name = element.name + "";
   const ElementNameUpper = name.at(0)?.toUpperCase() + name.substring(1).replace(/ /g, "");
   
-  const start = "export const " + ElementNameUpper + " = styled" + getElementType(element?.type) + "`";
+  const start = "export const " + ElementNameUpper + " = styled" + getElementType(element?.type, element?.config?.svgName) + "`";
 
   let acc = "";
   for (const column in element.config) {
