@@ -7,6 +7,7 @@ import React, {
   useEffect,
 } from "react";
 import getFuncTypes from "../Code/getFuncTypes";
+import mountStyle from "../Code/mountStyle";
 
 //Code
 import mountVariable from "../Code/mountVariables";
@@ -70,6 +71,8 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
     deleteAllCodeVariables,
     codeVariable,
     setCodeVariable,
+    setCodeStyles,
+    codeStyles,
   } = useCodes();
 
   useEffect(() => {
@@ -141,26 +144,27 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
   function addNode(name: string, type: string, config: Config) {
     if (selected.children !== undefined) {
-        const element = {
-          id: (lengthFuncs + 1).toString(),
-          name: name + String(lengthFuncs + 1),
-          type: type,
-          isRoot: false,
-          color: selected.color,
-          mac: selected.mac,
-          config: config,
-          children: [],
-        };
+      const element = {
+        id: (lengthFuncs + 1).toString(),
+        name: name + String(lengthFuncs + 1),
+        type: type,
+        isRoot: false,
+        color: selected.color,
+        mac: selected.mac,
+        config: config,
+        children: [],
+      };
 
-        if (type === "scrollList" || type === "input") codeVariableGenerator(element);
-        if (type !== "scrollList") codeStylesGenerator(element);
-        
-        addInCode(element, selected, selected.mac);
+      if (type === "scrollList" || type === "input")
+        codeVariableGenerator(element);
+      if (type !== "scrollList") codeStylesGenerator(element);
 
-        selected.children.push(element);
-        setFuncs([...funcs]);
-        
-        setLengthFuncs(lengthFuncs + 1);
+      addInCode(element, selected, selected.mac);
+
+      selected.children.push(element);
+      setFuncs([...funcs]);
+
+      setLengthFuncs(lengthFuncs + 1);
     }
   }
 
@@ -169,11 +173,16 @@ function FunctionalitiesProvider({ children }: AuthProviderProps) {
 
     const actualNode = JSON.stringify(obj);
 
+    const oldElementStyle = obj;
     const oldElement = getFuncTypes(JSON.parse(actualNode), "first");
     const oldVariable = mountVariable(obj);
 
     let newObj = { ...obj };
     newObj.name = name;
+
+    setCodeStyles(
+      codeStyles.replace(mountStyle(oldElementStyle), mountStyle(newObj))
+    );
 
     if (obj.type === "scrollList" || obj.type === "input")
       setCodeVariable(codeVariable.replace(oldVariable, mountVariable(newObj)));

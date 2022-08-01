@@ -25,10 +25,10 @@ export default function getFuncTypes(element: Funcs, param: string) {
       case "input":
         return `space<${ElementNameUpper} placeholder="${element?.config?.textContent}" autoCorrect={false} autoCapitalize="none" onChangeText={text => set${ElementNameUpper}(text)}/>`;
       case "image":
-        return `space<${ElementNameUpper} source={./assets/${element?.config?.sourceImage}} />`;
+        return `space<${ElementNameUpper} source={"./assets/${element?.config?.sourceImage}"} />`;
       case "svg":
         return (element.mac !== 'tab') 
-                  ? `space<FlatList name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />` 
+                  ? `space<${ElementNameUpper} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />` 
                   : `space<Screen name="GdTools" component={GdTools} options={{ tabBarIcon: ({ focused, color }) => ( <${ElementNameUpper} name="${element?.config?.svgName}" width={${sizeToSvg}} height={${sizeToSvg}} fill="${element?.config?.bgColor}" /> ) }} />`;
       case "div":
         return `</${ElementNameUpper}>`;
@@ -47,7 +47,7 @@ export default function getFuncTypes(element: Funcs, param: string) {
     case "text":
       return `space<${ElementNameUpper}>${element?.config?.textContent}</${ElementNameUpper}>`;
     case "image":
-      return `space<${ElementNameUpper} source={./assets/${element?.config?.sourceImage}} />`;
+      return `space<${ElementNameUpper} source={"./assets/${element?.config?.sourceImage}"} />`;
     case "svg":
       return (element.mac !== 'tab') 
                 ? `space<${ElementNameUpper} name="${element?.config?.svgName}" size={${sizeToSvg}} color="${element?.config?.bgColor}" />` 

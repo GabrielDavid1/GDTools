@@ -40,6 +40,7 @@ export default function Position () {
         defaultValue={selected?.config?.position}
         onChange={(e) => handleChange(e)}
       >
+        <option value="none">none</option>
         <option value="absolute">absolute</option>
         <option value="fixed">fixed</option>
         <option value="inherit">inherit</option>

@@ -60,6 +60,7 @@ export default [
         marginRight:'0px',
         marginTop:'0px',
         marginBottom:'0px', 
+        sourceImage: '',
       },
     },
     {

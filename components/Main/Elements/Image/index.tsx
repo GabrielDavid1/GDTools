@@ -5,17 +5,29 @@ import React, { useState } from "react";
 import ImageArea from "./ImageArea";
 
 //Types
-import { Config } from "../../../../types/Funcs";
+import { Config, Funcs } from "../../../../types/Funcs";
 
 //Contexts
 import { useFuncs } from "../../../../contexts/Functionalities";
+import { useCodes } from "../../../../contexts/Codes";
+
+//Code
+import getFuncTypes from "../../../../Code/getFuncTypes";
 interface Props {
   config: Config;
 }
 
 export default function ImageView({ config }: Props) {
   const [image, setImage] = useState<any>("");
+
   const { funcs, setFuncs, selected } = useFuncs();
+  const { setCode, getCode } = useCodes();
+
+  function handleCode (oldFunc:string, newFunc:Funcs) {
+    const mac = (newFunc.mac) ? newFunc?.mac : '';
+    const oldElement = getFuncTypes(JSON.parse(oldFunc), 'first');
+    setCode(getCode(mac).replace(oldElement, getFuncTypes(newFunc, 'first')), mac);
+  }
 
   const imageHandler = (e: any) => {
     const reader = new FileReader();
@@ -23,8 +35,12 @@ export default function ImageView({ config }: Props) {
       if (reader.readyState === 2) {
           const oldFunc = JSON.stringify(selected);
           const newFunc = JSON.parse(oldFunc);
+
           newFunc.config.sourceImage = typeof reader.result === "string" ? reader.result : "";
+          handleCode(oldFunc, newFunc);
+          
           selected.config = newFunc.config;
+          
           setFuncs([...funcs]);
           setImage(typeof reader.result === "string" ? reader.result : "");
       }

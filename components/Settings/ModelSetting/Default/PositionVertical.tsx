@@ -41,8 +41,8 @@ export default function PositionVertical () {
         onChange={(e) => handleChange(e)}
       >
         <option value="center">center</option>
-        <option value="flex-start">top</option>
-        <option value="flex-end">bottom</option>
+        <option value="flex-start">{(selected.config?.flexDirection === 'row') ? 'top' : 'left'}</option>
+        <option value="flex-end">{(selected.config?.flexDirection === 'row') ? 'bottom' : 'right'}</option>
       </select>
    </div>
  )
