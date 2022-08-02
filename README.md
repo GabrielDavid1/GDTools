@@ -7,6 +7,8 @@ in this case the system converts screen model to code in react native with expo.
         bareflow + Prettier + styled component in case 
         you want to apply the code in native
 
+![ImagemSistema](public/screenshot.png)
+
 ## 💡Technologies
 - ReactJS
 - NextJs
