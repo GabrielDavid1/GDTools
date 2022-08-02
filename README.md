@@ -14,3 +14,12 @@ in this case the system converts screen model to code in react native with expo.
 - VanillaJS
 - Sass
 - Styled Components
+
+## 🚀 Starting
+Run the system
+```bash
+Yarn dev
+# or run in your react native app
+expo start
+```
+Open in [http://localhost:3000](http://localhost:3000) or in emulator / expo app
