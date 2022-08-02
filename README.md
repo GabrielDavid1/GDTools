@@ -23,3 +23,8 @@ Yarn dev
 expo start
 ```
 Open in [http://localhost:3000](http://localhost:3000) or in emulator / expo app
+
+##Functionalities
+>Create Elements<br />
+>Generate component / style code<br />
+>Change settings<br />
